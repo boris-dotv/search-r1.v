@@ -574,4 +574,12 @@ git remote add origin https://github.com/boris-dotv/search-r1.v.git
 git branch -M main
 git push -u origin main
 
+ssh-keygen -t ed25519 -C "1322553126@qq.com"
+cat ~/.ssh/id_ed25519.pub
+git remote set-url origin git@github.com:boris-dotv/search-r1.v.git
+git remote -v
+
+git add .
+git commit -m "updated cmds in README"
+git push -u origin main
 ```
