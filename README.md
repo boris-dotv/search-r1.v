@@ -416,36 +416,6 @@ data = {
 
 You can refer to ```scripts/data_process/nq_search.py``` for a concrete data processing example.
 
-### Corpora
-
-It is recommended to make your corpus a jsonl file, where each line (a dictionary with "id" key and "contents" key) corresponds to one passage. You can refer to ```example/corpus.jsonl``` for an example.
-
-The "id" key corresponds to the passage id, while the "contents" key corresponds to the passage content ('"' + title + '"\n' + text).
-For example:
-```
-{"id": "0", "contents": "Evan Morris Evan L. Morris (January 26, 1977 \u2013 July 9, 2015) was a lobbyist for Genentech and its parent corporation Roche in Washington."}
-...
-{"id": "100", "contents": "Three years later, when the United States Exploring Expedition to little-known portions of the globe was organised under Charles Wilkes, Hale was recommended, while yet an undergraduate."}
-...
-```
-
-**Index your corpora (optional).**
-If you would like to use a local retriever as the search engine, you can index your own corpus by:
-```
-bash search_r1/search/build_index.sh
-```
-You can change ```retriever_name``` and ```retriever_model``` to your interested off-the-shelf retriever.
-
-## Use your own search engine
-
-Our codebase supports local sparse retriever (e.g., BM25), local dense retriever (both flat indexing with GPUs and ANN indexing with CPUs) and online search engine (e.g., Google, Bing, etc). More details can be found [here](https://github.com/PeterGriffinJin/Search-R1/tree/main/docs/retriever.md).
-
-The main philosophy is to launch a local or remote search engine server separately from the main RL training pipeline. 
-
-The LLM can call the search engine by calling the search API (e.g., "http://127.0.0.1:8000/retrieve").
-
-You can refer to ```search_r1/search/retriever_server.py``` for an example of launching a local retriever server.
-
 
 
 
@@ -460,9 +430,8 @@ You can refer to ```search_r1/search/retriever_server.py``` for an example of la
 
 ## Acknowledge
 
-The concept of Search-R1 is inspired by [Deepseek-R1](https://github.com/deepseek-ai/DeepSeek-R1) and [TinyZero](https://github.com/Jiayi-Pan/TinyZero/tree/main).
-Its implementation is built upon [veRL](https://github.com/volcengine/verl) and [RAGEN](https://github.com/ZihanWang314/RAGEN/tree/main). 
-We sincerely appreciate the efforts of these teams for their contributions to open-source research and development.
+Its implementation is built upon [Search-R1](https://github.com/PeterGriffinJin/Search-R1).
+
 
 ## Awesome work powered or inspired by Search-R1
 
@@ -582,4 +551,5 @@ git remote -v
 git add .
 git commit -m "updated cmds in README"
 git push -u origin main
+git push -u origin main -f
 ```
