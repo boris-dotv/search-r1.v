@@ -18,16 +18,32 @@ from googleapiclient.discovery import build
 
 # --- CLI Args ---
 parser = argparse.ArgumentParser(description="Launch online search server.")
-parser.add_argument('--api_key', type=str, required=True, help="API key for Google search")
-parser.add_argument('--cse_id', type=str, required=True, help="CSE ID for Google search")
-parser.add_argument('--topk', type=int, default=3, help="Number of results to return per query")
-parser.add_argument('--snippet_only', action='store_true', help="If set, only return snippets; otherwise, return full context.")
+parser.add_argument(
+    "--api_key", type=str, required=True, help="API key for Google search"
+)
+parser.add_argument(
+    "--cse_id", type=str, required=True, help="CSE ID for Google search"
+)
+parser.add_argument(
+    "--topk", type=int, default=3, help="Number of results to return per query"
+)
+parser.add_argument(
+    "--snippet_only",
+    action="store_true",
+    help="If set, only return snippets; otherwise, return full context.",
+)
 args = parser.parse_args()
 
 
 # --- Config ---
 class OnlineSearchConfig:
-    def __init__(self, topk: int = 3, api_key: Optional[str] = None, cse_id: Optional[str] = None, snippet_only: bool = False):
+    def __init__(
+        self,
+        topk: int = 3,
+        api_key: Optional[str] = None,
+        cse_id: Optional[str] = None,
+        snippet_only: bool = False,
+    ):
         self.topk = topk
         self.api_key = api_key
         self.cse_id = cse_id
@@ -43,9 +59,15 @@ def parse_snippet(snippet: str) -> List[str]:
 def sanitize_search_query(query: str) -> str:
     # Remove or replace special characters that might cause issues.
     # This is a basic example; you might need to add more characters or patterns.
-    sanitized_query = re.sub(r'[^\w\s]', ' ', query)  # Replace non-alphanumeric and non-whitespace with spaces.
-    sanitized_query = re.sub(r'[\t\r\f\v\n]', ' ', sanitized_query) # replace tab, return, formfeed, vertical tab with spaces.
-    sanitized_query = re.sub(r'\s+', ' ', sanitized_query).strip() #remove duplicate spaces, and trailing/leading spaces.
+    sanitized_query = re.sub(
+        r"[^\w\s]", " ", query
+    )  # Replace non-alphanumeric and non-whitespace with spaces.
+    sanitized_query = re.sub(
+        r"[\t\r\f\v\n]", " ", sanitized_query
+    )  # replace tab, return, formfeed, vertical tab with spaces.
+    sanitized_query = re.sub(
+        r"\s+", " ", sanitized_query
+    ).strip()  # remove duplicate spaces, and trailing/leading spaces.
 
     return sanitized_query
 
@@ -62,7 +84,9 @@ def filter_links(search_results: List[Dict]) -> List[str]:
     return links
 
 
-async def fetch(session: aiohttp.ClientSession, url: str, semaphore: asyncio.Semaphore) -> str:
+async def fetch(
+    session: aiohttp.ClientSession, url: str, semaphore: asyncio.Semaphore
+) -> str:
     user_agents = [
         "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P)...",
         "Mozilla/5.0 AppleWebKit/537.36...",
@@ -127,19 +151,25 @@ class OnlineSearchEngine:
         return content_dict
 
     def search(self, search_term: str, num_iter: int = 1) -> List[Dict]:
-        service = build('customsearch', 'v1', developerKey=self.config.api_key)
+        service = build("customsearch", "v1", developerKey=self.config.api_key)
         results = []
         sanitize_search_term = sanitize_search_query(search_term)
         if search_term.isspace():
             return results
-        res = service.cse().list(q=sanitize_search_term, cx=self.config.cse_id).execute()
+        res = (
+            service.cse().list(q=sanitize_search_term, cx=self.config.cse_id).execute()
+        )
         results.append(res)
 
         for _ in range(num_iter - 1):
-            if 'nextPage' not in res.get('queries', {}):
+            if "nextPage" not in res.get("queries", {}):
                 break
-            start_idx = res['queries']['nextPage'][0]['startIndex']
-            res = service.cse().list(q=search_term, cx=self.config.cse_id, start=start_idx).execute()
+            start_idx = res["queries"]["nextPage"][0]["startIndex"]
+            res = (
+                service.cse()
+                .list(q=search_term, cx=self.config.cse_id, start=start_idx)
+                .execute()
+            )
             results.append(res)
 
         return results
@@ -149,20 +179,22 @@ class OnlineSearchEngine:
             return list(executor.map(self._retrieve_context, queries))
 
     def _retrieve_context(self, query: str) -> List[str]:
-        
+
         if self.config.snippet_only:
             search_results = self.search(query)
             contexts = []
             for result in search_results:
                 for item in result.get("items", []):
                     title = item.get("title", "")
-                    context = ' '.join(parse_snippet(item.get("snippet", "")))
+                    context = " ".join(parse_snippet(item.get("snippet", "")))
                     if title != "" or context != "":
                         title = "No title." if not title else title
                         context = "No snippet available." if not context else context
-                        contexts.append({
-                            'document': {"contents": f'\"{title}\"\n{context}'},
-                        })
+                        contexts.append(
+                            {
+                                "document": {"contents": f'"{title}"\n{context}'},
+                            }
+                        )
         else:
             content_dict = self.fetch_web_content(search_results)
             contexts = []
@@ -175,22 +207,34 @@ class OnlineSearchEngine:
                         context = self.collect_context(snippet, content_dict[link])
                         if title != "" or context != "":
                             title = "No title." if not title else title
-                            context = "No snippet available." if not context else context
-                            contexts.append({
-                                'document': {"contents": f'\"{title}\"\n{context}'},
-                            })
-        
-        return contexts[:self.config.topk]
+                            context = (
+                                "No snippet available." if not context else context
+                            )
+                            contexts.append(
+                                {
+                                    "document": {"contents": f'"{title}"\n{context}'},
+                                }
+                            )
+
+        return contexts[: self.config.topk]
 
 
 # --- FastAPI App ---
 app = FastAPI(title="Online Search Proxy Server")
 
+
 class SearchRequest(BaseModel):
     queries: List[str]
 
-config = OnlineSearchConfig(api_key=args.api_key, cse_id=args.cse_id, topk=args.topk, snippet_only=args.snippet_only)
+
+config = OnlineSearchConfig(
+    api_key=args.api_key,
+    cse_id=args.cse_id,
+    topk=args.topk,
+    snippet_only=args.snippet_only,
+)
 engine = OnlineSearchEngine(config)
+
 
 @app.post("/retrieve")
 def search_endpoint(request: SearchRequest):

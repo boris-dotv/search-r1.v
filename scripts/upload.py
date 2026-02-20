@@ -8,5 +8,5 @@ for file in ["part_aa", "part_ab"]:
         path_or_fileobj=os.path.join(path, file),  # File path
         path_in_repo=file,  # Destination filename in the repo
         repo_id=repo_id,  # Your dataset repo ID
-        repo_type="dataset"
+        repo_type="dataset",
     )

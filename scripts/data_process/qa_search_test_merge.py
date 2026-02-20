@@ -24,10 +24,10 @@ import argparse
 
 
 def make_prefix(dp, template_type):
-    question = dp['question']
+    question = dp["question"]
 
     # NOTE: also need to change reward_score/countdown.py
-    if template_type == 'base':
+    if template_type == "base":
         """This works for any base model"""
         prefix = f"""Answer the given question. \
 You must conduct reasoning inside <think> and </think> first every time you get new information. \
@@ -39,75 +39,77 @@ If you find no further external knowledge needed, you can directly provide the a
     return prefix
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--local_dir', default='./data/nq_search')
-    parser.add_argument('--hdfs_dir', default=None)
-    parser.add_argument('--template_type', type=str, default='base')
-    parser.add_argument('--data_sources', default='nq')
+    parser.add_argument("--local_dir", default="./data/nq_search")
+    parser.add_argument("--hdfs_dir", default=None)
+    parser.add_argument("--template_type", type=str, default="base")
+    parser.add_argument("--data_sources", default="nq")
 
     args = parser.parse_args()
 
-    data_sources = args.data_sources.split(',')
+    data_sources = args.data_sources.split(",")
     all_dataset = []
 
     for data_source in data_sources:
 
-        if data_source != 'strategyqa':
-            dataset = datasets.load_dataset('RUC-NLPIR/FlashRAG_datasets', data_source)
+        if data_source != "strategyqa":
+            dataset = datasets.load_dataset("RUC-NLPIR/FlashRAG_datasets", data_source)
         else:
-            dataset = datasets.load_dataset('json', data_files="/home/peterjin/mnt/data/strategyqa/test_correct.jsonl")
+            dataset = datasets.load_dataset(
+                "json",
+                data_files="/home/peterjin/mnt/data/strategyqa/test_correct.jsonl",
+            )
 
-        if 'test' in dataset:
-            print(f'Using the {data_source} test dataset...')
-            test_dataset = dataset['test']
-        elif 'dev' in dataset:
-            print(f'Using the {data_source} dev dataset...')
-            test_dataset = dataset['dev']
+        if "test" in dataset:
+            print(f"Using the {data_source} test dataset...")
+            test_dataset = dataset["test"]
+        elif "dev" in dataset:
+            print(f"Using the {data_source} dev dataset...")
+            test_dataset = dataset["dev"]
         else:
-            print(f'Using the {data_source} train dataset...')
-            test_dataset = dataset['train']
+            print(f"Using the {data_source} train dataset...")
+            test_dataset = dataset["train"]
 
         # add a row to each data item that represents a unique id
         def make_map_fn(split):
 
             def process_fn(example, idx):
-                example['question'] = example['question'].strip()
-                if example['question'][-1] != '?':
-                    example['question'] += '?'
+                example["question"] = example["question"].strip()
+                if example["question"][-1] != "?":
+                    example["question"] += "?"
                 question = make_prefix(example, template_type=args.template_type)
                 solution = {
-                    "target": example['golden_answers'],
+                    "target": example["golden_answers"],
                 }
 
                 data = {
                     "data_source": data_source,
-                    "prompt": [{
-                        "role": "user",
-                        "content": question,
-                    }],
+                    "prompt": [
+                        {
+                            "role": "user",
+                            "content": question,
+                        }
+                    ],
                     "ability": "fact-reasoning",
-                    "reward_model": {
-                        "style": "rule",
-                        "ground_truth": solution
-                    },
+                    "reward_model": {"style": "rule", "ground_truth": solution},
                     "extra_info": {
-                        'split': split,
-                        'index': idx,
-                    }
+                        "split": split,
+                        "index": idx,
+                    },
                 }
                 return data
 
             return process_fn
 
-        test_dataset = test_dataset.map(function=make_map_fn('test'), with_indices=True)
+        test_dataset = test_dataset.map(function=make_map_fn("test"), with_indices=True)
         all_dataset.append(test_dataset)
 
     local_dir = args.local_dir
     hdfs_dir = args.hdfs_dir
 
     all_test_dataset = datasets.concatenate_datasets(all_dataset)
-    all_test_dataset.to_parquet(os.path.join(local_dir, 'test.parquet'))
+    all_test_dataset.to_parquet(os.path.join(local_dir, "test.parquet"))
 
     if hdfs_dir is not None:
         makedirs(hdfs_dir)

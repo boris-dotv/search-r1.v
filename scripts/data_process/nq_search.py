@@ -24,10 +24,10 @@ import argparse
 
 
 def make_prefix(dp, template_type):
-    question = dp['question']
+    question = dp["question"]
 
     # NOTE: also need to change reward_score/countdown.py
-    if template_type == 'base':
+    if template_type == "base":
         """This works for any base model"""
         prefix = f"""Answer the given question. \
 You must conduct reasoning inside <think> and </think> first every time you get new information. \
@@ -39,67 +39,66 @@ If you find no further external knowledge needed, you can directly provide the a
     return prefix
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--local_dir', default='./data/nq_search')
-    parser.add_argument('--hdfs_dir', default=None)
-    parser.add_argument('--template_type', type=str, default='base')
+    parser.add_argument("--local_dir", default="./data/nq_search")
+    parser.add_argument("--hdfs_dir", default=None)
+    parser.add_argument("--template_type", type=str, default="base")
 
     args = parser.parse_args()
 
-    data_source = 'nq'
+    data_source = "nq"
 
     dataset = datasets.load_dataset(
-        'json',  # 指定数据格式为 jsonl
+        "json",  # 指定数据格式为 jsonl
         data_files={
-            'train': '/public_hw/share/cit_ztyu/cz/Search-R1/data/FlashRAG_datasets/nq/train.jsonl',
-            'test': '/public_hw/share/cit_ztyu/cz/Search-R1/data/FlashRAG_datasets/nq/test.jsonl'
-        }
+            "train": "/public_hw/share/cit_ztyu/cz/Search-R1/data/FlashRAG_datasets/nq/train.jsonl",
+            "test": "/public_hw/share/cit_ztyu/cz/Search-R1/data/FlashRAG_datasets/nq/test.jsonl",
+        },
     )
 
-    train_dataset = dataset['train']
-    test_dataset = dataset['test']
+    train_dataset = dataset["train"]
+    test_dataset = dataset["test"]
 
     # add a row to each data item that represents a unique id
     def make_map_fn(split):
 
         def process_fn(example, idx):
-            example['question'] = example['question'].strip()
-            if example['question'][-1] != '?':
-                example['question'] += '?'
+            example["question"] = example["question"].strip()
+            if example["question"][-1] != "?":
+                example["question"] += "?"
             question = make_prefix(example, template_type=args.template_type)
             solution = {
-                "target": example['golden_answers'],
+                "target": example["golden_answers"],
             }
 
             data = {
                 "data_source": data_source,
-                "prompt": [{
-                    "role": "user",
-                    "content": question,
-                }],
+                "prompt": [
+                    {
+                        "role": "user",
+                        "content": question,
+                    }
+                ],
                 "ability": "fact-reasoning",
-                "reward_model": {
-                    "style": "rule",
-                    "ground_truth": solution
-                },
+                "reward_model": {"style": "rule", "ground_truth": solution},
                 "extra_info": {
-                    'split': split,
-                    'index': idx,
-                }
+                    "split": split,
+                    "index": idx,
+                },
             }
             return data
 
         return process_fn
 
-    train_dataset = train_dataset.map(function=make_map_fn('train'), with_indices=True)
-    test_dataset = test_dataset.map(function=make_map_fn('test'), with_indices=True)
+    train_dataset = train_dataset.map(function=make_map_fn("train"), with_indices=True)
+    test_dataset = test_dataset.map(function=make_map_fn("test"), with_indices=True)
 
     local_dir = args.local_dir
     hdfs_dir = args.hdfs_dir
 
-    train_dataset.to_parquet(os.path.join(local_dir, 'train.parquet'))
-    test_dataset.to_parquet(os.path.join(local_dir, 'test.parquet'))
+    train_dataset.to_parquet(os.path.join(local_dir, "train.parquet"))
+    test_dataset.to_parquet(os.path.join(local_dir, "test.parquet"))
 
     if hdfs_dir is not None:
         makedirs(hdfs_dir)

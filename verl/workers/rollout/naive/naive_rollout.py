@@ -30,7 +30,7 @@ from verl import DataProto
 from verl.utils.torch_functional import logprobs_from_logits
 from ..base import BaseRollout
 
-__all__ = ['NativeRollout']
+__all__ = ["NativeRollout"]
 
 
 class NaiveRollout(BaseRollout):
@@ -51,19 +51,23 @@ class NaiveRollout(BaseRollout):
     @torch.no_grad()
     def generate_sequences(self, prompts: DataProto) -> DataProto:
         """Generate sequences"""
-        idx = prompts.batch['input_ids']  # (bs, prompt_length)
-        attention_mask = prompts.batch['attention_mask']  # left-padded attention_mask
-        position_ids = prompts.batch['position_ids']
+        idx = prompts.batch["input_ids"]  # (bs, prompt_length)
+        attention_mask = prompts.batch["attention_mask"]  # left-padded attention_mask
+        position_ids = prompts.batch["position_ids"]
 
         # used to construct attention_mask
-        eos_token_id = prompts.meta_info['eos_token_id']
+        eos_token_id = prompts.meta_info["eos_token_id"]
 
         batch_size = idx.size(0)
         prompt_length = idx.size(1)
 
         self.module.eval()
 
-        prev_attention_mask = torch.ones(size=(batch_size, 1), dtype=attention_mask.dtype, device=attention_mask.device)
+        prev_attention_mask = torch.ones(
+            size=(batch_size, 1),
+            dtype=attention_mask.dtype,
+            device=attention_mask.device,
+        )
 
         logits_lst = []
         for _ in range(self.config.response_length):
@@ -72,14 +76,18 @@ class NaiveRollout(BaseRollout):
             idx_cond = idx
             # forward the model to get the logits for the index in the sequence
             # we use huggingface APIs here
-            output = self.module(input_ids=idx_cond, attention_mask=attention_mask, position_ids=position_ids)
+            output = self.module(
+                input_ids=idx_cond,
+                attention_mask=attention_mask,
+                position_ids=position_ids,
+            )
             logits = output.logits
             # pluck the logits at the final step and scale by desired temperature
             logits = logits[:, -1, :] / self.config.temperature  # (bs, vocab_size)
             # optionally crop the logits to only the top k options
             if self.config.top_k is not None:
                 v, _ = torch.topk(logits, min(self.config.top_k, logits.size(-1)))
-                logits[logits < v[:, [-1]]] = -float('Inf')
+                logits[logits < v[:, [-1]]] = -float("Inf")
             # apply softmax to convert logits to (normalized) probabilities
             probs = F.softmax(logits, dim=-1)
             # sample from the distribution
@@ -90,7 +98,9 @@ class NaiveRollout(BaseRollout):
 
             attention_mask = torch.cat((attention_mask, prev_attention_mask), dim=-1)
 
-            prev_attention_mask = torch.logical_and(idx_next != eos_token_id, prev_attention_mask.bool())
+            prev_attention_mask = torch.logical_and(
+                idx_next != eos_token_id, prev_attention_mask.bool()
+            )
             prev_attention_mask.to(attention_mask.dtype)
 
             position_ids = torch.cat((position_ids, position_ids[:, -1:] + 1), dim=-1)
@@ -105,14 +115,15 @@ class NaiveRollout(BaseRollout):
         log_probs = logprobs_from_logits(logits=logits, labels=response)
         batch = TensorDict(
             {
-                'input_ids': prompts,
-                'responses': response,
-                'sequences': idx,
-                'old_log_probs': log_probs,
-                'attention_mask': attention_mask,
-                'position_ids': position_ids,
+                "input_ids": prompts,
+                "responses": response,
+                "sequences": idx,
+                "old_log_probs": log_probs,
+                "attention_mask": attention_mask,
+                "position_ids": position_ids,
             },
-            batch_size=batch_size)
+            batch_size=batch_size,
+        )
 
         self.module.train()
 

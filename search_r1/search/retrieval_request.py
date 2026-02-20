@@ -7,7 +7,7 @@ url = "http://127.0.0.1:8000/retrieve"
 payload = {
     "queries": ["What is the capital of France?", "Explain neural networks."] * 200,
     "topk": 5,
-    "return_scores": True
+    "return_scores": True,
 }
 
 # Send POST request

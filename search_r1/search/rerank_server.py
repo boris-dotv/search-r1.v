@@ -21,21 +21,19 @@ class BaseCrossEncoder:
 
     def _passage_to_string(self, doc_item):
         if "document" not in doc_item:
-            content = doc_item['contents']
+            content = doc_item["contents"]
         else:
-            content = doc_item['document']['contents']
+            content = doc_item["document"]["contents"]
         title = content.split("\n")[0]
         text = "\n".join(content.split("\n")[1:])
 
         return f"(Title: {title}) {text}"
 
-    def rerank(self, 
-               queries: list[str], 
-               documents: list[list[dict]]):
+    def rerank(self, queries: list[str], documents: list[list[dict]]):
         """
         Assume documents is a list of list of dicts, where each dict is a document with keys "id" and "contents".
         This asumption is made to be consistent with the output of the retrieval server.
-        """ 
+        """
         assert len(queries) == len(documents)
 
         pairs = []
@@ -53,18 +51,20 @@ class BaseCrossEncoder:
         assert len(scores) == len(pairs) == len(qids)
         for i in range(len(pairs)):
             query, doc = pairs[i]
-            score = scores[i] 
+            score = scores[i]
             qid = qids[i]
             query_to_doc_scores[qid].append((doc, score))
 
         sorted_query_to_doc_scores = {}
         for query, doc_scores in query_to_doc_scores.items():
-            sorted_query_to_doc_scores[query] = sorted(doc_scores, key=lambda x: x[1], reverse=True)
+            sorted_query_to_doc_scores[query] = sorted(
+                doc_scores, key=lambda x: x[1], reverse=True
+            )
 
         return sorted_query_to_doc_scores
 
     def _predict(self, pairs: list[tuple[str, str]]):
-        raise NotImplementedError 
+        raise NotImplementedError
 
     @classmethod
     def load(cls, model_name_or_path, **kwargs):
@@ -77,7 +77,11 @@ class SentenceTransformerCrossEncoder(BaseCrossEncoder):
 
     def _predict(self, pairs: list[tuple[str, str]]):
         scores = self.model.predict(pairs, batch_size=self.batch_size)
-        scores = scores.tolist() if isinstance(scores, torch.Tensor) or isinstance(scores, np.ndarray) else scores
+        scores = (
+            scores.tolist()
+            if isinstance(scores, torch.Tensor) or isinstance(scores, np.ndarray)
+            else scores
+        )
         return scores
 
     @classmethod
@@ -93,26 +97,30 @@ class RerankRequest(BaseModel):
     return_scores: bool = False
 
 
-@dataclass 
+@dataclass
 class RerankerArguments:
     max_length: int = field(default=512)
     rerank_topk: int = field(default=3)
-    rerank_model_name_or_path: str = field(default="cross-encoder/ms-marco-MiniLM-L12-v2")
+    rerank_model_name_or_path: str = field(
+        default="cross-encoder/ms-marco-MiniLM-L12-v2"
+    )
     batch_size: int = field(default=32)
     reranker_type: str = field(default="sentence_transformer")
+
 
 def get_reranker(config):
     if config.reranker_type == "sentence_transformer":
         return SentenceTransformerCrossEncoder.load(
             config.rerank_model_name_or_path,
             batch_size=config.batch_size,
-            device="cuda" if torch.cuda.is_available() else "cpu"
+            device="cuda" if torch.cuda.is_available() else "cpu",
         )
     else:
         raise ValueError(f"Unknown reranker type: {config.reranker_type}")
 
 
 app = FastAPI()
+
 
 @app.post("/rerank")
 def rerank_endpoint(request: RerankRequest):
@@ -131,14 +139,14 @@ def rerank_endpoint(request: RerankRequest):
 
     # Perform batch re reranking
     # doc_scores already sorted by score
-    query_to_doc_scores = reranker.rerank(request.queries, request.documents) 
+    query_to_doc_scores = reranker.rerank(request.queries, request.documents)
 
-    # Format response 
+    # Format response
     resp = []
     for _, doc_scores in query_to_doc_scores.items():
-        doc_scores = doc_scores[:request.rerank_topk]
+        doc_scores = doc_scores[: request.rerank_topk]
         if request.return_scores:
-            combined = [] 
+            combined = []
             for doc, score in doc_scores:
                 combined.append({"document": doc, "score": score})
             resp.append(combined)
@@ -148,7 +156,7 @@ def rerank_endpoint(request: RerankRequest):
 
 
 if __name__ == "__main__":
-    
+
     # 1) Build a config (could also parse from arguments).
     #    In real usage, you'd parse your CLI arguments or environment variables.
     parser = HfArgumentParser((RerankerArguments))
@@ -156,6 +164,6 @@ if __name__ == "__main__":
 
     # 2) Instantiate a global retriever so it is loaded once and reused.
     reranker = get_reranker(config)
-    
+
     # 3) Launch the server. By default, it listens on http://127.0.0.1:8000
     uvicorn.run(app, host="0.0.0.0", port=6980)

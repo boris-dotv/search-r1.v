@@ -53,22 +53,31 @@ class FixedKLController:
         pass
 
 
-def get_kl_controller(config): # seems never used?
-    if config.critic.kl_ctrl.type == 'fixed':
+def get_kl_controller(config):  # seems never used?
+    if config.critic.kl_ctrl.type == "fixed":
         kl_ctrl = FixedKLController(kl_coef=config.critic.kl_ctrl.kl_coef)
-    elif config.critic.kl_ctrl.type == 'adaptive':
-        assert config.kl_ctrl.horizon > 0, f'horizon must be larger than 0. Got {config.critic.kl_ctrl.horizon}'
-        kl_ctrl = AdaptiveKLController(init_kl_coef=config.critic.kl_ctrl.kl_coef,
-                                       target_kl=config.critic.kl_ctrl.target_kl,
-                                       horizon=config.critic.kl_ctrl.horizon)
+    elif config.critic.kl_ctrl.type == "adaptive":
+        assert (
+            config.kl_ctrl.horizon > 0
+        ), f"horizon must be larger than 0. Got {config.critic.kl_ctrl.horizon}"
+        kl_ctrl = AdaptiveKLController(
+            init_kl_coef=config.critic.kl_ctrl.kl_coef,
+            target_kl=config.critic.kl_ctrl.target_kl,
+            horizon=config.critic.kl_ctrl.horizon,
+        )
     else:
-        raise ValueError('Unknown kl_ctrl type')
+        raise ValueError("Unknown kl_ctrl type")
 
     return kl_ctrl
 
 
-def compute_gae_advantage_return(token_level_rewards: torch.Tensor, values: torch.Tensor, eos_mask: torch.Tensor,
-                                 gamma: torch.Tensor, lam: torch.Tensor):
+def compute_gae_advantage_return(
+    token_level_rewards: torch.Tensor,
+    values: torch.Tensor,
+    eos_mask: torch.Tensor,
+    gamma: torch.Tensor,
+    lam: torch.Tensor,
+):
     """Adapted from https://github.com/huggingface/trl/blob/main/trl/trainer/ppo_trainer.py
 
     Args:
@@ -108,19 +117,21 @@ def compute_gae_advantage_return(token_level_rewards: torch.Tensor, values: torc
 
 
 # NOTE(sgm): this implementation only consider outcome supervision, where the reward is a scalar.
-def compute_grpo_outcome_advantage(token_level_rewards: torch.Tensor,
-                                   eos_mask: torch.Tensor,
-                                   index: torch.Tensor,
-                                   epsilon: float = 1e-6):
+def compute_grpo_outcome_advantage(
+    token_level_rewards: torch.Tensor,
+    eos_mask: torch.Tensor,
+    index: torch.Tensor,
+    epsilon: float = 1e-6,
+):
     """
-    Compute advantage for GRPO, operating only on Outcome reward 
+    Compute advantage for GRPO, operating only on Outcome reward
     (with only one scalar reward for each response).
     Args:
         token_level_rewards: `(torch.Tensor)`
             shape: (bs, response_length)
         eos_mask: `(torch.Tensor)`
             shape: (bs, response_length)
-    
+
     Returns:
         advantages: `(torch.Tensor)`
             shape: (bs, response_length)
@@ -128,7 +139,7 @@ def compute_grpo_outcome_advantage(token_level_rewards: torch.Tensor,
             shape: (bs, response_length)
     """
     response_length = token_level_rewards.shape[-1]
-    non_zero_mask = (token_level_rewards != 0)
+    non_zero_mask = token_level_rewards != 0
     scores = (token_level_rewards * non_zero_mask).sum(dim=-1)
 
     id2score = defaultdict(list)
@@ -231,15 +242,19 @@ def compute_value_loss(vpreds, returns, values, eos_mask, cliprange_value):
             The ratio of vf being clipped
 
     """
-    vpredclipped = verl_F.clip_by_value(vpreds, values - cliprange_value, values + cliprange_value)
-    vf_losses1 = (vpreds - returns)**2
-    vf_losses2 = (vpredclipped - returns)**2
+    vpredclipped = verl_F.clip_by_value(
+        vpreds, values - cliprange_value, values + cliprange_value
+    )
+    vf_losses1 = (vpreds - returns) ** 2
+    vf_losses2 = (vpredclipped - returns) ** 2
     vf_loss = 0.5 * verl_F.masked_mean(torch.max(vf_losses1, vf_losses2), eos_mask)
     vf_clipfrac = verl_F.masked_mean(torch.gt(vf_losses2, vf_losses1).float(), eos_mask)
     return vf_loss, vf_clipfrac
 
 
-def kl_penalty(logprob: torch.FloatTensor, ref_logprob: torch.FloatTensor, kl_penalty) -> torch.FloatTensor:
+def kl_penalty(
+    logprob: torch.FloatTensor, ref_logprob: torch.FloatTensor, kl_penalty
+) -> torch.FloatTensor:
     """Compute KL divergence given logprob and ref_logprob.
     Copied from https://github.com/huggingface/trl/blob/main/trl/trainer/ppo_trainer.py#L1104
 
@@ -261,7 +276,7 @@ def kl_penalty(logprob: torch.FloatTensor, ref_logprob: torch.FloatTensor, kl_pe
 
     # J. Schulman. Approximating kl divergence, 2020.
     # # URL http://joschu.net/blog/kl-approx.html.
-    if kl_penalty == 'low_var_kl':
+    if kl_penalty == "low_var_kl":
         kl = ref_logprob - logprob
         ratio = torch.exp(kl)
         kld = (ratio - kl - 1).contiguous()

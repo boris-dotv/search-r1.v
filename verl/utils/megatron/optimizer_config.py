@@ -26,7 +26,7 @@ class OptimizerConfig:
     ##############
     # General
     ##############
-    optimizer: str = 'adam'
+    optimizer: str = "adam"
     """Optimizer to use (one of Adam or SGD)."""
 
     lr: Optional[float] = None

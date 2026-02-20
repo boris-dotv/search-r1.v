@@ -8,15 +8,23 @@ import argparse
 import uvicorn
 
 parser = argparse.ArgumentParser(description="Launch online search server.")
-parser.add_argument('--search_url', type=str, required=True, 
-                    help="URL for search engine (e.g. https://serpapi.com/search)")
-parser.add_argument('--topk', type=int, default=3, 
-                    help="Number of results to return per query")
-parser.add_argument('--serp_api_key', type=str, default=None, 
-                    help="SerpAPI key for online search")
-parser.add_argument('--serp_engine', type=str, default="google", 
-                    help="SerpAPI engine for online search")
+parser.add_argument(
+    "--search_url",
+    type=str,
+    required=True,
+    help="URL for search engine (e.g. https://serpapi.com/search)",
+)
+parser.add_argument(
+    "--topk", type=int, default=3, help="Number of results to return per query"
+)
+parser.add_argument(
+    "--serp_api_key", type=str, default=None, help="SerpAPI key for online search"
+)
+parser.add_argument(
+    "--serp_engine", type=str, default="google", help="SerpAPI engine for online search"
+)
 args = parser.parse_args()
+
 
 # --- Config ---
 class OnlineSearchConfig:
@@ -56,30 +64,36 @@ class OnlineSearchEngine:
 
     def _process_result(self, search_result: Dict):
         results = []
-        
-        answer_box = search_result.get('answer_box', {})
+
+        answer_box = search_result.get("answer_box", {})
         if answer_box:
-            title = answer_box.get('title', 'No title.')
-            snippet = answer_box.get('snippet', 'No snippet available.')
-            results.append({
-                'document': {"contents": f'\"{title}\"\n{snippet}'},
-            })
+            title = answer_box.get("title", "No title.")
+            snippet = answer_box.get("snippet", "No snippet available.")
+            results.append(
+                {
+                    "document": {"contents": f'"{title}"\n{snippet}'},
+                }
+            )
 
-        organic_results = search_result.get('organic_results', [])
-        for _, result in enumerate(organic_results[:self.config.topk]):
-            title = result.get('title', 'No title.')
-            snippet = result.get('snippet', 'No snippet available.')
-            results.append({
-                'document': {"contents": f'\"{title}\"\n{snippet}'},
-            })
+        organic_results = search_result.get("organic_results", [])
+        for _, result in enumerate(organic_results[: self.config.topk]):
+            title = result.get("title", "No title.")
+            snippet = result.get("snippet", "No snippet available.")
+            results.append(
+                {
+                    "document": {"contents": f'"{title}"\n{snippet}'},
+                }
+            )
 
-        related_results = search_result.get('related_questions', [])
-        for _, result in enumerate(related_results[:self.config.topk]):
-            title = result.get('question', 'No title.')  # question is the title here
-            snippet = result.get('snippet', 'No snippet available.')
-            results.append({
-                'document': {"contents": f'\"{title}\"\n{snippet}'},
-            })
+        related_results = search_result.get("related_questions", [])
+        for _, result in enumerate(related_results[: self.config.topk]):
+            title = result.get("question", "No title.")  # question is the title here
+            snippet = result.get("snippet", "No snippet available.")
+            results.append(
+                {
+                    "document": {"contents": f'"{title}"\n{snippet}'},
+                }
+            )
 
         return results
 
@@ -87,8 +101,10 @@ class OnlineSearchEngine:
 # --- FastAPI Setup ---
 app = FastAPI(title="Online Search Proxy Server")
 
+
 class SearchRequest(BaseModel):
     queries: List[str]
+
 
 # Instantiate global config + engine
 config = OnlineSearchConfig(
@@ -99,11 +115,13 @@ config = OnlineSearchConfig(
 )
 engine = OnlineSearchEngine(config)
 
+
 # --- Routes ---
 @app.post("/retrieve")
 def search_endpoint(request: SearchRequest):
     results = engine.batch_search(request.queries)
     return {"result": results}
+
 
 ## return {"result": List[List[{'document': {"id": xx, "content": "title" + \n + "content"}, 'score': xx}]]}
 

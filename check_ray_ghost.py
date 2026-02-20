@@ -29,6 +29,7 @@ except Exception as e:
 # 列出所有存在的 Groups
 print("\n📋 当前所有存在的 Placement Groups:")
 from ray.util.state import list_placement_groups
+
 try:
     pgs = list_placement_groups()
     for item in pgs:

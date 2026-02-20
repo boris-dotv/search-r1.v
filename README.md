@@ -1,12 +1,6 @@
 # Search-R1: Train your LLMs to reason and call a search engine with reinforcement learning
 
 
-Built upon [veRL](https://github.com/volcengine/verl), Search-R1 extends the ideas of **DeepSeek-R1(-Zero)** by incorporating interleaved search engine access and provides a fully open-source RL training pipeline. It serves as an alternative and open solution to **OpenAI DeepResearch**, enabling research and development in tool-augmented LLM reasoning.
-
-
-Paper: [link1](https://arxiv.org/pdf/2503.09516), [link2](https://arxiv.org/abs/2505.15117); Model and data: [link](https://huggingface.co/collections/PeterJinGo/search-r1-67d1a021202731cb065740f5); Twitter thread: [link](https://x.com/BowenJin13/status/1895544294473109889); Full experiment log: [prelim](https://wandb.ai/peterjin/Search-R1-open); [v0.1](https://wandb.ai/peterjin/Search-R1-nq_hotpotqa_train); [v0.2](https://wandb.ai/peterjin/Search-R1-v0.2); [v0.3](https://wandb.ai/peterjin/Search-R1-v0.3). Details about these logs and methods can be find [here](https://github.com/PeterGriffinJin/Search-R1/blob/main/docs/experiment_log.md).
-
-
 
 ## Installation
 
@@ -21,6 +15,7 @@ pip install -e . -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 pip install ./flash_attn-2.8.3+cu12torch2.4cxx11abiFALSE-cp39-cp39-linux_x86_64.whl
 pip install wandb -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 install black -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 ### Retriever environment
@@ -57,6 +52,9 @@ python scripts/download.py --save_path $save_path
 cat $save_path/part_* > $save_path/e5_Flat.index
 gzip -d $save_path/wiki-18.jsonl.gz
 ```
+
+
+
 
 手动构建 e5_Flat.index 的方法:
 ```bash
@@ -342,19 +340,6 @@ Testing complete!
 **权重保存问题, 以及 validation 随机性 / 确定性问题**
 
 
-## Preliminary results
-
-(1) The base model (llama3.2-3b-base) learns to call the search engine and obtain improved performance.
-
-![llama-3b](public/llama32-3b.png)
-
-
-(2) The base model (Qwen2.5-7b-base) can learn to conduct multi-turn search engine calling and reasoning with RL.
-
-![multi-turn](public/multi-turn.png)
-
-
-
 
 ## Inference
 #### You can play with the trained Search-R1 model with your own question.
@@ -390,6 +375,9 @@ You can modify the ```question``` on line 7 to something you're interested in.
 
 
 
+
+
+
 ## Use your own dataset
 
 ### QA data
@@ -418,16 +406,6 @@ You can refer to ```scripts/data_process/nq_search.py``` for a concrete data pro
 
 
 
-
-
-## Features
-- Support local sparse retrievers (e.g., BM25). ✔️
-- Support local dense retrievers (both flat indexing and ANN indexing) ✔️
-- Support google search / bing search / brave search API and others. ✔️
-- Support off-the-shelf neural rerankers. ✔️
-- Support different RL methods (e.g., PPO, GRPO, reinforce). ✔️
-- Support different LLMs (e.g., llama3, Qwen2.5, etc). ✔️
-
 ## Acknowledge
 
 Its implementation is built upon [Search-R1](https://github.com/PeterGriffinJin/Search-R1).
@@ -448,7 +426,9 @@ Its implementation is built upon [Search-R1](https://github.com/PeterGriffinJin/
 
 
 ### Bug 2
+
 可以通过 actor_rollout_ref.ref.fsdp_config.param_offload=false 来解决以下问题:
+
 ```text
 [36m(WorkerDict pid=2370037)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
 [36m(WorkerDict pid=2370037)[0m   with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
@@ -512,6 +492,12 @@ ray.exceptions.ActorDiedError: The actor died unexpectedly before finishing this
 	ip: 172.18.103.5
 The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
 ```
+
+
+## 参数详解
+
+* 
+
 
 
 ## Cmds
