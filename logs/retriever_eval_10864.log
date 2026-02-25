@@ -1,0 +1,5 @@
+usage: retrieval_server.py [-h] [--index_path INDEX_PATH]
+                           [--corpus_path CORPUS_PATH] [--topk TOPK]
+                           [--retriever_name RETRIEVER_NAME]
+                           [--retriever_model RETRIEVER_MODEL] [--faiss_gpu]
+retrieval_server.py: error: unrecognized arguments: --port 47778

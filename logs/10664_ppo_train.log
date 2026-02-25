@@ -1,0 +1,412 @@
+===== 第一步：启动检索服务 =====
+启动检索服务，日志保存到 /public_hw/share/cit_ztyu/cz/Search-R1/logs/10664_retriever.log
+检索服务PID: 2459377
+===== 第二步：等待检索服务就绪 =====
+检索服务就绪！
+===== 第三步：启动 PPO 训练 =====
+训练主端口: 38301
+2026-02-08 09:28:03,572	INFO worker.py:2012 -- Started a local Ray instance.
+/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[36m(main_task pid=2478571)[0m {'actor_rollout_ref': {'actor': {'clip_ratio': 0.2,
+[36m(main_task pid=2478571)[0m                                  'entropy_coeff': 0.001,
+[36m(main_task pid=2478571)[0m                                  'fsdp_config': {'fsdp_size': -1,
+[36m(main_task pid=2478571)[0m                                                  'grad_offload': False,
+[36m(main_task pid=2478571)[0m                                                  'optimizer_offload': False,
+[36m(main_task pid=2478571)[0m                                                  'param_offload': False,
+[36m(main_task pid=2478571)[0m                                                  'wrap_policy': {'min_num_params': 0}},
+[36m(main_task pid=2478571)[0m                                  'grad_clip': 1.0,
+[36m(main_task pid=2478571)[0m                                  'kl_loss_coef': 0.001,
+[36m(main_task pid=2478571)[0m                                  'kl_loss_type': 'low_var_kl',
+[36m(main_task pid=2478571)[0m                                  'optim': {'lr': 1e-06,
+[36m(main_task pid=2478571)[0m                                            'lr_warmup_steps_ratio': 0.285,
+[36m(main_task pid=2478571)[0m                                            'min_lr_ratio': None,
+[36m(main_task pid=2478571)[0m                                            'total_training_steps': -1,
+[36m(main_task pid=2478571)[0m                                            'warmup_style': 'constant'},
+[36m(main_task pid=2478571)[0m                                  'ppo_epochs': 1,
+[36m(main_task pid=2478571)[0m                                  'ppo_max_token_len_per_gpu': 16384,
+[36m(main_task pid=2478571)[0m                                  'ppo_micro_batch_size': 16,
+[36m(main_task pid=2478571)[0m                                  'ppo_mini_batch_size': 64,
+[36m(main_task pid=2478571)[0m                                  'shuffle': False,
+[36m(main_task pid=2478571)[0m                                  'state_masking': False,
+[36m(main_task pid=2478571)[0m                                  'strategy': 'fsdp',
+[36m(main_task pid=2478571)[0m                                  'ulysses_sequence_parallel_size': 1,
+[36m(main_task pid=2478571)[0m                                  'use_dynamic_bsz': False,
+[36m(main_task pid=2478571)[0m                                  'use_kl_loss': True},
+[36m(main_task pid=2478571)[0m                        'hybrid_engine': True,
+[36m(main_task pid=2478571)[0m                        'model': {'enable_gradient_checkpointing': True,
+[36m(main_task pid=2478571)[0m                                  'external_lib': None,
+[36m(main_task pid=2478571)[0m                                  'override_config': {},
+[36m(main_task pid=2478571)[0m                                  'path': '/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct',
+[36m(main_task pid=2478571)[0m                                  'use_remove_padding': True},
+[36m(main_task pid=2478571)[0m                        'ref': {'fsdp_config': {'fsdp_size': -1,
+[36m(main_task pid=2478571)[0m                                                'param_offload': False,
+[36m(main_task pid=2478571)[0m                                                'wrap_policy': {'min_num_params': 0}},
+[36m(main_task pid=2478571)[0m                                'log_prob_max_token_len_per_gpu': 16384,
+[36m(main_task pid=2478571)[0m                                'log_prob_micro_batch_size': 64,
+[36m(main_task pid=2478571)[0m                                'log_prob_use_dynamic_bsz': False,
+[36m(main_task pid=2478571)[0m                                'ulysses_sequence_parallel_size': 1},
+[36m(main_task pid=2478571)[0m                        'rollout': {'do_sample': True,
+[36m(main_task pid=2478571)[0m                                    'dtype': 'bfloat16',
+[36m(main_task pid=2478571)[0m                                    'enforce_eager': True,
+[36m(main_task pid=2478571)[0m                                    'free_cache_engine': False,
+[36m(main_task pid=2478571)[0m                                    'gpu_memory_utilization': 0.4,
+[36m(main_task pid=2478571)[0m                                    'ignore_eos': False,
+[36m(main_task pid=2478571)[0m                                    'load_format': 'dummy_dtensor',
+[36m(main_task pid=2478571)[0m                                    'log_prob_max_token_len_per_gpu': 16384,
+[36m(main_task pid=2478571)[0m                                    'log_prob_micro_batch_size': 64,
+[36m(main_task pid=2478571)[0m                                    'log_prob_use_dynamic_bsz': False,
+[36m(main_task pid=2478571)[0m                                    'max_num_batched_tokens': 8192,
+[36m(main_task pid=2478571)[0m                                    'max_num_seqs': 1024,
+[36m(main_task pid=2478571)[0m                                    'n': 1,
+[36m(main_task pid=2478571)[0m                                    'n_agent': 1,
+[36m(main_task pid=2478571)[0m                                    'name': 'vllm',
+[36m(main_task pid=2478571)[0m                                    'prompt_length': 4096,
+[36m(main_task pid=2478571)[0m                                    'response_length': 2048,
+[36m(main_task pid=2478571)[0m                                    'temperature': 1.0,
+[36m(main_task pid=2478571)[0m                                    'tensor_model_parallel_size': 1,
+[36m(main_task pid=2478571)[0m                                    'top_k': -1,
+[36m(main_task pid=2478571)[0m                                    'top_p': 0.95}},
+[36m(main_task pid=2478571)[0m  'algorithm': {'adv_estimator': 'gae',
+[36m(main_task pid=2478571)[0m                'gamma': 1.0,
+[36m(main_task pid=2478571)[0m                'kl_ctrl': {'kl_coef': 0.001, 'type': 'fixed'},
+[36m(main_task pid=2478571)[0m                'kl_penalty': 'kl',
+[36m(main_task pid=2478571)[0m                'lam': 1.0,
+[36m(main_task pid=2478571)[0m                'no_think_rl': False,
+[36m(main_task pid=2478571)[0m                'state_masking': {'end_state_marker': '</information>',
+[36m(main_task pid=2478571)[0m                                  'start_state_marker': '<information>'}},
+[36m(main_task pid=2478571)[0m  'critic': {'cliprange_value': 0.5,
+[36m(main_task pid=2478571)[0m             'forward_max_token_len_per_gpu': 32768,
+[36m(main_task pid=2478571)[0m             'forward_micro_batch_size': 16,
+[36m(main_task pid=2478571)[0m             'grad_clip': 1.0,
+[36m(main_task pid=2478571)[0m             'model': {'enable_gradient_checkpointing': True,
+[36m(main_task pid=2478571)[0m                       'external_lib': None,
+[36m(main_task pid=2478571)[0m                       'fsdp_config': {'fsdp_size': -1,
+[36m(main_task pid=2478571)[0m                                       'grad_offload': False,
+[36m(main_task pid=2478571)[0m                                       'optimizer_offload': False,
+[36m(main_task pid=2478571)[0m                                       'param_offload': False,
+[36m(main_task pid=2478571)[0m                                       'wrap_policy': {'min_num_params': 0}},
+[36m(main_task pid=2478571)[0m                       'override_config': {},
+[36m(main_task pid=2478571)[0m                       'path': '/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct',
+[36m(main_task pid=2478571)[0m                       'tokenizer_path': '/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct',
+[36m(main_task pid=2478571)[0m                       'use_remove_padding': True},
+[36m(main_task pid=2478571)[0m             'optim': {'lr': 1e-05,
+[36m(main_task pid=2478571)[0m                       'lr_warmup_steps_ratio': 0.015,
+[36m(main_task pid=2478571)[0m                       'min_lr_ratio': None,
+[36m(main_task pid=2478571)[0m                       'total_training_steps': -1,
+[36m(main_task pid=2478571)[0m                       'warmup_style': 'constant'},
+[36m(main_task pid=2478571)[0m             'ppo_epochs': 1,
+[36m(main_task pid=2478571)[0m             'ppo_max_token_len_per_gpu': 32768,
+[36m(main_task pid=2478571)[0m             'ppo_micro_batch_size': 16,
+[36m(main_task pid=2478571)[0m             'ppo_mini_batch_size': 64,
+[36m(main_task pid=2478571)[0m             'shuffle': False,
+[36m(main_task pid=2478571)[0m             'strategy': 'fsdp',
+[36m(main_task pid=2478571)[0m             'ulysses_sequence_parallel_size': 1,
+[36m(main_task pid=2478571)[0m             'use_dynamic_bsz': False},
+[36m(main_task pid=2478571)[0m  'data': {'max_obs_length': 2048,
+[36m(main_task pid=2478571)[0m           'max_prompt_length': 4096,
+[36m(main_task pid=2478571)[0m           'max_response_length': 2048,
+[36m(main_task pid=2478571)[0m           'max_start_length': 2048,
+[36m(main_task pid=2478571)[0m           'prompt_key': 'prompt',
+[36m(main_task pid=2478571)[0m           'return_raw_chat': False,
+[36m(main_task pid=2478571)[0m           'return_raw_input_ids': False,
+[36m(main_task pid=2478571)[0m           'shuffle_train_dataloader': True,
+[36m(main_task pid=2478571)[0m           'tokenizer': None,
+[36m(main_task pid=2478571)[0m           'train_batch_size': 128,
+[36m(main_task pid=2478571)[0m           'train_data_num': None,
+[36m(main_task pid=2478571)[0m           'train_files': 'data/nq_search/train.parquet',
+[36m(main_task pid=2478571)[0m           'val_batch_size': 128,
+[36m(main_task pid=2478571)[0m           'val_data_num': 128,
+[36m(main_task pid=2478571)[0m           'val_files': 'data/nq_search/test.parquet'},
+[36m(main_task pid=2478571)[0m  'do_search': True,
+[36m(main_task pid=2478571)[0m  'max_turns': 2,
+[36m(main_task pid=2478571)[0m  'retriever': {'topk': 3, 'url': 'http://127.0.0.1:8009/retrieve'},
+[36m(main_task pid=2478571)[0m  'reward_model': {'enable': False,
+[36m(main_task pid=2478571)[0m                   'final_format_score': 0,
+[36m(main_task pid=2478571)[0m                   'forward_max_token_len_per_gpu': 32768,
+[36m(main_task pid=2478571)[0m                   'max_length': None,
+[36m(main_task pid=2478571)[0m                   'micro_batch_size': 64,
+[36m(main_task pid=2478571)[0m                   'model': {'external_lib': None,
+[36m(main_task pid=2478571)[0m                             'fsdp_config': {'min_num_params': 0,
+[36m(main_task pid=2478571)[0m                                             'param_offload': False},
+[36m(main_task pid=2478571)[0m                             'input_tokenizer': '/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct',
+[36m(main_task pid=2478571)[0m                             'path': '~/models/FsfairX-LLaMA3-RM-v0.1',
+[36m(main_task pid=2478571)[0m                             'use_remove_padding': False},
+[36m(main_task pid=2478571)[0m                   'retrieval_score': 0,
+[36m(main_task pid=2478571)[0m                   'strategy': 'fsdp',
+[36m(main_task pid=2478571)[0m                   'structure_format_score': 0,
+[36m(main_task pid=2478571)[0m                   'ulysses_sequence_parallel_size': 1,
+[36m(main_task pid=2478571)[0m                   'use_dynamic_bsz': False},
+[36m(main_task pid=2478571)[0m  'trainer': {'critic_warmup': 0,
+[36m(main_task pid=2478571)[0m              'default_hdfs_dir': None,
+[36m(main_task pid=2478571)[0m              'default_local_dir': 'verl_checkpoints/nq-search-r1-ppo-qwen2.5-3b-instruct-em',
+[36m(main_task pid=2478571)[0m              'experiment_name': 'nq-search-r1-ppo-qwen2.5-3b-instruct-em',
+[36m(main_task pid=2478571)[0m              'logger': ['wandb'],
+[36m(main_task pid=2478571)[0m              'n_gpus_per_node': 2,
+[36m(main_task pid=2478571)[0m              'nnodes': 1,
+[36m(main_task pid=2478571)[0m              'project_name': 'Search-R1',
+[36m(main_task pid=2478571)[0m              'save_freq': 1,
+[36m(main_task pid=2478571)[0m              'test_freq': 100,
+[36m(main_task pid=2478571)[0m              'total_epochs': 15,
+[36m(main_task pid=2478571)[0m              'total_training_steps': 1005,
+[36m(main_task pid=2478571)[0m              'val_before_train': False,
+[36m(main_task pid=2478571)[0m              'val_only': False}}
+[36m(main_task pid=2478571)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(main_task pid=2478571)[0m No module named 'vllm._version'
+[36m(main_task pid=2478571)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(main_task pid=2478571)[0m original dataset len: 79168
+[36m(main_task pid=2478571)[0m filter dataset len: 79168
+[36m(main_task pid=2478571)[0m filtered training dataset size: 79168
+[36m(main_task pid=2478571)[0m original dataset len: 3610
+[36m(main_task pid=2478571)[0m filter dataset len: 3610
+[36m(main_task pid=2478571)[0m filtered validation dataset size: 128
+[36m(main_task pid=2478571)[0m Size of train dataloader: 618
+[36m(main_task pid=2478571)[0m Size of val dataloader: 1
+[36m(main_task pid=2478571)[0m Total training steps: 1005
+[36m(pid=gcs_server)[0m [2026-02-08 09:28:29,340 E 2468600 2468600] (gcs_server) gcs_server.cc:302: Failed to establish connection to the event+metrics exporter agent. Events and metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(main_task pid=2478571)[0m wandb: Tracking run with wandb version 0.24.1
+[36m(main_task pid=2478571)[0m wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+[36m(main_task pid=2478571)[0m wandb: Run data is saved locally in /public_hw/share/cit_ztyu/cz/Search-R1/wandb_offline/wandb/offline-run-20260208_092829-y19we93x
+[36m(main_task pid=2478571)[0m wandb: Detected [openai] in use.
+[36m(main_task pid=2478571)[0m wandb: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+[36m(main_task pid=2478571)[0m wandb: For more information, check out the docs at: https://weave-docs.wandb.ai/
+[33m(raylet)[0m [2026-02-08 09:28:32,594 E 2469858 2469858] (raylet) main.cc:975: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(pid=2471220)[0m [2026-02-08 09:28:35,133 E 2471220 2473070] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[2026-02-08 09:28:35,964 E 2467577 2471101] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(pid=2480980)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=2480980)[0m No module named 'vllm._version'
+[36m(pid=2480980)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(main_task pid=2478571)[0m [2026-02-08 09:28:38,641 E 2478571 2478651] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14[32m [repeated 93x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(pid=2482136)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=2482136)[0m No module named 'vllm._version'
+[36m(pid=2482136)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(bundle_reservation_check_func pid=2480455)[0m [2026-02-08 09:29:04,073 E 2480455 2480837] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(WorkerDict pid=2480980)[0m [W208 09:29:05.313251981 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[36m(WorkerDict pid=2480980)[0m Critic overriding config {'bos_token_id': None, 'eos_token_id': 151645, 'pad_token_id': 151643}
+[36m(WorkerDict pid=2480980)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForTokenClassification is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(WorkerDict pid=2480980)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(WorkerDict pid=2480980)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(WorkerDict pid=2482136)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.24s/it]
+[36m(WorkerDict pid=2482136)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.18s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.19s/it]
+[36m(WorkerDict pid=2482136)[0m Some weights of Qwen2ForTokenClassification were not initialized from the model checkpoint at /public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct and are newly initialized: ['score.bias']
+[36m(WorkerDict pid=2482136)[0m You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[36m(WorkerDict pid=2480980)[0m Some weights of Qwen2ForTokenClassification were not initialized from the model checkpoint at /public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct and are newly initialized: ['score.bias', 'score.weight']
+[36m(WorkerDict pid=2480980)[0m [2026-02-08 09:29:06,894 E 2480980 2481084] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(WorkerDict pid=2480980)[0m Qwen2ForTokenClassification contains 3.09B parameters
+[36m(WorkerDict pid=2480980)[0m Before critic FSDP, memory allocated (GB): 0.0, memory reserved (GB): 0.0
+[36m(WorkerDict pid=2480980)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=2480980)[0m After critic FSDP, memory allocated (GB): 5.748030662536621, memory reserved (GB): 8.947265625
+[36m(WorkerDict pid=2480980)[0m Total steps: 1005, num_warmup_steps: 15
+[36m(WorkerDict pid=2480980)[0m Critic use_remove_padding=True
+[36m(WorkerDict pid=2480980)[0m Model config after override: Qwen2Config {
+[36m(WorkerDict pid=2480980)[0m   "_name_or_path": "/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct",
+[36m(WorkerDict pid=2480980)[0m   "architectures": [
+[36m(WorkerDict pid=2480980)[0m     "Qwen2ForCausalLM"
+[36m(WorkerDict pid=2480980)[0m   ],
+[36m(WorkerDict pid=2480980)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=2480980)[0m   "eos_token_id": 151645,
+[36m(WorkerDict pid=2480980)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=2480980)[0m   "hidden_size": 2048,
+[36m(WorkerDict pid=2480980)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=2480980)[0m   "intermediate_size": 11008,
+[36m(WorkerDict pid=2480980)[0m   "max_position_embeddings": 32768,
+[36m(WorkerDict pid=2480980)[0m   "max_window_layers": 70,
+[36m(WorkerDict pid=2480980)[0m   "model_type": "qwen2",
+[36m(WorkerDict pid=2480980)[0m   "num_attention_heads": 16,
+[36m(WorkerDict pid=2480980)[0m   "num_hidden_layers": 36,
+[36m(WorkerDict pid=2480980)[0m   "num_key_value_heads": 2,
+[36m(WorkerDict pid=2480980)[0m   "pad_token_id": 151643,
+[36m(WorkerDict pid=2480980)[0m   "rms_norm_eps": 1e-06,
+[36m(WorkerDict pid=2480980)[0m   "rope_scaling": null,
+[36m(WorkerDict pid=2480980)[0m   "rope_theta": 1000000.0,
+[36m(WorkerDict pid=2480980)[0m   "sliding_window": null,
+[36m(WorkerDict pid=2480980)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=2480980)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=2480980)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=2480980)[0m   "use_cache": true,
+[36m(WorkerDict pid=2480980)[0m   "use_sliding_window": false,
+[36m(WorkerDict pid=2480980)[0m   "vocab_size": 151936
+[36m(WorkerDict pid=2480980)[0m }
+[36m(WorkerDict pid=2480980)[0m 
+[36m(WorkerDict pid=2482136)[0m [W208 09:29:05.306688212 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[36m(WorkerDict pid=2482136)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForTokenClassification is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(WorkerDict pid=2482136)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(WorkerDict pid=2480980)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=2480980)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.79s/it]
+[36m(WorkerDict pid=2480980)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  7.23it/s]
+[36m(WorkerDict pid=2480980)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  9.13it/s]
+[36m(WorkerDict pid=2480980)[0m Qwen2ForCausalLM contains 3.09B parameters
+[36m(WorkerDict pid=2480980)[0m wrap_policy: functools.partial(<function _or_policy at 0x146ee93628b0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x146ee9362790>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])
+[36m(WorkerDict pid=2480980)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=2480980)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(WorkerDict pid=2480980)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.65s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.82s/it]
+[36m(WorkerDict pid=2480980)[0m You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[36m(WorkerDict pid=2480980)[0m Model config after override: Qwen2Config {
+[36m(WorkerDict pid=2480980)[0m   "_name_or_path": "/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct",
+[36m(WorkerDict pid=2480980)[0m   "architectures": [
+[36m(WorkerDict pid=2480980)[0m     "Qwen2ForCausalLM"
+[36m(WorkerDict pid=2480980)[0m   ],
+[36m(WorkerDict pid=2480980)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=2480980)[0m   "eos_token_id": 151645,
+[36m(WorkerDict pid=2480980)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=2480980)[0m   "hidden_size": 2048,
+[36m(WorkerDict pid=2480980)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=2480980)[0m   "intermediate_size": 11008,
+[36m(WorkerDict pid=2480980)[0m   "max_position_embeddings": 32768,
+[36m(WorkerDict pid=2480980)[0m   "max_window_layers": 70,
+[36m(WorkerDict pid=2480980)[0m   "model_type": "qwen2",
+[36m(WorkerDict pid=2480980)[0m   "num_attention_heads": 16,
+[36m(WorkerDict pid=2480980)[0m   "num_hidden_layers": 36,
+[36m(WorkerDict pid=2480980)[0m   "num_key_value_heads": 2,
+[36m(WorkerDict pid=2480980)[0m   "pad_token_id": 151643,
+[36m(WorkerDict pid=2480980)[0m   "rms_norm_eps": 1e-06,
+[36m(WorkerDict pid=2480980)[0m   "rope_scaling": null,
+[36m(WorkerDict pid=2480980)[0m   "rope_theta": 1000000.0,
+[36m(WorkerDict pid=2480980)[0m   "sliding_window": null,
+[36m(WorkerDict pid=2480980)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=2480980)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=2480980)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=2480980)[0m   "use_cache": true,
+[36m(WorkerDict pid=2480980)[0m   "use_sliding_window": false,
+[36m(WorkerDict pid=2480980)[0m   "vocab_size": 151936
+[36m(WorkerDict pid=2480980)[0m }
+[36m(WorkerDict pid=2480980)[0m 
+[36m(WorkerDict pid=2482136)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=2482136)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.22s/it][32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=2482136)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  8.15it/s]
+[36m(WorkerDict pid=2480980)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.80s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.88s/it]
+[36m(WorkerDict pid=2480980)[0m Qwen2ForCausalLM contains 3.09B parameters
+[36m(WorkerDict pid=2482136)[0m Total steps: 1005, num_warmup_steps: 15
+[36m(WorkerDict pid=2482136)[0m Critic use_remove_padding=True
+[36m(WorkerDict pid=2480980)[0m wrap_policy: functools.partial(<function _or_policy at 0x146ee93628b0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x146ee9362790>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])[32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=2482136)[0m Actor use_remove_padding=True
+[36m(WorkerGroupRegisterCenter pid=2481903)[0m [2026-02-08 09:29:21,207 E 2481903 2482055] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(WorkerDict pid=2480980)[0m Total steps: 1005, num_warmup_steps: 286
+[36m(WorkerDict pid=2480980)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=2480980)[0m Before building vllm rollout, memory allocated (GB): 14.370079517364502, memory reserved (GB): 18.20703125
+[36m(WorkerDict pid=2482136)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(WorkerDict pid=2480980)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.31s/it]
+[36m(WorkerDict pid=2480980)[0m WARNING 02-08 09:29:34 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(WorkerDict pid=2482136)[0m wrap_policy: functools.partial(<function _or_policy at 0x1441390238b0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x144139023790>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])
+[36m(WorkerDict pid=2482136)[0m Total steps: 1005, num_warmup_steps: 286
+[36m(WorkerDict pid=2482136)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=2480980)[0m local rank 0
+[36m(WorkerDict pid=2480980)[0m INFO 02-08 09:29:34 selector.py:115] Using XFormers backend.
+[36m(WorkerDict pid=2480980)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/xformers/ops/fmha/flash.py:211: FutureWarning: `torch.library.impl_abstract` was renamed to `torch.library.register_fake`. Please use that instead; we will remove `torch.library.impl_abstract` in a future version of PyTorch.
+[36m(WorkerDict pid=2480980)[0m   @torch.library.impl_abstract("xformers_flash::flash_fwd")
+[36m(WorkerDict pid=2482136)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.79s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.85s/it]
+[36m(WorkerDict pid=2482136)[0m [2026-02-08 09:29:23,856 E 2482136 2482328] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(WorkerDict pid=2480980)[0m   @torch.library.impl_abstract("xformers_flash::flash_bwd")
+[36m(WorkerDict pid=2482136)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=2480980)[0m before init cache memory allocated: 21.643579904GB, reserved: 21.730689024GB
+[36m(WorkerDict pid=2480980)[0m after init cache memory allocated: 45.658264064GB, reserved: 45.743079424GB
+[36m(WorkerDict pid=2482136)[0m WARNING 02-08 09:29:34 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(WorkerDict pid=2480980)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 2048, 'detokenize': False, 'temperature': 1.0, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(WorkerDict pid=2480980)[0m After building vllm rollout, memory allocated (GB): 36.77456331253052, memory reserved (GB): 42.6015625
+[36m(WorkerDict pid=2482136)[0m local rank 0
+[36m(WorkerDict pid=2482136)[0m INFO 02-08 09:29:36 selector.py:115] Using XFormers backend.[32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=2480980)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=2480980)[0m   warnings.warn(
+[36m(WorkerDict pid=2482136)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/xformers/ops/fmha/flash.py:344: FutureWarning: `torch.library.impl_abstract` was renamed to `torch.library.register_fake`. Please use that instead; we will remove `torch.library.impl_abstract` in a future version of PyTorch.[32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=2482136)[0m   @torch.library.impl_abstract("xformers_flash::flash_fwd")
+[36m(WorkerDict pid=2482136)[0m   @torch.library.impl_abstract("xformers_flash::flash_bwd")
+[36m(WorkerDict pid=2480980)[0m After building sharding manager, memory allocated (GB): 36.77456331253052, memory reserved (GB): 42.6015625
+[36m(main_task pid=2478571)[0m epoch 0, step 1
+[36m(main_task pid=2478571)[0m ACTIVE_TRAJ_NUM: [128, 107, 20, 12]
+[36m(WorkerDict pid=2482136)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 2048, 'detokenize': False, 'temperature': 1.0, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(main_task pid=2478571)[0m --------------------------------
+[36m(main_task pid=2478571)[0m Golden answers: ['September 11, 2017']
+[36m(main_task pid=2478571)[0m Extracted answer: September 10, 2018
+[36m(main_task pid=2478571)[0m Solution string: <|im_start|>system
+[36m(main_task pid=2478571)[0m You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+[36m(main_task pid=2478571)[0m <|im_start|>user
+[36m(main_task pid=2478571)[0m Answer the given question. You must conduct reasoning inside <think> and </think> first every time you get new information. After reasoning, if you find you lack some knowledge, you can call a search engine by <search> query </search> and it will return the top searched results between <information> and </information>. You can search as many times as your want. If you find no further external knowledge needed, you can directly provide the answer inside <answer> and </answer>, without detailed illustrations. For example, <answer> Beijing </answer>. Question: when does wheel of fortune season 35 start?
+[36m(main_task pid=2478571)[0m <|im_end|>
+[36m(main_task pid=2478571)[0m <|im_start|>assistant
+[36m(main_task pid=2478571)[0m <think>
+[36m(main_task pid=2478571)[0m To find out when Season 35 of Wheel of Fortune starts, I need to gather information on the schedule for the new season. Let's see if there's any recent update available.
+[36m(main_task pid=2478571)[0m </think>
+[36m(main_task pid=2478571)[0m <search>
+[36m(main_task pid=2478571)[0m when does season 35 of wheel of fortune start
+[36m(main_task pid=2478571)[0m </search>
+[36m(main_task pid=2478571)[0m 
+[36m(main_task pid=2478571)[0m <information>Doc 1(Title: "Wheel of Fortune (U.S. game show)") since its inception. ""Wheel of Fortune"" ranks as the longest-running syndicated game show in the United States, with over 6,000 episodes aired. ""TV Guide"" named it the ""top-rated syndicated series"" in a 2008 article, and in 2013, the magazine ranked it at No. 2 in its list of the 60 greatest game shows ever. The program has also come to gain a worldwide following with sixty international adaptations. The syndicated series' 36th season premiered on September 10, 2018. The core game is based on Hangman. Each round has a category and a blank word puzzle, with each blank representing a
+[36m(main_task pid=2478571)[0m Doc 2(Title: Jeopardy!) worldwide following with regional adaptations in many other countries. The daily syndicated series' 35th season premiered on September 10, 2018. Three contestants each take their place behind a lectern, with the returning champion occupying the leftmost lectern (from the viewer's perspective). The contestants compete in a quiz game comprising three rounds: Jeopardy!, Double Jeopardy!, and Final Jeopardy!. The material for the clues covers a wide variety of topics, including history and current events, the sciences, the arts, popular culture, literature, and languages. Category titles often feature puns, wordplay, or shared themes, and the host will regularly remind contestants of topics
+[36m(main_task pid=2478571)[0m Doc 3(Title: "Wheel of Fortune (U.S. game show)") and prizes to contestants. The popularity of ""Wheel of Fortune"" has led it to become a worldwide franchise, with over forty known adaptations in international markets outside the United States. Versions of the show have existed in such countries as Australia, Denmark, France, , Italy, Malaysia, New Zealand, the Philippines, Poland, Russia, Spain, United Kingdom and Vietnam (""Chiec Non Ky Dieu""). The American version of ""Wheel"" has honored its international variants with an occasional theme of special weeks known as ""Wheel Around the World"", the inaugural episode of which aired when the 23rd syndicated season premiered on September 12, 2005.</information>
+[36m(main_task pid=2478571)[0m 
+[36m(main_task pid=2478571)[0m Based on the searches, Wheel of Fortune's 36th season premiered on September 10, 2018, while the 35th season premiered on the same date. Unfortunately, there's no information about the premiere dates for subsequent seasons, especially Season 35. However, the 35th season did premiere on September 10, 2018. It's possible that updates were not provided for this specific season at the time of the searches.
+[36m(main_task pid=2478571)[0m 
+[36m(main_task pid=2478571)[0m Given that no specific start date for Season 35 was found in recent searches, I must conclude that there isn't current information about when this season began. Season 35 did premiere on September 10, 2018, but this does not necessarily indicate when it started airing or any special premier events. For precise details, contacting the Wheel of Fortune production team or official announcement channels would be the best approach.
+[36m(main_task pid=2478571)[0m 
+[36m(main_task pid=2478571)[0m <answer>September 10, 2018</answer>
+[36m(WorkerDict pid=2480980)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+[36m(WorkerDict pid=2480980)[0m   with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+[36m(WorkerDict pid=2482136)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=2482136)[0m   warnings.warn(
+[36m(WorkerDict pid=2480980)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.[32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=2480980)[0m   with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined][32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=2480980)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=2480980)[0m   warnings.warn(
+[36m(WorkerDict pid=2482136)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+[36m(WorkerDict pid=2482136)[0m   with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+[36m(WorkerDict pid=2480980)[0m Saving actor checkpoint to verl_checkpoints/nq-search-r1-ppo-qwen2.5-3b-instruct-em/actor/global_step_1
+[36m(WorkerDict pid=2480980)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .[32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=2480980)[0m   warnings.warn([32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=2480980)[0m Saving critic checkpoint to verl_checkpoints/nq-search-r1-ppo-qwen2.5-3b-instruct-em/critic/global_step_1
+[33m(raylet)[0m A worker died or was killed while executing a task by an unexpected system error. To troubleshoot the problem, check the logs for the dead worker. Lease ID: 0000000072b336044d0d81efdee0d64eb0ca5886ce94632c01d6c8bd7b6f723e Worker ID: 733895f57d5f890f91db883f0186066753075ca0c1c5901436762375 Node ID: 0569a44de800ee30057936a61c9be29ad4ba29fede6261666e05c70e Worker IP address: 172.18.103.5 Worker port: 44721 Worker PID: 2480980 Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+Error executing job with overrides: ['data.train_files=data/nq_search/train.parquet', 'data.val_files=data/nq_search/test.parquet', 'data.train_data_num=null', 'data.val_data_num=128', 'data.train_batch_size=128', 'data.val_batch_size=128', 'data.max_prompt_length=4096', 'data.max_response_length=2048', 'data.max_start_length=2048', 'data.max_obs_length=2048', 'data.shuffle_train_dataloader=True', 'algorithm.adv_estimator=gae', 'actor_rollout_ref.model.path=/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct', 'actor_rollout_ref.model.enable_gradient_checkpointing=true', 'actor_rollout_ref.model.use_remove_padding=True', 'actor_rollout_ref.actor.optim.lr=1e-6', 'actor_rollout_ref.actor.optim.lr_warmup_steps_ratio=0.285', 'actor_rollout_ref.actor.use_kl_loss=true', 'actor_rollout_ref.actor.ppo_mini_batch_size=64', 'actor_rollout_ref.actor.ppo_micro_batch_size=16', 'actor_rollout_ref.actor.fsdp_config.param_offload=false', 'actor_rollout_ref.actor.fsdp_config.grad_offload=false', 'actor_rollout_ref.actor.fsdp_config.optimizer_offload=false', 'actor_rollout_ref.rollout.log_prob_micro_batch_size=64', 'actor_rollout_ref.rollout.tensor_model_parallel_size=1', 'actor_rollout_ref.rollout.name=vllm', 'actor_rollout_ref.rollout.gpu_memory_utilization=0.4', 'actor_rollout_ref.rollout.n_agent=1', 'actor_rollout_ref.rollout.free_cache_engine=False', 'actor_rollout_ref.ref.log_prob_micro_batch_size=64', 'actor_rollout_ref.ref.fsdp_config.param_offload=false', 'actor_rollout_ref.actor.kl_loss_coef=0.001', 'actor_rollout_ref.actor.kl_loss_type=low_var_kl', 'critic.optim.lr=1e-5', 'critic.model.use_remove_padding=True', 'critic.optim.lr_warmup_steps_ratio=0.015', 'critic.model.path=/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct', 'critic.model.enable_gradient_checkpointing=true', 'critic.ppo_micro_batch_size=16', 'critic.model.fsdp_config.param_offload=false', 'critic.model.fsdp_config.grad_offload=false', 'critic.model.fsdp_config.optimizer_offload=false', 'algorithm.no_think_rl=false', 'trainer.logger=[wandb]', '+trainer.val_only=false', '+trainer.val_before_train=false', 'trainer.default_hdfs_dir=null', 'trainer.n_gpus_per_node=2', 'trainer.nnodes=1', 'trainer.save_freq=1', 'trainer.test_freq=100', 'trainer.project_name=Search-R1', 'trainer.experiment_name=nq-search-r1-ppo-qwen2.5-3b-instruct-em', 'trainer.total_epochs=15', 'trainer.total_training_steps=1005', 'trainer.default_local_dir=verl_checkpoints/nq-search-r1-ppo-qwen2.5-3b-instruct-em', 'max_turns=2', 'retriever.url=http://127.0.0.1:8009/retrieve', 'retriever.topk=3']
+Traceback (most recent call last):
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/public_hw/share/cit_ztyu/cz/Search-R1/verl/trainer/main_ppo.py", line 207, in <module>
+    main()
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/hydra/_internal/utils.py", line 223, in run_and_report
+    raise ex
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 132, in run
+    _ = ret.return_value
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/hydra/core/utils.py", line 260, in return_value
+    raise self._return_value
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/public_hw/share/cit_ztyu/cz/Search-R1/verl/trainer/main_ppo.py", line 114, in main
+    ray.get(main_task.remote(config))
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/ray/_private/auto_init_hook.py", line 22, in auto_init_wrapper
+    return fn(*args, **kwargs)
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 104, in wrapper
+    return func(*args, **kwargs)
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/ray/_private/worker.py", line 2961, in get
+    values, debugger_breakpoint = worker.get_objects(
+  File "/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/ray/_private/worker.py", line 1026, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ActorDiedError): [36mray::main_task()[39m (pid=2478571, ip=172.18.103.5)
+  File "/public_hw/share/cit_ztyu/cz/Search-R1/verl/trainer/main_ppo.py", line 203, in main_task
+    trainer.fit()
+  File "/public_hw/share/cit_ztyu/cz/Search-R1/verl/trainer/ppo/ray_trainer.py", line 835, in fit
+    self._save_checkpoint()
+  File "/public_hw/share/cit_ztyu/cz/Search-R1/verl/trainer/ppo/ray_trainer.py", line 636, in _save_checkpoint
+    self.critic_wg.save_checkpoint(critic_local_path, critic_remote_path)
+  File "/public_hw/share/cit_ztyu/cz/Search-R1/verl/single_controller/ray/base.py", line 42, in func
+    output = ray.get(output)
+ray.exceptions.ActorDiedError: The actor died unexpectedly before finishing this task.
+	class_name: create_colocated_worker_cls.<locals>.WorkerDict
+	actor_id: 5491ae3ab76f8d4700e5691d01000000
+	pid: 2480980
+	name: LM0SSXWorkerDict_0:0
+	namespace: ba5e7b5f-a005-45d9-a441-c94606def012
+	ip: 172.18.103.5
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+===== 训练结束/中断，开始关闭检索服务 =====
+检索服务进程 2459377 已关闭
+===== 清理完成 =====

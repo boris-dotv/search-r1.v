@@ -1,0 +1,2313 @@
+[Config] CPU Mode detected. Force FAISS OMP threads to: 32
+Loading FAISS index from /public_hw/share/cit_ztyu/cz/Search-R1/indexing_corpus/e5_HNSW64.index...
+Loading corpus from /public_hw/share/cit_ztyu/cz/Search-R1/indexing_corpus/wiki-18.jsonl...
+Corpus loaded in 2.12s
+Loading model from /public_hw/share/cit_ztyu/cz/Search-R1/models/e5-base-v2...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:   1%|          | 1/199 [00:00<00:00, 3890.82it/s, Materializing param=embeddings.LayerNorm.bias]Loading weights:   1%|          | 1/199 [00:00<00:01, 161.83it/s, Materializing param=embeddings.LayerNorm.bias] Loading weights:   1%|          | 2/199 [00:00<00:00, 290.73it/s, Materializing param=embeddings.LayerNorm.weight]Loading weights:   1%|          | 2/199 [00:00<00:00, 272.71it/s, Materializing param=embeddings.LayerNorm.weight]Loading weights:   2%|▏         | 3/199 [00:00<00:01, 149.78it/s, Materializing param=embeddings.position_embeddings.weight]Loading weights:   2%|▏         | 3/199 [00:00<00:01, 147.28it/s, Materializing param=embeddings.position_embeddings.weight]Loading weights:   2%|▏         | 4/199 [00:00<00:01, 119.21it/s, Materializing param=embeddings.token_type_embeddings.weight]Loading weights:   2%|▏         | 4/199 [00:00<00:01, 118.18it/s, Materializing param=embeddings.token_type_embeddings.weight]Loading weights:   3%|▎         | 5/199 [00:00<00:01, 121.98it/s, Materializing param=embeddings.word_embeddings.weight]      Loading weights:   3%|▎         | 5/199 [00:00<00:02, 93.54it/s, Materializing param=embeddings.word_embeddings.weight] Loading weights:   3%|▎         | 6/199 [00:00<00:01, 111.00it/s, Materializing param=encoder.layer.0.attention.output.LayerNorm.bias]Loading weights:   3%|▎         | 6/199 [00:00<00:01, 99.93it/s, Materializing param=encoder.layer.0.attention.output.LayerNorm.bias] Loading weights:   4%|▎         | 7/199 [00:00<00:01, 114.73it/s, Materializing param=encoder.layer.0.attention.output.LayerNorm.weight]Loading weights:   4%|▎         | 7/199 [00:00<00:01, 114.03it/s, Materializing param=encoder.layer.0.attention.output.LayerNorm.weight]Loading weights:   4%|▍         | 8/199 [00:00<00:01, 97.83it/s, Materializing param=encoder.layer.0.attention.output.dense.bias]       Loading weights:   4%|▍         | 8/199 [00:00<00:01, 97.55it/s, Materializing param=encoder.layer.0.attention.output.dense.bias]Loading weights:   5%|▍         | 9/199 [00:00<00:01, 108.38it/s, Materializing param=encoder.layer.0.attention.output.dense.weight]Loading weights:   5%|▍         | 9/199 [00:00<00:01, 108.13it/s, Materializing param=encoder.layer.0.attention.output.dense.weight]Loading weights:   5%|▌         | 10/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.output.dense.weight]Loading weights:   5%|▌         | 10/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.key.bias]      Loading weights:   5%|▌         | 10/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.key.bias]Loading weights:   6%|▌         | 11/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.key.weight]Loading weights:   6%|▌         | 11/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.key.weight]Loading weights:   6%|▌         | 12/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.query.bias]Loading weights:   6%|▌         | 12/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.query.bias]Loading weights:   7%|▋         | 13/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.query.weight]Loading weights:   7%|▋         | 13/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.query.weight]Loading weights:   7%|▋         | 14/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.value.bias]  Loading weights:   7%|▋         | 14/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.value.bias]Loading weights:   8%|▊         | 15/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.value.weight]Loading weights:   8%|▊         | 15/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.attention.self.value.weight]Loading weights:   8%|▊         | 16/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.intermediate.dense.bias]    Loading weights:   8%|▊         | 16/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.intermediate.dense.bias]Loading weights:   9%|▊         | 17/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.intermediate.dense.weight]Loading weights:   9%|▊         | 17/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.intermediate.dense.weight]Loading weights:   9%|▉         | 18/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.output.LayerNorm.bias]    Loading weights:   9%|▉         | 18/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.output.LayerNorm.bias]Loading weights:  10%|▉         | 19/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.output.LayerNorm.weight]Loading weights:  10%|▉         | 19/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.output.LayerNorm.weight]Loading weights:  10%|█         | 20/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.output.dense.bias]      Loading weights:  10%|█         | 20/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.output.dense.bias]Loading weights:  11%|█         | 21/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.output.dense.weight]Loading weights:  11%|█         | 21/199 [00:00<00:01, 98.64it/s, Materializing param=encoder.layer.0.output.dense.weight]Loading weights:  11%|█         | 22/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.0.output.dense.weight]Loading weights:  11%|█         | 22/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.output.LayerNorm.bias]Loading weights:  11%|█         | 22/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.output.LayerNorm.bias]Loading weights:  12%|█▏        | 23/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.output.LayerNorm.weight]Loading weights:  12%|█▏        | 23/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.output.LayerNorm.weight]Loading weights:  12%|█▏        | 24/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.output.dense.bias]      Loading weights:  12%|█▏        | 24/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.output.dense.bias]Loading weights:  13%|█▎        | 25/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.output.dense.weight]Loading weights:  13%|█▎        | 25/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.output.dense.weight]Loading weights:  13%|█▎        | 26/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.key.bias]      Loading weights:  13%|█▎        | 26/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.key.bias]Loading weights:  14%|█▎        | 27/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.key.weight]Loading weights:  14%|█▎        | 27/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.key.weight]Loading weights:  14%|█▍        | 28/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.query.bias]Loading weights:  14%|█▍        | 28/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.query.bias]Loading weights:  15%|█▍        | 29/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.query.weight]Loading weights:  15%|█▍        | 29/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.query.weight]Loading weights:  15%|█▌        | 30/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.value.bias]  Loading weights:  15%|█▌        | 30/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.value.bias]Loading weights:  16%|█▌        | 31/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.value.weight]Loading weights:  16%|█▌        | 31/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.attention.self.value.weight]Loading weights:  16%|█▌        | 32/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.intermediate.dense.bias]    Loading weights:  16%|█▌        | 32/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.intermediate.dense.bias]Loading weights:  17%|█▋        | 33/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.intermediate.dense.weight]Loading weights:  17%|█▋        | 33/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.intermediate.dense.weight]Loading weights:  17%|█▋        | 34/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.output.LayerNorm.bias]    Loading weights:  17%|█▋        | 34/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.output.LayerNorm.bias]Loading weights:  18%|█▊        | 35/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.output.LayerNorm.weight]Loading weights:  18%|█▊        | 35/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.output.LayerNorm.weight]Loading weights:  18%|█▊        | 36/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.output.dense.bias]      Loading weights:  18%|█▊        | 36/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.output.dense.bias]Loading weights:  19%|█▊        | 37/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.output.dense.weight]Loading weights:  19%|█▊        | 37/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.1.output.dense.weight]Loading weights:  19%|█▉        | 38/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.output.LayerNorm.bias]Loading weights:  19%|█▉        | 38/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.output.LayerNorm.bias]Loading weights:  20%|█▉        | 39/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.output.LayerNorm.weight]Loading weights:  20%|█▉        | 39/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.output.LayerNorm.weight]Loading weights:  20%|██        | 40/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.output.dense.bias]      Loading weights:  20%|██        | 40/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.output.dense.bias]Loading weights:  21%|██        | 41/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.output.dense.weight]Loading weights:  21%|██        | 41/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.output.dense.weight]Loading weights:  21%|██        | 42/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.key.bias]      Loading weights:  21%|██        | 42/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.key.bias]Loading weights:  22%|██▏       | 43/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.key.weight]Loading weights:  22%|██▏       | 43/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.key.weight]Loading weights:  22%|██▏       | 44/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.query.bias]Loading weights:  22%|██▏       | 44/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.query.bias]Loading weights:  23%|██▎       | 45/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.query.weight]Loading weights:  23%|██▎       | 45/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.query.weight]Loading weights:  23%|██▎       | 46/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.value.bias]  Loading weights:  23%|██▎       | 46/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.value.bias]Loading weights:  24%|██▎       | 47/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.value.weight]Loading weights:  24%|██▎       | 47/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.attention.self.value.weight]Loading weights:  24%|██▍       | 48/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.intermediate.dense.bias]    Loading weights:  24%|██▍       | 48/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.intermediate.dense.bias]Loading weights:  25%|██▍       | 49/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.intermediate.dense.weight]Loading weights:  25%|██▍       | 49/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.intermediate.dense.weight]Loading weights:  25%|██▌       | 50/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.output.LayerNorm.bias]    Loading weights:  25%|██▌       | 50/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.output.LayerNorm.bias]Loading weights:  26%|██▌       | 51/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.output.LayerNorm.weight]Loading weights:  26%|██▌       | 51/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.output.LayerNorm.weight]Loading weights:  26%|██▌       | 52/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.output.dense.bias]      Loading weights:  26%|██▌       | 52/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.output.dense.bias]Loading weights:  27%|██▋       | 53/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.output.dense.weight]Loading weights:  27%|██▋       | 53/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.2.output.dense.weight]Loading weights:  27%|██▋       | 54/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.output.LayerNorm.bias]Loading weights:  27%|██▋       | 54/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.output.LayerNorm.bias]Loading weights:  28%|██▊       | 55/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.output.LayerNorm.weight]Loading weights:  28%|██▊       | 55/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.output.LayerNorm.weight]Loading weights:  28%|██▊       | 56/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.output.dense.bias]      Loading weights:  28%|██▊       | 56/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.output.dense.bias]Loading weights:  29%|██▊       | 57/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.output.dense.weight]Loading weights:  29%|██▊       | 57/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.output.dense.weight]Loading weights:  29%|██▉       | 58/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.key.bias]      Loading weights:  29%|██▉       | 58/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.key.bias]Loading weights:  30%|██▉       | 59/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.key.weight]Loading weights:  30%|██▉       | 59/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.key.weight]Loading weights:  30%|███       | 60/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.query.bias]Loading weights:  30%|███       | 60/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.query.bias]Loading weights:  31%|███       | 61/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.query.weight]Loading weights:  31%|███       | 61/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.query.weight]Loading weights:  31%|███       | 62/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.value.bias]  Loading weights:  31%|███       | 62/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.value.bias]Loading weights:  32%|███▏      | 63/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.value.weight]Loading weights:  32%|███▏      | 63/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.attention.self.value.weight]Loading weights:  32%|███▏      | 64/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.intermediate.dense.bias]    Loading weights:  32%|███▏      | 64/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.intermediate.dense.bias]Loading weights:  33%|███▎      | 65/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.intermediate.dense.weight]Loading weights:  33%|███▎      | 65/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.intermediate.dense.weight]Loading weights:  33%|███▎      | 66/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.output.LayerNorm.bias]    Loading weights:  33%|███▎      | 66/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.output.LayerNorm.bias]Loading weights:  34%|███▎      | 67/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.output.LayerNorm.weight]Loading weights:  34%|███▎      | 67/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.output.LayerNorm.weight]Loading weights:  34%|███▍      | 68/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.output.dense.bias]      Loading weights:  34%|███▍      | 68/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.output.dense.bias]Loading weights:  35%|███▍      | 69/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.output.dense.weight]Loading weights:  35%|███▍      | 69/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.3.output.dense.weight]Loading weights:  35%|███▌      | 70/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.output.LayerNorm.bias]Loading weights:  35%|███▌      | 70/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.output.LayerNorm.bias]Loading weights:  36%|███▌      | 71/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.output.LayerNorm.weight]Loading weights:  36%|███▌      | 71/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.output.LayerNorm.weight]Loading weights:  36%|███▌      | 72/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.output.dense.bias]      Loading weights:  36%|███▌      | 72/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.output.dense.bias]Loading weights:  37%|███▋      | 73/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.output.dense.weight]Loading weights:  37%|███▋      | 73/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.output.dense.weight]Loading weights:  37%|███▋      | 74/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.key.bias]      Loading weights:  37%|███▋      | 74/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.key.bias]Loading weights:  38%|███▊      | 75/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.key.weight]Loading weights:  38%|███▊      | 75/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.key.weight]Loading weights:  38%|███▊      | 76/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.query.bias]Loading weights:  38%|███▊      | 76/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.query.bias]Loading weights:  39%|███▊      | 77/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.query.weight]Loading weights:  39%|███▊      | 77/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.query.weight]Loading weights:  39%|███▉      | 78/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.value.bias]  Loading weights:  39%|███▉      | 78/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.value.bias]Loading weights:  40%|███▉      | 79/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.value.weight]Loading weights:  40%|███▉      | 79/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.attention.self.value.weight]Loading weights:  40%|████      | 80/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.intermediate.dense.bias]    Loading weights:  40%|████      | 80/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.intermediate.dense.bias]Loading weights:  41%|████      | 81/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.intermediate.dense.weight]Loading weights:  41%|████      | 81/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.intermediate.dense.weight]Loading weights:  41%|████      | 82/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.output.LayerNorm.bias]    Loading weights:  41%|████      | 82/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.output.LayerNorm.bias]Loading weights:  42%|████▏     | 83/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.output.LayerNorm.weight]Loading weights:  42%|████▏     | 83/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.output.LayerNorm.weight]Loading weights:  42%|████▏     | 84/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.output.dense.bias]      Loading weights:  42%|████▏     | 84/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.output.dense.bias]Loading weights:  43%|████▎     | 85/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.output.dense.weight]Loading weights:  43%|████▎     | 85/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.4.output.dense.weight]Loading weights:  43%|████▎     | 86/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.output.LayerNorm.bias]Loading weights:  43%|████▎     | 86/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.output.LayerNorm.bias]Loading weights:  44%|████▎     | 87/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.output.LayerNorm.weight]Loading weights:  44%|████▎     | 87/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.output.LayerNorm.weight]Loading weights:  44%|████▍     | 88/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.output.dense.bias]      Loading weights:  44%|████▍     | 88/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.output.dense.bias]Loading weights:  45%|████▍     | 89/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.output.dense.weight]Loading weights:  45%|████▍     | 89/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.output.dense.weight]Loading weights:  45%|████▌     | 90/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.key.bias]      Loading weights:  45%|████▌     | 90/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.key.bias]Loading weights:  46%|████▌     | 91/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.key.weight]Loading weights:  46%|████▌     | 91/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.key.weight]Loading weights:  46%|████▌     | 92/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.query.bias]Loading weights:  46%|████▌     | 92/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.query.bias]Loading weights:  47%|████▋     | 93/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.query.weight]Loading weights:  47%|████▋     | 93/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.query.weight]Loading weights:  47%|████▋     | 94/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.value.bias]  Loading weights:  47%|████▋     | 94/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.value.bias]Loading weights:  48%|████▊     | 95/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.value.weight]Loading weights:  48%|████▊     | 95/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.attention.self.value.weight]Loading weights:  48%|████▊     | 96/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.intermediate.dense.bias]    Loading weights:  48%|████▊     | 96/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.intermediate.dense.bias]Loading weights:  49%|████▊     | 97/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.intermediate.dense.weight]Loading weights:  49%|████▊     | 97/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.intermediate.dense.weight]Loading weights:  49%|████▉     | 98/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.output.LayerNorm.bias]    Loading weights:  49%|████▉     | 98/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.output.LayerNorm.bias]Loading weights:  50%|████▉     | 99/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.output.LayerNorm.weight]Loading weights:  50%|████▉     | 99/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.output.LayerNorm.weight]Loading weights:  50%|█████     | 100/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.output.dense.bias]     Loading weights:  50%|█████     | 100/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.output.dense.bias]Loading weights:  51%|█████     | 101/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.output.dense.weight]Loading weights:  51%|█████     | 101/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.5.output.dense.weight]Loading weights:  51%|█████▏    | 102/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.6.attention.output.LayerNorm.bias]Loading weights:  51%|█████▏    | 102/199 [00:00<00:01, 96.54it/s, Materializing param=encoder.layer.6.attention.output.LayerNorm.bias]Loading weights:  52%|█████▏    | 103/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.output.LayerNorm.weight]Loading weights:  52%|█████▏    | 103/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.output.LayerNorm.weight]Loading weights:  52%|█████▏    | 104/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.output.dense.bias]      Loading weights:  52%|█████▏    | 104/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.output.dense.bias]Loading weights:  53%|█████▎    | 105/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.output.dense.weight]Loading weights:  53%|█████▎    | 105/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.output.dense.weight]Loading weights:  53%|█████▎    | 106/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.key.bias]      Loading weights:  53%|█████▎    | 106/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.key.bias]Loading weights:  54%|█████▍    | 107/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.key.weight]Loading weights:  54%|█████▍    | 107/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.key.weight]Loading weights:  54%|█████▍    | 108/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.query.bias]Loading weights:  54%|█████▍    | 108/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.query.bias]Loading weights:  55%|█████▍    | 109/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.query.weight]Loading weights:  55%|█████▍    | 109/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.query.weight]Loading weights:  55%|█████▌    | 110/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.value.bias]  Loading weights:  55%|█████▌    | 110/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.value.bias]Loading weights:  56%|█████▌    | 111/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.value.weight]Loading weights:  56%|█████▌    | 111/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.attention.self.value.weight]Loading weights:  56%|█████▋    | 112/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.intermediate.dense.bias]    Loading weights:  56%|█████▋    | 112/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.intermediate.dense.bias]Loading weights:  57%|█████▋    | 113/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.intermediate.dense.weight]Loading weights:  57%|█████▋    | 113/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.intermediate.dense.weight]Loading weights:  57%|█████▋    | 114/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.output.LayerNorm.bias]    Loading weights:  57%|█████▋    | 114/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.output.LayerNorm.bias]Loading weights:  58%|█████▊    | 115/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.output.LayerNorm.weight]Loading weights:  58%|█████▊    | 115/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.output.LayerNorm.weight]Loading weights:  58%|█████▊    | 116/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.output.dense.bias]      Loading weights:  58%|█████▊    | 116/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.output.dense.bias]Loading weights:  59%|█████▉    | 117/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.output.dense.weight]Loading weights:  59%|█████▉    | 117/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.6.output.dense.weight]Loading weights:  59%|█████▉    | 118/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.output.LayerNorm.bias]Loading weights:  59%|█████▉    | 118/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.output.LayerNorm.bias]Loading weights:  60%|█████▉    | 119/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.output.LayerNorm.weight]Loading weights:  60%|█████▉    | 119/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.output.LayerNorm.weight]Loading weights:  60%|██████    | 120/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.output.dense.bias]      Loading weights:  60%|██████    | 120/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.output.dense.bias]Loading weights:  61%|██████    | 121/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.output.dense.weight]Loading weights:  61%|██████    | 121/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.output.dense.weight]Loading weights:  61%|██████▏   | 122/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.key.bias]      Loading weights:  61%|██████▏   | 122/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.key.bias]Loading weights:  62%|██████▏   | 123/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.key.weight]Loading weights:  62%|██████▏   | 123/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.key.weight]Loading weights:  62%|██████▏   | 124/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.query.bias]Loading weights:  62%|██████▏   | 124/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.query.bias]Loading weights:  63%|██████▎   | 125/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.query.weight]Loading weights:  63%|██████▎   | 125/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.query.weight]Loading weights:  63%|██████▎   | 126/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.value.bias]  Loading weights:  63%|██████▎   | 126/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.value.bias]Loading weights:  64%|██████▍   | 127/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.value.weight]Loading weights:  64%|██████▍   | 127/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.attention.self.value.weight]Loading weights:  64%|██████▍   | 128/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.intermediate.dense.bias]    Loading weights:  64%|██████▍   | 128/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.intermediate.dense.bias]Loading weights:  65%|██████▍   | 129/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.intermediate.dense.weight]Loading weights:  65%|██████▍   | 129/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.intermediate.dense.weight]Loading weights:  65%|██████▌   | 130/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.output.LayerNorm.bias]    Loading weights:  65%|██████▌   | 130/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.output.LayerNorm.bias]Loading weights:  66%|██████▌   | 131/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.output.LayerNorm.weight]Loading weights:  66%|██████▌   | 131/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.output.LayerNorm.weight]Loading weights:  66%|██████▋   | 132/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.output.dense.bias]      Loading weights:  66%|██████▋   | 132/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.output.dense.bias]Loading weights:  67%|██████▋   | 133/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.output.dense.weight]Loading weights:  67%|██████▋   | 133/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.7.output.dense.weight]Loading weights:  67%|██████▋   | 134/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.output.LayerNorm.bias]Loading weights:  67%|██████▋   | 134/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.output.LayerNorm.bias]Loading weights:  68%|██████▊   | 135/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.output.LayerNorm.weight]Loading weights:  68%|██████▊   | 135/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.output.LayerNorm.weight]Loading weights:  68%|██████▊   | 136/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.output.dense.bias]      Loading weights:  68%|██████▊   | 136/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.output.dense.bias]Loading weights:  69%|██████▉   | 137/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.output.dense.weight]Loading weights:  69%|██████▉   | 137/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.output.dense.weight]Loading weights:  69%|██████▉   | 138/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.key.bias]      Loading weights:  69%|██████▉   | 138/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.key.bias]Loading weights:  70%|██████▉   | 139/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.key.weight]Loading weights:  70%|██████▉   | 139/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.key.weight]Loading weights:  70%|███████   | 140/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.query.bias]Loading weights:  70%|███████   | 140/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.query.bias]Loading weights:  71%|███████   | 141/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.query.weight]Loading weights:  71%|███████   | 141/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.query.weight]Loading weights:  71%|███████▏  | 142/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.value.bias]  Loading weights:  71%|███████▏  | 142/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.value.bias]Loading weights:  72%|███████▏  | 143/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.value.weight]Loading weights:  72%|███████▏  | 143/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.attention.self.value.weight]Loading weights:  72%|███████▏  | 144/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.intermediate.dense.bias]    Loading weights:  72%|███████▏  | 144/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.intermediate.dense.bias]Loading weights:  73%|███████▎  | 145/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.intermediate.dense.weight]Loading weights:  73%|███████▎  | 145/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.intermediate.dense.weight]Loading weights:  73%|███████▎  | 146/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.output.LayerNorm.bias]    Loading weights:  73%|███████▎  | 146/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.output.LayerNorm.bias]Loading weights:  74%|███████▍  | 147/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.output.LayerNorm.weight]Loading weights:  74%|███████▍  | 147/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.output.LayerNorm.weight]Loading weights:  74%|███████▍  | 148/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.output.dense.bias]      Loading weights:  74%|███████▍  | 148/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.output.dense.bias]Loading weights:  75%|███████▍  | 149/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.output.dense.weight]Loading weights:  75%|███████▍  | 149/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.8.output.dense.weight]Loading weights:  75%|███████▌  | 150/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.output.LayerNorm.bias]Loading weights:  75%|███████▌  | 150/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.output.LayerNorm.bias]Loading weights:  76%|███████▌  | 151/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.output.LayerNorm.weight]Loading weights:  76%|███████▌  | 151/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.output.LayerNorm.weight]Loading weights:  76%|███████▋  | 152/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.output.dense.bias]      Loading weights:  76%|███████▋  | 152/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.output.dense.bias]Loading weights:  77%|███████▋  | 153/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.output.dense.weight]Loading weights:  77%|███████▋  | 153/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.output.dense.weight]Loading weights:  77%|███████▋  | 154/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.key.bias]      Loading weights:  77%|███████▋  | 154/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.key.bias]Loading weights:  78%|███████▊  | 155/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.key.weight]Loading weights:  78%|███████▊  | 155/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.key.weight]Loading weights:  78%|███████▊  | 156/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.query.bias]Loading weights:  78%|███████▊  | 156/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.query.bias]Loading weights:  79%|███████▉  | 157/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.query.weight]Loading weights:  79%|███████▉  | 157/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.query.weight]Loading weights:  79%|███████▉  | 158/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.value.bias]  Loading weights:  79%|███████▉  | 158/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.value.bias]Loading weights:  80%|███████▉  | 159/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.value.weight]Loading weights:  80%|███████▉  | 159/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.attention.self.value.weight]Loading weights:  80%|████████  | 160/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.intermediate.dense.bias]    Loading weights:  80%|████████  | 160/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.intermediate.dense.bias]Loading weights:  81%|████████  | 161/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.intermediate.dense.weight]Loading weights:  81%|████████  | 161/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.intermediate.dense.weight]Loading weights:  81%|████████▏ | 162/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.output.LayerNorm.bias]    Loading weights:  81%|████████▏ | 162/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.output.LayerNorm.bias]Loading weights:  82%|████████▏ | 163/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.output.LayerNorm.weight]Loading weights:  82%|████████▏ | 163/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.output.LayerNorm.weight]Loading weights:  82%|████████▏ | 164/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.output.dense.bias]      Loading weights:  82%|████████▏ | 164/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.output.dense.bias]Loading weights:  83%|████████▎ | 165/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.output.dense.weight]Loading weights:  83%|████████▎ | 165/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.9.output.dense.weight]Loading weights:  83%|████████▎ | 166/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.output.LayerNorm.bias]Loading weights:  83%|████████▎ | 166/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.output.LayerNorm.bias]Loading weights:  84%|████████▍ | 167/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.output.LayerNorm.weight]Loading weights:  84%|████████▍ | 167/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.output.LayerNorm.weight]Loading weights:  84%|████████▍ | 168/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.output.dense.bias]      Loading weights:  84%|████████▍ | 168/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.output.dense.bias]Loading weights:  85%|████████▍ | 169/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.output.dense.weight]Loading weights:  85%|████████▍ | 169/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.output.dense.weight]Loading weights:  85%|████████▌ | 170/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.key.bias]      Loading weights:  85%|████████▌ | 170/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.key.bias]Loading weights:  86%|████████▌ | 171/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.key.weight]Loading weights:  86%|████████▌ | 171/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.key.weight]Loading weights:  86%|████████▋ | 172/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.query.bias]Loading weights:  86%|████████▋ | 172/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.query.bias]Loading weights:  87%|████████▋ | 173/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.query.weight]Loading weights:  87%|████████▋ | 173/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.query.weight]Loading weights:  87%|████████▋ | 174/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.value.bias]  Loading weights:  87%|████████▋ | 174/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.value.bias]Loading weights:  88%|████████▊ | 175/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.value.weight]Loading weights:  88%|████████▊ | 175/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.attention.self.value.weight]Loading weights:  88%|████████▊ | 176/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.intermediate.dense.bias]    Loading weights:  88%|████████▊ | 176/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.intermediate.dense.bias]Loading weights:  89%|████████▉ | 177/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.intermediate.dense.weight]Loading weights:  89%|████████▉ | 177/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.intermediate.dense.weight]Loading weights:  89%|████████▉ | 178/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.output.LayerNorm.bias]    Loading weights:  89%|████████▉ | 178/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.output.LayerNorm.bias]Loading weights:  90%|████████▉ | 179/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.output.LayerNorm.weight]Loading weights:  90%|████████▉ | 179/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.output.LayerNorm.weight]Loading weights:  90%|█████████ | 180/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.output.dense.bias]      Loading weights:  90%|█████████ | 180/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.output.dense.bias]Loading weights:  91%|█████████ | 181/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.output.dense.weight]Loading weights:  91%|█████████ | 181/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.10.output.dense.weight]Loading weights:  91%|█████████▏| 182/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.output.LayerNorm.bias]Loading weights:  91%|█████████▏| 182/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.output.LayerNorm.bias]Loading weights:  92%|█████████▏| 183/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.output.LayerNorm.weight]Loading weights:  92%|█████████▏| 183/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.output.LayerNorm.weight]Loading weights:  92%|█████████▏| 184/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.output.dense.bias]      Loading weights:  92%|█████████▏| 184/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.output.dense.bias]Loading weights:  93%|█████████▎| 185/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.output.dense.weight]Loading weights:  93%|█████████▎| 185/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.output.dense.weight]Loading weights:  93%|█████████▎| 186/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.key.bias]      Loading weights:  93%|█████████▎| 186/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.key.bias]Loading weights:  94%|█████████▍| 187/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.key.weight]Loading weights:  94%|█████████▍| 187/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.key.weight]Loading weights:  94%|█████████▍| 188/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.query.bias]Loading weights:  94%|█████████▍| 188/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.query.bias]Loading weights:  95%|█████████▍| 189/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.query.weight]Loading weights:  95%|█████████▍| 189/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.query.weight]Loading weights:  95%|█████████▌| 190/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.value.bias]  Loading weights:  95%|█████████▌| 190/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.value.bias]Loading weights:  96%|█████████▌| 191/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.value.weight]Loading weights:  96%|█████████▌| 191/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.attention.self.value.weight]Loading weights:  96%|█████████▋| 192/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.intermediate.dense.bias]    Loading weights:  96%|█████████▋| 192/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.intermediate.dense.bias]Loading weights:  97%|█████████▋| 193/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.intermediate.dense.weight]Loading weights:  97%|█████████▋| 193/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.intermediate.dense.weight]Loading weights:  97%|█████████▋| 194/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.output.LayerNorm.bias]    Loading weights:  97%|█████████▋| 194/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.output.LayerNorm.bias]Loading weights:  98%|█████████▊| 195/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.output.LayerNorm.weight]Loading weights:  98%|█████████▊| 195/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.output.LayerNorm.weight]Loading weights:  98%|█████████▊| 196/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.output.dense.bias]      Loading weights:  98%|█████████▊| 196/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.output.dense.bias]Loading weights:  99%|█████████▉| 197/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.output.dense.weight]Loading weights:  99%|█████████▉| 197/199 [00:00<00:00, 96.54it/s, Materializing param=encoder.layer.11.output.dense.weight]Loading weights:  99%|█████████▉| 198/199 [00:00<00:00, 96.54it/s, Materializing param=pooler.dense.bias]                   Loading weights:  99%|█████████▉| 198/199 [00:00<00:00, 96.54it/s, Materializing param=pooler.dense.bias]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 96.54it/s, Materializing param=pooler.dense.weight]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 96.54it/s, Materializing param=pooler.dense.weight]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 610.78it/s, Materializing param=pooler.dense.weight]
+BertModel LOAD REPORT from: /public_hw/share/cit_ztyu/cz/Search-R1/models/e5-base-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED	:can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+INFO:     Started server process [1543650]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+
+[Batch Start] Processing 1 queries...
+  [Encode Detail] Batch: 1, Total: 0.6736s
+  --> Tokenize: 3.63ms | ToGPU: 0.42ms | Inference: 668.63ms | ToCPU: 0.24ms
+--------------------------------------------------
+Batch Summary (Queries: 1)
+  Total Encode: 0.6738s
+  Total Search: 0.1528s
+  Total DocLoad: 0.0010s
+--------------------------------------------------
+[API] Total Request Time: 0.8277s
+INFO:     127.0.0.1:37002 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 226 queries...
+  [Encode Detail] Batch: 226, Total: 1.0366s
+  --> Tokenize: 149.72ms | ToGPU: 58.29ms | Inference: 815.87ms | ToCPU: 10.32ms
+--------------------------------------------------
+Batch Summary (Queries: 226)
+  Total Encode: 1.0718s
+  Total Search: 0.0706s
+  Total DocLoad: 1.9981s
+--------------------------------------------------
+[API] Total Request Time: 3.1506s
+INFO:     127.0.0.1:52254 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 22 queries...
+  [Encode Detail] Batch: 22, Total: 0.0742s
+  --> Tokenize: 3.11ms | ToGPU: 0.66ms | Inference: 69.42ms | ToCPU: 0.39ms
+--------------------------------------------------
+Batch Summary (Queries: 22)
+  Total Encode: 0.0744s
+  Total Search: 0.0174s
+  Total DocLoad: 0.1393s
+--------------------------------------------------
+[API] Total Request Time: 0.2317s
+INFO:     127.0.0.1:46498 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 212 queries...
+  [Encode Detail] Batch: 212, Total: 0.7170s
+  --> Tokenize: 572.41ms | ToGPU: 16.40ms | Inference: 100.29ms | ToCPU: 26.15ms
+--------------------------------------------------
+Batch Summary (Queries: 212)
+  Total Encode: 0.7173s
+  Total Search: 0.0365s
+  Total DocLoad: 2.6441s
+--------------------------------------------------
+[API] Total Request Time: 3.4004s
+INFO:     127.0.0.1:55158 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 18 queries...
+  [Encode Detail] Batch: 18, Total: 0.0837s
+  --> Tokenize: 3.58ms | ToGPU: 0.91ms | Inference: 78.24ms | ToCPU: 0.33ms
+--------------------------------------------------
+Batch Summary (Queries: 18)
+  Total Encode: 0.0839s
+  Total Search: 0.0466s
+  Total DocLoad: 0.1668s
+--------------------------------------------------
+[API] Total Request Time: 0.2980s
+INFO:     127.0.0.1:58648 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 222 queries...
+  [Encode Detail] Batch: 222, Total: 0.0582s
+  --> Tokenize: 36.03ms | ToGPU: 1.73ms | Inference: 18.05ms | ToCPU: 1.40ms
+--------------------------------------------------
+Batch Summary (Queries: 222)
+  Total Encode: 0.0583s
+  Total Search: 0.0557s
+  Total DocLoad: 2.8811s
+--------------------------------------------------
+[API] Total Request Time: 3.0336s
+INFO:     127.0.0.1:46178 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 26 queries...
+  [Encode Detail] Batch: 26, Total: 0.3401s
+  --> Tokenize: 79.21ms | ToGPU: 74.79ms | Inference: 184.91ms | ToCPU: 0.55ms
+--------------------------------------------------
+Batch Summary (Queries: 26)
+  Total Encode: 0.3661s
+  Total Search: 0.0713s
+  Total DocLoad: 0.2704s
+--------------------------------------------------
+[API] Total Request Time: 0.7086s
+INFO:     127.0.0.1:49058 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 217 queries...
+  [Encode Detail] Batch: 217, Total: 0.0807s
+  --> Tokenize: 58.08ms | ToGPU: 1.88ms | Inference: 18.06ms | ToCPU: 1.30ms
+--------------------------------------------------
+Batch Summary (Queries: 217)
+  Total Encode: 0.0809s
+  Total Search: 0.0433s
+  Total DocLoad: 2.4248s
+--------------------------------------------------
+[API] Total Request Time: 2.5516s
+INFO:     127.0.0.1:57250 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 30 queries...
+--------------------------------------------------
+Batch Summary (Queries: 30)
+  Total Encode: 0.0248s
+  Total Search: 0.0178s
+  Total DocLoad: 0.2776s
+--------------------------------------------------
+[API] Total Request Time: 0.3209s
+INFO:     127.0.0.1:37218 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 225 queries...
+  [Encode Detail] Batch: 225, Total: 0.0655s
+  --> Tokenize: 46.02ms | ToGPU: 1.54ms | Inference: 15.63ms | ToCPU: 1.07ms
+--------------------------------------------------
+Batch Summary (Queries: 225)
+  Total Encode: 0.0656s
+  Total Search: 0.0547s
+  Total DocLoad: 2.7506s
+--------------------------------------------------
+[API] Total Request Time: 2.8734s
+INFO:     127.0.0.1:51130 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 18 queries...
+  [Encode Detail] Batch: 18, Total: 0.1743s
+  --> Tokenize: 35.86ms | ToGPU: 21.03ms | Inference: 92.31ms | ToCPU: 24.42ms
+--------------------------------------------------
+Batch Summary (Queries: 18)
+  Total Encode: 0.1746s
+  Total Search: 0.0472s
+  Total DocLoad: 0.1150s
+--------------------------------------------------
+[API] Total Request Time: 0.3375s
+INFO:     127.0.0.1:56186 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 216 queries...
+  [Encode Detail] Batch: 216, Total: 0.0690s
+  --> Tokenize: 49.06ms | ToGPU: 1.50ms | Inference: 16.17ms | ToCPU: 0.99ms
+--------------------------------------------------
+Batch Summary (Queries: 216)
+  Total Encode: 0.0691s
+  Total Search: 0.0447s
+  Total DocLoad: 2.3565s
+--------------------------------------------------
+[API] Total Request Time: 2.4724s
+INFO:     127.0.0.1:39326 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 13 queries...
+  [Encode Detail] Batch: 13, Total: 0.0783s
+  --> Tokenize: 4.38ms | ToGPU: 0.60ms | Inference: 72.65ms | ToCPU: 0.32ms
+--------------------------------------------------
+Batch Summary (Queries: 13)
+  Total Encode: 0.0785s
+  Total Search: 0.0120s
+  Total DocLoad: 0.0425s
+--------------------------------------------------
+[API] Total Request Time: 0.1340s
+INFO:     127.0.0.1:33544 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 222 queries...
+  [Encode Detail] Batch: 222, Total: 0.0771s
+  --> Tokenize: 54.21ms | ToGPU: 1.84ms | Inference: 18.58ms | ToCPU: 1.22ms
+--------------------------------------------------
+Batch Summary (Queries: 222)
+  Total Encode: 0.0773s
+  Total Search: 0.0408s
+  Total DocLoad: 2.1871s
+--------------------------------------------------
+[API] Total Request Time: 2.3075s
+INFO:     127.0.0.1:44864 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 23 queries...
+--------------------------------------------------
+Batch Summary (Queries: 23)
+  Total Encode: 0.0277s
+  Total Search: 0.0267s
+  Total DocLoad: 0.1245s
+--------------------------------------------------
+[API] Total Request Time: 0.1796s
+INFO:     127.0.0.1:53396 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 227 queries...
+  [Encode Detail] Batch: 227, Total: 0.1282s
+  --> Tokenize: 99.51ms | ToGPU: 2.80ms | Inference: 23.12ms | ToCPU: 1.30ms
+--------------------------------------------------
+Batch Summary (Queries: 227)
+  Total Encode: 0.1284s
+  Total Search: 0.0389s
+  Total DocLoad: 2.4572s
+--------------------------------------------------
+[API] Total Request Time: 2.6267s
+INFO:     127.0.0.1:48914 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 21 queries...
+  [Encode Detail] Batch: 21, Total: 0.0854s
+  --> Tokenize: 4.75ms | ToGPU: 0.61ms | Inference: 78.79ms | ToCPU: 0.42ms
+--------------------------------------------------
+Batch Summary (Queries: 21)
+  Total Encode: 0.0856s
+  Total Search: 0.0363s
+  Total DocLoad: 0.0815s
+--------------------------------------------------
+[API] Total Request Time: 0.2040s
+INFO:     127.0.0.1:51882 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 225 queries...
+  [Encode Detail] Batch: 225, Total: 0.0764s
+  --> Tokenize: 54.97ms | ToGPU: 1.78ms | Inference: 17.22ms | ToCPU: 1.05ms
+--------------------------------------------------
+Batch Summary (Queries: 225)
+  Total Encode: 0.0766s
+  Total Search: 0.0251s
+  Total DocLoad: 2.3737s
+--------------------------------------------------
+[API] Total Request Time: 2.4774s
+INFO:     127.0.0.1:60212 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 23 queries...
+--------------------------------------------------
+Batch Summary (Queries: 23)
+  Total Encode: 0.0233s
+  Total Search: 0.0196s
+  Total DocLoad: 0.2036s
+--------------------------------------------------
+[API] Total Request Time: 0.2472s
+INFO:     127.0.0.1:52820 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 225 queries...
+  [Encode Detail] Batch: 225, Total: 0.0652s
+  --> Tokenize: 44.69ms | ToGPU: 1.47ms | Inference: 16.82ms | ToCPU: 1.28ms
+--------------------------------------------------
+Batch Summary (Queries: 225)
+  Total Encode: 0.0653s
+  Total Search: 0.0373s
+  Total DocLoad: 2.7101s
+--------------------------------------------------
+[API] Total Request Time: 2.8136s
+INFO:     127.0.0.1:60914 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 23 queries...
+  [Encode Detail] Batch: 23, Total: 0.0815s
+  --> Tokenize: 3.51ms | ToGPU: 15.89ms | Inference: 61.11ms | ToCPU: 0.37ms
+--------------------------------------------------
+Batch Summary (Queries: 23)
+  Total Encode: 0.0817s
+  Total Search: 0.0385s
+  Total DocLoad: 0.0672s
+--------------------------------------------------
+[API] Total Request Time: 0.1882s
+INFO:     127.0.0.1:49298 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 214 queries...
+  [Encode Detail] Batch: 214, Total: 0.0746s
+  --> Tokenize: 53.28ms | ToGPU: 1.70ms | Inference: 17.42ms | ToCPU: 0.96ms
+--------------------------------------------------
+Batch Summary (Queries: 214)
+  Total Encode: 0.0748s
+  Total Search: 0.0450s
+  Total DocLoad: 2.1482s
+--------------------------------------------------
+[API] Total Request Time: 2.2699s
+INFO:     127.0.0.1:57178 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 21 queries...
+--------------------------------------------------
+Batch Summary (Queries: 21)
+  Total Encode: 0.0256s
+  Total Search: 0.0198s
+  Total DocLoad: 0.1418s
+--------------------------------------------------
+[API] Total Request Time: 0.1879s
+INFO:     127.0.0.1:56344 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 225 queries...
+  [Encode Detail] Batch: 225, Total: 0.0787s
+  --> Tokenize: 56.32ms | ToGPU: 1.70ms | Inference: 18.24ms | ToCPU: 1.15ms
+--------------------------------------------------
+Batch Summary (Queries: 225)
+  Total Encode: 0.0788s
+  Total Search: 0.0475s
+  Total DocLoad: 2.4495s
+--------------------------------------------------
+[API] Total Request Time: 2.5780s
+INFO:     127.0.0.1:37498 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 14 queries...
+  [Encode Detail] Batch: 14, Total: 0.1264s
+  --> Tokenize: 18.65ms | ToGPU: 0.59ms | Inference: 71.49ms | ToCPU: 0.30ms
+--------------------------------------------------
+Batch Summary (Queries: 14)
+  Total Encode: 0.1266s
+  Total Search: 0.0086s
+  Total DocLoad: 0.1552s
+--------------------------------------------------
+[API] Total Request Time: 0.2930s
+INFO:     127.0.0.1:55958 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 225 queries...
+  [Encode Detail] Batch: 225, Total: 0.0709s
+  --> Tokenize: 50.15ms | ToGPU: 1.47ms | Inference: 17.06ms | ToCPU: 1.29ms
+--------------------------------------------------
+Batch Summary (Queries: 225)
+  Total Encode: 0.0710s
+  Total Search: 0.0614s
+  Total DocLoad: 2.4219s
+--------------------------------------------------
+[API] Total Request Time: 2.5606s
+INFO:     127.0.0.1:54084 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 20 queries...
+  [Encode Detail] Batch: 20, Total: 0.0776s
+  --> Tokenize: 7.05ms | ToGPU: 0.63ms | Inference: 68.94ms | ToCPU: 0.42ms
+--------------------------------------------------
+Batch Summary (Queries: 20)
+  Total Encode: 0.0778s
+  Total Search: 0.0369s
+  Total DocLoad: 0.0590s
+--------------------------------------------------
+[API] Total Request Time: 0.1742s
+INFO:     127.0.0.1:53816 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 221 queries...
+--------------------------------------------------
+Batch Summary (Queries: 221)
+  Total Encode: 0.0500s
+  Total Search: 0.0276s
+  Total DocLoad: 2.4343s
+--------------------------------------------------
+[API] Total Request Time: 2.5134s
+INFO:     127.0.0.1:53418 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 31 queries...
+--------------------------------------------------
+Batch Summary (Queries: 31)
+  Total Encode: 0.0385s
+  Total Search: 0.0351s
+  Total DocLoad: 0.1937s
+--------------------------------------------------
+[API] Total Request Time: 0.2703s
+INFO:     127.0.0.1:57194 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 219 queries...
+  [Encode Detail] Batch: 219, Total: 0.1218s
+  --> Tokenize: 87.68ms | ToGPU: 2.64ms | Inference: 29.15ms | ToCPU: 0.84ms
+--------------------------------------------------
+Batch Summary (Queries: 219)
+  Total Encode: 0.1220s
+  Total Search: 0.0237s
+  Total DocLoad: 2.3971s
+--------------------------------------------------
+[API] Total Request Time: 2.5456s
+INFO:     127.0.0.1:44470 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 15 queries...
+  [Encode Detail] Batch: 15, Total: 0.1087s
+  --> Tokenize: 4.99ms | ToGPU: 0.83ms | Inference: 102.09ms | ToCPU: 0.39ms
+--------------------------------------------------
+Batch Summary (Queries: 15)
+  Total Encode: 0.1090s
+  Total Search: 0.0418s
+  Total DocLoad: 0.1673s
+--------------------------------------------------
+[API] Total Request Time: 0.3187s
+INFO:     127.0.0.1:54410 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 217 queries...
+  [Encode Detail] Batch: 217, Total: 0.1132s
+  --> Tokenize: 82.51ms | ToGPU: 2.88ms | Inference: 25.18ms | ToCPU: 1.01ms
+--------------------------------------------------
+Batch Summary (Queries: 217)
+  Total Encode: 0.1134s
+  Total Search: 0.0416s
+  Total DocLoad: 2.7137s
+--------------------------------------------------
+[API] Total Request Time: 2.8716s
+INFO:     127.0.0.1:37930 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 14 queries...
+  [Encode Detail] Batch: 14, Total: 0.0800s
+  --> Tokenize: 4.76ms | ToGPU: 26.70ms | Inference: 47.85ms | ToCPU: 0.31ms
+--------------------------------------------------
+Batch Summary (Queries: 14)
+  Total Encode: 0.0802s
+  Total Search: 0.0206s
+  Total DocLoad: 0.0839s
+--------------------------------------------------
+[API] Total Request Time: 0.1853s
+INFO:     127.0.0.1:52572 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 213 queries...
+  [Encode Detail] Batch: 213, Total: 0.1066s
+  --> Tokenize: 81.70ms | ToGPU: 2.19ms | Inference: 20.18ms | ToCPU: 1.19ms
+--------------------------------------------------
+Batch Summary (Queries: 213)
+  Total Encode: 0.1067s
+  Total Search: 0.0318s
+  Total DocLoad: 2.2838s
+--------------------------------------------------
+[API] Total Request Time: 2.4244s
+INFO:     127.0.0.1:46108 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 17 queries...
+--------------------------------------------------
+Batch Summary (Queries: 17)
+  Total Encode: 0.0300s
+  Total Search: 0.0325s
+  Total DocLoad: 0.1102s
+--------------------------------------------------
+[API] Total Request Time: 0.1733s
+INFO:     127.0.0.1:49420 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 232 queries...
+  [Encode Detail] Batch: 232, Total: 0.6648s
+  --> Tokenize: 75.92ms | ToGPU: 138.85ms | Inference: 445.52ms | ToCPU: 2.03ms
+--------------------------------------------------
+Batch Summary (Queries: 232)
+  Total Encode: 0.6649s
+  Total Search: 0.0381s
+  Total DocLoad: 2.8164s
+--------------------------------------------------
+[API] Total Request Time: 3.7081s
+INFO:     127.0.0.1:47260 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 22 queries...
+  [Encode Detail] Batch: 22, Total: 0.1123s
+  --> Tokenize: 21.06ms | ToGPU: 0.60ms | Inference: 89.49ms | ToCPU: 0.44ms
+--------------------------------------------------
+Batch Summary (Queries: 22)
+  Total Encode: 0.1125s
+  Total Search: 0.0322s
+  Total DocLoad: 0.1762s
+--------------------------------------------------
+[API] Total Request Time: 0.3216s
+INFO:     127.0.0.1:33416 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 233 queries...
+  [Encode Detail] Batch: 233, Total: 0.0682s
+  --> Tokenize: 47.67ms | ToGPU: 1.74ms | Inference: 16.34ms | ToCPU: 1.15ms
+--------------------------------------------------
+Batch Summary (Queries: 233)
+  Total Encode: 0.0684s
+  Total Search: 0.0476s
+  Total DocLoad: 2.6641s
+--------------------------------------------------
+[API] Total Request Time: 2.7821s
+INFO:     127.0.0.1:43690 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 20 queries...
+--------------------------------------------------
+Batch Summary (Queries: 20)
+  Total Encode: 0.0229s
+  Total Search: 0.0297s
+  Total DocLoad: 0.2017s
+--------------------------------------------------
+[API] Total Request Time: 0.2548s
+INFO:     127.0.0.1:42148 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 216 queries...
+  [Encode Detail] Batch: 216, Total: 0.5040s
+  --> Tokenize: 82.26ms | ToGPU: 2.04ms | Inference: 415.92ms | ToCPU: 1.73ms
+--------------------------------------------------
+Batch Summary (Queries: 216)
+  Total Encode: 0.5041s
+  Total Search: 0.0438s
+  Total DocLoad: 2.7113s
+--------------------------------------------------
+[API] Total Request Time: 3.4112s
+INFO:     127.0.0.1:41214 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 24 queries...
+  [Encode Detail] Batch: 24, Total: 0.1617s
+  --> Tokenize: 48.60ms | ToGPU: 19.86ms | Inference: 92.41ms | ToCPU: 0.40ms
+--------------------------------------------------
+Batch Summary (Queries: 24)
+  Total Encode: 0.1618s
+  Total Search: 0.0082s
+  Total DocLoad: 0.1228s
+--------------------------------------------------
+[API] Total Request Time: 0.2930s
+INFO:     127.0.0.1:41800 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 227 queries...
+  [Encode Detail] Batch: 227, Total: 0.0585s
+  --> Tokenize: 36.41ms | ToGPU: 1.54ms | Inference: 18.49ms | ToCPU: 1.55ms
+--------------------------------------------------
+Batch Summary (Queries: 227)
+  Total Encode: 0.0586s
+  Total Search: 0.0256s
+  Total DocLoad: 2.5760s
+--------------------------------------------------
+[API] Total Request Time: 2.6616s
+INFO:     127.0.0.1:45214 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 20 queries...
+--------------------------------------------------
+Batch Summary (Queries: 20)
+  Total Encode: 0.0262s
+  Total Search: 0.0293s
+  Total DocLoad: 0.1505s
+--------------------------------------------------
+[API] Total Request Time: 0.2067s
+INFO:     127.0.0.1:51116 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 226 queries...
+  [Encode Detail] Batch: 226, Total: 0.0575s
+  --> Tokenize: 36.61ms | ToGPU: 1.59ms | Inference: 17.17ms | ToCPU: 1.32ms
+--------------------------------------------------
+Batch Summary (Queries: 226)
+  Total Encode: 0.0577s
+  Total Search: 0.0568s
+  Total DocLoad: 2.6956s
+--------------------------------------------------
+[API] Total Request Time: 2.8594s
+INFO:     127.0.0.1:52030 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 31 queries...
+  [Encode Detail] Batch: 31, Total: 0.1217s
+  --> Tokenize: 35.44ms | ToGPU: 20.88ms | Inference: 64.34ms | ToCPU: 0.45ms
+--------------------------------------------------
+Batch Summary (Queries: 31)
+  Total Encode: 0.1218s
+  Total Search: 0.0132s
+  Total DocLoad: 0.2131s
+--------------------------------------------------
+[API] Total Request Time: 0.3492s
+INFO:     127.0.0.1:57828 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 213 queries...
+  [Encode Detail] Batch: 213, Total: 0.0919s
+  --> Tokenize: 66.37ms | ToGPU: 1.92ms | Inference: 20.69ms | ToCPU: 0.94ms
+--------------------------------------------------
+Batch Summary (Queries: 213)
+  Total Encode: 0.0921s
+  Total Search: 0.0360s
+  Total DocLoad: 2.3758s
+--------------------------------------------------
+[API] Total Request Time: 2.5064s
+INFO:     127.0.0.1:58968 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 22 queries...
+--------------------------------------------------
+Batch Summary (Queries: 22)
+  Total Encode: 0.0292s
+  Total Search: 0.0444s
+  Total DocLoad: 0.2147s
+--------------------------------------------------
+[API] Total Request Time: 0.2889s
+INFO:     127.0.0.1:49780 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 219 queries...
+  [Encode Detail] Batch: 219, Total: 0.1473s
+  --> Tokenize: 105.80ms | ToGPU: 3.18ms | Inference: 35.26ms | ToCPU: 1.14ms
+--------------------------------------------------
+Batch Summary (Queries: 219)
+  Total Encode: 0.1475s
+  Total Search: 0.0396s
+  Total DocLoad: 2.4483s
+--------------------------------------------------
+[API] Total Request Time: 2.6384s
+INFO:     127.0.0.1:50248 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 19 queries...
+  [Encode Detail] Batch: 19, Total: 0.0899s
+  --> Tokenize: 15.50ms | ToGPU: 10.57ms | Inference: 50.28ms | ToCPU: 12.92ms
+--------------------------------------------------
+Batch Summary (Queries: 19)
+  Total Encode: 0.0961s
+  Total Search: 0.0308s
+  Total DocLoad: 0.1047s
+--------------------------------------------------
+[API] Total Request Time: 0.2322s
+INFO:     127.0.0.1:34214 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 220 queries...
+--------------------------------------------------
+Batch Summary (Queries: 220)
+  Total Encode: 0.0475s
+  Total Search: 0.0570s
+  Total DocLoad: 3.1402s
+--------------------------------------------------
+[API] Total Request Time: 3.2461s
+INFO:     127.0.0.1:46852 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 23 queries...
+--------------------------------------------------
+Batch Summary (Queries: 23)
+  Total Encode: 0.0489s
+  Total Search: 0.0222s
+  Total DocLoad: 0.1583s
+--------------------------------------------------
+[API] Total Request Time: 0.2301s
+INFO:     127.0.0.1:51912 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 213 queries...
+  [Encode Detail] Batch: 213, Total: 0.0930s
+  --> Tokenize: 71.16ms | ToGPU: 1.96ms | Inference: 17.40ms | ToCPU: 1.10ms
+--------------------------------------------------
+Batch Summary (Queries: 213)
+  Total Encode: 0.0931s
+  Total Search: 0.0263s
+  Total DocLoad: 2.5678s
+--------------------------------------------------
+[API] Total Request Time: 2.6892s
+INFO:     127.0.0.1:51150 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 24 queries...
+  [Encode Detail] Batch: 24, Total: 0.1590s
+  --> Tokenize: 5.43ms | ToGPU: 18.54ms | Inference: 120.97ms | ToCPU: 13.37ms
+--------------------------------------------------
+Batch Summary (Queries: 24)
+  Total Encode: 0.1757s
+  Total Search: 0.0243s
+  Total DocLoad: 0.2194s
+--------------------------------------------------
+[API] Total Request Time: 0.4200s
+INFO:     127.0.0.1:44236 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 215 queries...
+  [Encode Detail] Batch: 215, Total: 0.0665s
+  --> Tokenize: 44.94ms | ToGPU: 1.70ms | Inference: 17.57ms | ToCPU: 1.09ms
+--------------------------------------------------
+Batch Summary (Queries: 215)
+  Total Encode: 0.0668s
+  Total Search: 0.0399s
+  Total DocLoad: 2.9254s
+--------------------------------------------------
+[API] Total Request Time: 3.0340s
+INFO:     127.0.0.1:52154 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 22 queries...
+--------------------------------------------------
+Batch Summary (Queries: 22)
+  Total Encode: 0.0401s
+  Total Search: 0.0092s
+  Total DocLoad: 0.2029s
+--------------------------------------------------
+[API] Total Request Time: 0.2530s
+INFO:     127.0.0.1:48794 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 225 queries...
+--------------------------------------------------
+Batch Summary (Queries: 225)
+  Total Encode: 0.0468s
+  Total Search: 0.0587s
+  Total DocLoad: 2.7686s
+--------------------------------------------------
+[API] Total Request Time: 2.8756s
+INFO:     127.0.0.1:53104 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 27 queries...
+  [Encode Detail] Batch: 27, Total: 0.1090s
+  --> Tokenize: 19.68ms | ToGPU: 44.47ms | Inference: 44.27ms | ToCPU: 0.28ms
+--------------------------------------------------
+Batch Summary (Queries: 27)
+  Total Encode: 0.1091s
+  Total Search: 0.0226s
+  Total DocLoad: 0.2287s
+--------------------------------------------------
+[API] Total Request Time: 0.3606s
+INFO:     127.0.0.1:37084 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 216 queries...
+  [Encode Detail] Batch: 216, Total: 0.0568s
+  --> Tokenize: 38.40ms | ToGPU: 1.68ms | Inference: 14.70ms | ToCPU: 0.99ms
+--------------------------------------------------
+Batch Summary (Queries: 216)
+  Total Encode: 0.0570s
+  Total Search: 0.0277s
+  Total DocLoad: 2.5842s
+--------------------------------------------------
+[API] Total Request Time: 2.6706s
+INFO:     127.0.0.1:45088 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 31 queries...
+--------------------------------------------------
+Batch Summary (Queries: 31)
+  Total Encode: 0.0240s
+  Total Search: 0.0205s
+  Total DocLoad: 0.2865s
+--------------------------------------------------
+[API] Total Request Time: 0.4295s
+INFO:     127.0.0.1:35380 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 228 queries...
+  [Encode Detail] Batch: 228, Total: 0.1621s
+  --> Tokenize: 122.05ms | ToGPU: 3.06ms | Inference: 34.34ms | ToCPU: 1.11ms
+--------------------------------------------------
+Batch Summary (Queries: 228)
+  Total Encode: 0.1624s
+  Total Search: 0.0488s
+  Total DocLoad: 2.4713s
+--------------------------------------------------
+[API] Total Request Time: 2.7069s
+INFO:     127.0.0.1:49812 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 18 queries...
+  [Encode Detail] Batch: 18, Total: 0.1219s
+  --> Tokenize: 14.11ms | ToGPU: 1.31ms | Inference: 105.62ms | ToCPU: 0.43ms
+--------------------------------------------------
+Batch Summary (Queries: 18)
+  Total Encode: 0.1222s
+  Total Search: 0.0373s
+  Total DocLoad: 0.1165s
+--------------------------------------------------
+[API] Total Request Time: 0.2767s
+INFO:     127.0.0.1:36182 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 231 queries...
+  [Encode Detail] Batch: 231, Total: 0.1084s
+  --> Tokenize: 76.31ms | ToGPU: 3.05ms | Inference: 24.83ms | ToCPU: 1.40ms
+--------------------------------------------------
+Batch Summary (Queries: 231)
+  Total Encode: 0.1086s
+  Total Search: 0.0436s
+  Total DocLoad: 2.5403s
+--------------------------------------------------
+[API] Total Request Time: 2.6948s
+INFO:     127.0.0.1:39296 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 21 queries...
+--------------------------------------------------
+Batch Summary (Queries: 21)
+  Total Encode: 0.0236s
+  Total Search: 0.0335s
+  Total DocLoad: 0.2050s
+--------------------------------------------------
+[API] Total Request Time: 0.2674s
+INFO:     127.0.0.1:40386 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 221 queries...
+  [Encode Detail] Batch: 221, Total: 0.2762s
+  --> Tokenize: 72.38ms | ToGPU: 55.09ms | Inference: 139.88ms | ToCPU: 8.33ms
+--------------------------------------------------
+Batch Summary (Queries: 221)
+  Total Encode: 0.3128s
+  Total Search: 0.0748s
+  Total DocLoad: 3.1614s
+--------------------------------------------------
+[API] Total Request Time: 3.5792s
+INFO:     127.0.0.1:45798 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 22 queries...
+  [Encode Detail] Batch: 22, Total: 0.2705s
+  --> Tokenize: 58.73ms | ToGPU: 61.06ms | Inference: 142.23ms | ToCPU: 7.72ms
+--------------------------------------------------
+Batch Summary (Queries: 22)
+  Total Encode: 0.3059s
+  Total Search: 0.0889s
+  Total DocLoad: 0.4165s
+--------------------------------------------------
+[API] Total Request Time: 0.8131s
+INFO:     127.0.0.1:59980 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 224 queries...
+  [Encode Detail] Batch: 224, Total: 0.6609s
+  --> Tokenize: 105.46ms | ToGPU: 56.28ms | Inference: 488.69ms | ToCPU: 8.38ms
+--------------------------------------------------
+Batch Summary (Queries: 224)
+  Total Encode: 0.7003s
+  Total Search: 0.0586s
+  Total DocLoad: 1.9802s
+--------------------------------------------------
+[API] Total Request Time: 2.7435s
+INFO:     127.0.0.1:45802 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 21 queries...
+--------------------------------------------------
+Batch Summary (Queries: 21)
+  Total Encode: 0.0245s
+  Total Search: 0.0270s
+  Total DocLoad: 0.1280s
+--------------------------------------------------
+[API] Total Request Time: 0.1798s
+INFO:     127.0.0.1:56356 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 221 queries...
+  [Encode Detail] Batch: 221, Total: 0.1033s
+  --> Tokenize: 71.83ms | ToGPU: 3.27ms | Inference: 25.89ms | ToCPU: 0.93ms
+--------------------------------------------------
+Batch Summary (Queries: 221)
+  Total Encode: 0.1035s
+  Total Search: 0.0439s
+  Total DocLoad: 3.2138s
+--------------------------------------------------
+[API] Total Request Time: 3.3654s
+INFO:     127.0.0.1:36700 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 32 queries...
+  [Encode Detail] Batch: 32, Total: 0.1690s
+  --> Tokenize: 36.81ms | ToGPU: 1.26ms | Inference: 106.50ms | ToCPU: 23.99ms
+--------------------------------------------------
+Batch Summary (Queries: 32)
+  Total Encode: 0.2025s
+  Total Search: 0.0256s
+  Total DocLoad: 0.2137s
+--------------------------------------------------
+[API] Total Request Time: 0.4421s
+INFO:     127.0.0.1:40798 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 220 queries...
+--------------------------------------------------
+Batch Summary (Queries: 220)
+  Total Encode: 0.0387s
+  Total Search: 0.0488s
+  Total DocLoad: 2.5933s
+--------------------------------------------------
+[API] Total Request Time: 2.6829s
+INFO:     127.0.0.1:53330 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 28 queries...
+--------------------------------------------------
+Batch Summary (Queries: 28)
+  Total Encode: 0.0283s
+  Total Search: 0.0194s
+  Total DocLoad: 0.3712s
+--------------------------------------------------
+[API] Total Request Time: 0.4200s
+INFO:     127.0.0.1:42694 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 208 queries...
+  [Encode Detail] Batch: 208, Total: 0.0763s
+  --> Tokenize: 54.51ms | ToGPU: 1.81ms | Inference: 17.72ms | ToCPU: 0.98ms
+--------------------------------------------------
+Batch Summary (Queries: 208)
+  Total Encode: 0.0765s
+  Total Search: 0.0409s
+  Total DocLoad: 2.4219s
+--------------------------------------------------
+[API] Total Request Time: 2.5418s
+INFO:     127.0.0.1:59652 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 22 queries...
+--------------------------------------------------
+Batch Summary (Queries: 22)
+  Total Encode: 0.0202s
+  Total Search: 0.0210s
+  Total DocLoad: 0.2375s
+--------------------------------------------------
+[API] Total Request Time: 0.2794s
+INFO:     127.0.0.1:53202 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 218 queries...
+  [Encode Detail] Batch: 218, Total: 0.0504s
+  --> Tokenize: 30.13ms | ToGPU: 1.51ms | Inference: 16.81ms | ToCPU: 1.20ms
+--------------------------------------------------
+Batch Summary (Queries: 218)
+  Total Encode: 0.0506s
+  Total Search: 0.0445s
+  Total DocLoad: 2.4485s
+--------------------------------------------------
+[API] Total Request Time: 2.5447s
+INFO:     127.0.0.1:55180 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 13 queries...
+  [Encode Detail] Batch: 13, Total: 0.1770s
+  --> Tokenize: 3.40ms | ToGPU: 0.94ms | Inference: 171.80ms | ToCPU: 0.39ms
+--------------------------------------------------
+Batch Summary (Queries: 13)
+  Total Encode: 0.1772s
+  Total Search: 0.0400s
+  Total DocLoad: 0.0881s
+--------------------------------------------------
+[API] Total Request Time: 0.3061s
+INFO:     127.0.0.1:56902 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 219 queries...
+  [Encode Detail] Batch: 219, Total: 0.0651s
+  --> Tokenize: 45.52ms | ToGPU: 1.76ms | Inference: 15.53ms | ToCPU: 1.19ms
+--------------------------------------------------
+Batch Summary (Queries: 219)
+  Total Encode: 0.0653s
+  Total Search: 0.0618s
+  Total DocLoad: 2.3781s
+--------------------------------------------------
+[API] Total Request Time: 2.5071s
+INFO:     127.0.0.1:43976 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 17 queries...
+--------------------------------------------------
+Batch Summary (Queries: 17)
+  Total Encode: 0.0459s
+  Total Search: 0.0455s
+  Total DocLoad: 0.1292s
+--------------------------------------------------
+[API] Total Request Time: 0.2209s
+INFO:     127.0.0.1:52846 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 214 queries...
+  [Encode Detail] Batch: 214, Total: 0.1091s
+  --> Tokenize: 75.96ms | ToGPU: 2.84ms | Inference: 28.11ms | ToCPU: 0.82ms
+--------------------------------------------------
+Batch Summary (Queries: 214)
+  Total Encode: 0.1093s
+  Total Search: 0.0579s
+  Total DocLoad: 2.2993s
+--------------------------------------------------
+[API] Total Request Time: 2.4688s
+INFO:     127.0.0.1:57950 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 16 queries...
+--------------------------------------------------
+Batch Summary (Queries: 16)
+  Total Encode: 0.0234s
+  Total Search: 0.0215s
+  Total DocLoad: 0.1081s
+--------------------------------------------------
+[API] Total Request Time: 0.1539s
+INFO:     127.0.0.1:35560 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 233 queries...
+  [Encode Detail] Batch: 233, Total: 0.0616s
+  --> Tokenize: 36.99ms | ToGPU: 1.60ms | Inference: 21.01ms | ToCPU: 1.54ms
+--------------------------------------------------
+Batch Summary (Queries: 233)
+  Total Encode: 0.0617s
+  Total Search: 0.0627s
+  Total DocLoad: 2.8361s
+--------------------------------------------------
+[API] Total Request Time: 2.9624s
+INFO:     127.0.0.1:58048 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 28 queries...
+--------------------------------------------------
+Batch Summary (Queries: 28)
+  Total Encode: 0.0269s
+  Total Search: 0.0497s
+  Total DocLoad: 0.1914s
+--------------------------------------------------
+[API] Total Request Time: 0.2688s
+INFO:     127.0.0.1:54326 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 224 queries...
+  [Encode Detail] Batch: 224, Total: 0.1030s
+  --> Tokenize: 74.22ms | ToGPU: 2.26ms | Inference: 22.82ms | ToCPU: 1.77ms
+--------------------------------------------------
+Batch Summary (Queries: 224)
+  Total Encode: 0.1031s
+  Total Search: 0.0260s
+  Total DocLoad: 2.7512s
+--------------------------------------------------
+[API] Total Request Time: 2.8878s
+INFO:     127.0.0.1:47238 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 23 queries...
+--------------------------------------------------
+Batch Summary (Queries: 23)
+  Total Encode: 0.0297s
+  Total Search: 0.0242s
+  Total DocLoad: 0.2009s
+--------------------------------------------------
+[API] Total Request Time: 0.2555s
+INFO:     127.0.0.1:55058 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 223 queries...
+  [Encode Detail] Batch: 223, Total: 0.0599s
+  --> Tokenize: 22.04ms | ToGPU: 1.35ms | Inference: 34.16ms | ToCPU: 1.77ms
+--------------------------------------------------
+Batch Summary (Queries: 223)
+  Total Encode: 0.0601s
+  Total Search: 0.0273s
+  Total DocLoad: 2.3702s
+--------------------------------------------------
+[API] Total Request Time: 2.4592s
+INFO:     127.0.0.1:37318 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 20 queries...
+  [Encode Detail] Batch: 20, Total: 0.1294s
+  --> Tokenize: 3.61ms | ToGPU: 0.64ms | Inference: 124.07ms | ToCPU: 0.44ms
+--------------------------------------------------
+Batch Summary (Queries: 20)
+  Total Encode: 0.1296s
+  Total Search: 0.0157s
+  Total DocLoad: 0.1285s
+--------------------------------------------------
+[API] Total Request Time: 0.2745s
+INFO:     127.0.0.1:41336 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 228 queries...
+  [Encode Detail] Batch: 228, Total: 0.0666s
+  --> Tokenize: 42.16ms | ToGPU: 1.63ms | Inference: 20.86ms | ToCPU: 1.48ms
+--------------------------------------------------
+Batch Summary (Queries: 228)
+  Total Encode: 0.0669s
+  Total Search: 0.0513s
+  Total DocLoad: 2.9222s
+--------------------------------------------------
+[API] Total Request Time: 3.0418s
+INFO:     127.0.0.1:51020 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 26 queries...
+--------------------------------------------------
+Batch Summary (Queries: 26)
+  Total Encode: 0.0296s
+  Total Search: 0.0229s
+  Total DocLoad: 0.1448s
+--------------------------------------------------
+[API] Total Request Time: 0.1980s
+INFO:     127.0.0.1:52420 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 218 queries...
+--------------------------------------------------
+Batch Summary (Queries: 218)
+  Total Encode: 0.0431s
+  Total Search: 0.0390s
+  Total DocLoad: 2.3894s
+--------------------------------------------------
+[API] Total Request Time: 2.4730s
+INFO:     127.0.0.1:48524 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 25 queries...
+--------------------------------------------------
+Batch Summary (Queries: 25)
+  Total Encode: 0.0323s
+  Total Search: 0.0264s
+  Total DocLoad: 0.0857s
+--------------------------------------------------
+[API] Total Request Time: 0.1454s
+INFO:     127.0.0.1:44414 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 221 queries...
+  [Encode Detail] Batch: 221, Total: 0.0654s
+  --> Tokenize: 43.64ms | ToGPU: 1.81ms | Inference: 17.44ms | ToCPU: 1.10ms
+--------------------------------------------------
+Batch Summary (Queries: 221)
+  Total Encode: 0.0656s
+  Total Search: 0.0351s
+  Total DocLoad: 3.0344s
+--------------------------------------------------
+[API] Total Request Time: 3.1366s
+INFO:     127.0.0.1:33194 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 31 queries...
+--------------------------------------------------
+Batch Summary (Queries: 31)
+  Total Encode: 0.0271s
+  Total Search: 0.0080s
+  Total DocLoad: 0.2397s
+--------------------------------------------------
+[API] Total Request Time: 0.2754s
+INFO:     127.0.0.1:56494 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 237 queries...
+  [Encode Detail] Batch: 237, Total: 0.0597s
+  --> Tokenize: 23.61ms | ToGPU: 1.75ms | Inference: 31.90ms | ToCPU: 1.90ms
+--------------------------------------------------
+Batch Summary (Queries: 237)
+  Total Encode: 0.0599s
+  Total Search: 0.0766s
+  Total DocLoad: 2.6997s
+--------------------------------------------------
+[API] Total Request Time: 2.8381s
+INFO:     127.0.0.1:41264 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 25 queries...
+--------------------------------------------------
+Batch Summary (Queries: 25)
+  Total Encode: 0.0439s
+  Total Search: 0.0462s
+  Total DocLoad: 0.2032s
+--------------------------------------------------
+[API] Total Request Time: 0.2939s
+INFO:     127.0.0.1:59478 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 232 queries...
+  [Encode Detail] Batch: 232, Total: 0.0933s
+  --> Tokenize: 67.15ms | ToGPU: 2.25ms | Inference: 21.66ms | ToCPU: 0.94ms
+--------------------------------------------------
+Batch Summary (Queries: 232)
+  Total Encode: 0.0934s
+  Total Search: 0.0292s
+  Total DocLoad: 2.8489s
+--------------------------------------------------
+[API] Total Request Time: 2.9736s
+INFO:     127.0.0.1:48122 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 23 queries...
+--------------------------------------------------
+Batch Summary (Queries: 23)
+  Total Encode: 0.0279s
+  Total Search: 0.0200s
+  Total DocLoad: 0.2129s
+--------------------------------------------------
+[API] Total Request Time: 0.2615s
+INFO:     127.0.0.1:42586 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 226 queries...
+  [Encode Detail] Batch: 226, Total: 0.0838s
+  --> Tokenize: 24.72ms | ToGPU: 1.30ms | Inference: 55.54ms | ToCPU: 1.77ms
+--------------------------------------------------
+Batch Summary (Queries: 226)
+  Total Encode: 0.0840s
+  Total Search: 0.0431s
+  Total DocLoad: 2.6018s
+--------------------------------------------------
+[API] Total Request Time: 2.7927s
+INFO:     127.0.0.1:44444 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 29 queries...
+--------------------------------------------------
+Batch Summary (Queries: 29)
+  Total Encode: 0.0424s
+  Total Search: 0.0291s
+  Total DocLoad: 0.2454s
+--------------------------------------------------
+[API] Total Request Time: 0.3172s
+INFO:     127.0.0.1:36708 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 236 queries...
+  [Encode Detail] Batch: 236, Total: 0.0961s
+  --> Tokenize: 73.33ms | ToGPU: 1.83ms | Inference: 18.20ms | ToCPU: 1.35ms
+--------------------------------------------------
+Batch Summary (Queries: 236)
+  Total Encode: 0.0962s
+  Total Search: 0.0438s
+  Total DocLoad: 2.2965s
+--------------------------------------------------
+[API] Total Request Time: 2.4389s
+INFO:     127.0.0.1:53686 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 15 queries...
+  [Encode Detail] Batch: 15, Total: 0.1072s
+  --> Tokenize: 3.08ms | ToGPU: 0.72ms | Inference: 102.63ms | ToCPU: 0.35ms
+--------------------------------------------------
+Batch Summary (Queries: 15)
+  Total Encode: 0.1074s
+  Total Search: 0.0322s
+  Total DocLoad: 0.1617s
+--------------------------------------------------
+[API] Total Request Time: 0.3019s
+INFO:     127.0.0.1:33768 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 236 queries...
+  [Encode Detail] Batch: 236, Total: 0.1413s
+  --> Tokenize: 53.20ms | ToGPU: 2.00ms | Inference: 54.12ms | ToCPU: 1.87ms
+--------------------------------------------------
+Batch Summary (Queries: 236)
+  Total Encode: 0.1414s
+  Total Search: 0.0451s
+  Total DocLoad: 2.7072s
+--------------------------------------------------
+[API] Total Request Time: 2.8958s
+INFO:     127.0.0.1:38624 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 28 queries...
+  [Encode Detail] Batch: 28, Total: 0.0757s
+  --> Tokenize: 38.66ms | ToGPU: 1.00ms | Inference: 34.97ms | ToCPU: 0.42ms
+--------------------------------------------------
+Batch Summary (Queries: 28)
+  Total Encode: 0.0758s
+  Total Search: 0.0305s
+  Total DocLoad: 0.2195s
+--------------------------------------------------
+[API] Total Request Time: 0.3267s
+INFO:     127.0.0.1:46108 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 58 queries...
+--------------------------------------------------
+Batch Summary (Queries: 58)
+  Total Encode: 0.0323s
+  Total Search: 0.0611s
+  Total DocLoad: 1.1498s
+--------------------------------------------------
+[API] Total Request Time: 1.2438s
+INFO:     127.0.0.1:41734 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 4 queries...
+--------------------------------------------------
+Batch Summary (Queries: 4)
+  Total Encode: 0.0263s
+  Total Search: 0.0287s
+  Total DocLoad: 0.0457s
+--------------------------------------------------
+[API] Total Request Time: 0.1008s
+INFO:     127.0.0.1:41742 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.0356s
+  Total Search: 0.0241s
+  Total DocLoad: 1.1857s
+--------------------------------------------------
+[API] Total Request Time: 1.2458s
+INFO:     127.0.0.1:46810 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 3 queries...
+--------------------------------------------------
+Batch Summary (Queries: 3)
+  Total Encode: 0.0296s
+  Total Search: 0.0321s
+  Total DocLoad: 0.0089s
+--------------------------------------------------
+[API] Total Request Time: 0.0707s
+INFO:     127.0.0.1:60226 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0222s
+  Total Search: 0.0358s
+  Total DocLoad: 1.0906s
+--------------------------------------------------
+[API] Total Request Time: 1.1489s
+INFO:     127.0.0.1:59084 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0198s
+  Total Search: 0.0224s
+  Total DocLoad: 0.0224s
+--------------------------------------------------
+[API] Total Request Time: 0.0648s
+INFO:     127.0.0.1:41572 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.0288s
+  Total Search: 0.0111s
+  Total DocLoad: 1.2927s
+--------------------------------------------------
+[API] Total Request Time: 1.3329s
+INFO:     127.0.0.1:57484 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0119s
+  Total Search: 0.0078s
+  Total DocLoad: 0.0353s
+--------------------------------------------------
+[API] Total Request Time: 0.0552s
+INFO:     127.0.0.1:42972 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 56 queries...
+--------------------------------------------------
+Batch Summary (Queries: 56)
+  Total Encode: 0.0403s
+  Total Search: 0.0263s
+  Total DocLoad: 1.0939s
+--------------------------------------------------
+[API] Total Request Time: 1.1608s
+INFO:     127.0.0.1:59750 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0336s
+  Total Search: 0.0144s
+  Total DocLoad: 0.0460s
+--------------------------------------------------
+[API] Total Request Time: 0.0947s
+INFO:     127.0.0.1:39014 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0289s
+  Total Search: 0.0152s
+  Total DocLoad: 1.2665s
+--------------------------------------------------
+[API] Total Request Time: 1.3110s
+INFO:     127.0.0.1:60670 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 9 queries...
+--------------------------------------------------
+Batch Summary (Queries: 9)
+  Total Encode: 0.0220s
+  Total Search: 0.0285s
+  Total DocLoad: 0.0940s
+--------------------------------------------------
+[API] Total Request Time: 0.1451s
+INFO:     127.0.0.1:57208 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 61 queries...
+--------------------------------------------------
+Batch Summary (Queries: 61)
+  Total Encode: 0.0294s
+  Total Search: 0.0229s
+  Total DocLoad: 1.1238s
+--------------------------------------------------
+[API] Total Request Time: 1.1766s
+INFO:     127.0.0.1:57582 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 6 queries...
+--------------------------------------------------
+Batch Summary (Queries: 6)
+  Total Encode: 0.0310s
+  Total Search: 0.0737s
+  Total DocLoad: 0.0880s
+--------------------------------------------------
+[API] Total Request Time: 0.1933s
+INFO:     127.0.0.1:39478 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 58 queries...
+--------------------------------------------------
+Batch Summary (Queries: 58)
+  Total Encode: 0.0328s
+  Total Search: 0.0404s
+  Total DocLoad: 1.1997s
+--------------------------------------------------
+[API] Total Request Time: 1.2740s
+INFO:     127.0.0.1:50242 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 8 queries...
+--------------------------------------------------
+Batch Summary (Queries: 8)
+  Total Encode: 0.0233s
+  Total Search: 0.0181s
+  Total DocLoad: 0.0466s
+--------------------------------------------------
+[API] Total Request Time: 0.0883s
+INFO:     127.0.0.1:55722 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 56 queries...
+--------------------------------------------------
+Batch Summary (Queries: 56)
+  Total Encode: 0.0262s
+  Total Search: 0.0112s
+  Total DocLoad: 1.2263s
+--------------------------------------------------
+[API] Total Request Time: 1.3297s
+INFO:     127.0.0.1:38620 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 2 queries...
+  [Encode Detail] Batch: 2, Total: 0.1749s
+  --> Tokenize: 62.37ms | ToGPU: 29.93ms | Inference: 81.62ms | ToCPU: 0.39ms
+--------------------------------------------------
+Batch Summary (Queries: 2)
+  Total Encode: 0.1949s
+  Total Search: 0.0496s
+  Total DocLoad: 0.0295s
+--------------------------------------------------
+[API] Total Request Time: 0.2742s
+INFO:     127.0.0.1:39028 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0309s
+  Total Search: 0.0205s
+  Total DocLoad: 1.2217s
+--------------------------------------------------
+[API] Total Request Time: 1.2736s
+INFO:     127.0.0.1:33480 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 7 queries...
+--------------------------------------------------
+Batch Summary (Queries: 7)
+  Total Encode: 0.0230s
+  Total Search: 0.0265s
+  Total DocLoad: 0.0315s
+--------------------------------------------------
+[API] Total Request Time: 0.0815s
+INFO:     127.0.0.1:57660 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0326s
+  Total Search: 0.0123s
+  Total DocLoad: 1.1423s
+--------------------------------------------------
+[API] Total Request Time: 1.1875s
+INFO:     127.0.0.1:36242 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 4 queries...
+--------------------------------------------------
+Batch Summary (Queries: 4)
+  Total Encode: 0.0225s
+  Total Search: 0.0339s
+  Total DocLoad: 0.0469s
+--------------------------------------------------
+[API] Total Request Time: 0.1035s
+INFO:     127.0.0.1:51904 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0354s
+  Total Search: 0.0339s
+  Total DocLoad: 1.5401s
+--------------------------------------------------
+[API] Total Request Time: 1.6099s
+INFO:     127.0.0.1:55374 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 4 queries...
+--------------------------------------------------
+Batch Summary (Queries: 4)
+  Total Encode: 0.0395s
+  Total Search: 0.0260s
+  Total DocLoad: 0.0100s
+--------------------------------------------------
+[API] Total Request Time: 0.0888s
+INFO:     127.0.0.1:51770 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.0315s
+  Total Search: 0.0619s
+  Total DocLoad: 1.2635s
+--------------------------------------------------
+[API] Total Request Time: 1.3578s
+INFO:     127.0.0.1:42896 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 7 queries...
+--------------------------------------------------
+Batch Summary (Queries: 7)
+  Total Encode: 0.0221s
+  Total Search: 0.0178s
+  Total DocLoad: 0.1467s
+--------------------------------------------------
+[API] Total Request Time: 0.1909s
+INFO:     127.0.0.1:55306 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 58 queries...
+--------------------------------------------------
+Batch Summary (Queries: 58)
+  Total Encode: 0.0489s
+  Total Search: 0.0426s
+  Total DocLoad: 1.2994s
+--------------------------------------------------
+[API] Total Request Time: 1.3911s
+INFO:     127.0.0.1:47182 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 9 queries...
+--------------------------------------------------
+Batch Summary (Queries: 9)
+  Total Encode: 0.0216s
+  Total Search: 0.0080s
+  Total DocLoad: 0.1198s
+--------------------------------------------------
+[API] Total Request Time: 0.1504s
+INFO:     127.0.0.1:38458 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 56 queries...
+--------------------------------------------------
+Batch Summary (Queries: 56)
+  Total Encode: 0.0499s
+  Total Search: 0.0521s
+  Total DocLoad: 1.1534s
+--------------------------------------------------
+[API] Total Request Time: 1.2561s
+INFO:     127.0.0.1:48862 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 9 queries...
+--------------------------------------------------
+Batch Summary (Queries: 9)
+  Total Encode: 0.0291s
+  Total Search: 0.0287s
+  Total DocLoad: 0.0723s
+--------------------------------------------------
+[API] Total Request Time: 0.1303s
+INFO:     127.0.0.1:35504 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+  [Encode Detail] Batch: 59, Total: 0.0504s
+  --> Tokenize: 4.88ms | ToGPU: 0.53ms | Inference: 44.08ms | ToCPU: 0.53ms
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0506s
+  Total Search: 0.0240s
+  Total DocLoad: 1.3814s
+--------------------------------------------------
+[API] Total Request Time: 1.4564s
+INFO:     127.0.0.1:44740 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 2 queries...
+--------------------------------------------------
+Batch Summary (Queries: 2)
+  Total Encode: 0.0211s
+  Total Search: 0.0244s
+  Total DocLoad: 0.0205s
+--------------------------------------------------
+[API] Total Request Time: 0.0661s
+INFO:     127.0.0.1:55398 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0258s
+  Total Search: 0.0241s
+  Total DocLoad: 1.2552s
+--------------------------------------------------
+[API] Total Request Time: 1.3054s
+INFO:     127.0.0.1:38008 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 4 queries...
+--------------------------------------------------
+Batch Summary (Queries: 4)
+  Total Encode: 0.0203s
+  Total Search: 0.0182s
+  Total DocLoad: 0.0109s
+--------------------------------------------------
+[API] Total Request Time: 0.0496s
+INFO:     127.0.0.1:32910 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 62 queries...
+--------------------------------------------------
+Batch Summary (Queries: 62)
+  Total Encode: 0.0316s
+  Total Search: 0.0367s
+  Total DocLoad: 1.1572s
+--------------------------------------------------
+[API] Total Request Time: 1.2258s
+INFO:     127.0.0.1:48082 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 11 queries...
+--------------------------------------------------
+Batch Summary (Queries: 11)
+  Total Encode: 0.0218s
+  Total Search: 0.0155s
+  Total DocLoad: 0.1615s
+--------------------------------------------------
+[API] Total Request Time: 0.1995s
+INFO:     127.0.0.1:57162 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0306s
+  Total Search: 0.0228s
+  Total DocLoad: 1.0593s
+--------------------------------------------------
+[API] Total Request Time: 1.1129s
+INFO:     127.0.0.1:51744 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0253s
+  Total Search: 0.0147s
+  Total DocLoad: 0.0445s
+--------------------------------------------------
+[API] Total Request Time: 0.0849s
+INFO:     127.0.0.1:50856 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 58 queries...
+--------------------------------------------------
+Batch Summary (Queries: 58)
+  Total Encode: 0.0453s
+  Total Search: 0.0290s
+  Total DocLoad: 1.3326s
+--------------------------------------------------
+[API] Total Request Time: 1.4072s
+INFO:     127.0.0.1:43050 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 7 queries...
+  [Encode Detail] Batch: 7, Total: 0.0728s
+  --> Tokenize: 25.03ms | ToGPU: 0.48ms | Inference: 46.73ms | ToCPU: 0.21ms
+--------------------------------------------------
+Batch Summary (Queries: 7)
+  Total Encode: 0.0872s
+  Total Search: 0.0245s
+  Total DocLoad: 0.0754s
+--------------------------------------------------
+[API] Total Request Time: 0.1878s
+INFO:     127.0.0.1:45784 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.0285s
+  Total Search: 0.0191s
+  Total DocLoad: 1.1425s
+--------------------------------------------------
+[API] Total Request Time: 1.1905s
+INFO:     127.0.0.1:53482 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0399s
+  Total Search: 0.0349s
+  Total DocLoad: 0.1052s
+--------------------------------------------------
+[API] Total Request Time: 0.1805s
+INFO:     127.0.0.1:60356 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0260s
+  Total Search: 0.0387s
+  Total DocLoad: 1.0964s
+--------------------------------------------------
+[API] Total Request Time: 1.1614s
+INFO:     127.0.0.1:40580 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0219s
+  Total Search: 0.0291s
+  Total DocLoad: 0.0468s
+--------------------------------------------------
+[API] Total Request Time: 0.0979s
+INFO:     127.0.0.1:54042 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0286s
+  Total Search: 0.0107s
+  Total DocLoad: 1.0896s
+--------------------------------------------------
+[API] Total Request Time: 1.1292s
+INFO:     127.0.0.1:33370 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 2 queries...
+--------------------------------------------------
+Batch Summary (Queries: 2)
+  Total Encode: 0.0201s
+  Total Search: 0.0077s
+  Total DocLoad: 0.0100s
+--------------------------------------------------
+[API] Total Request Time: 0.0378s
+INFO:     127.0.0.1:45520 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 54 queries...
+--------------------------------------------------
+Batch Summary (Queries: 54)
+  Total Encode: 0.0275s
+  Total Search: 0.0195s
+  Total DocLoad: 1.1191s
+--------------------------------------------------
+[API] Total Request Time: 1.1665s
+INFO:     127.0.0.1:43592 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 6 queries...
+--------------------------------------------------
+Batch Summary (Queries: 6)
+  Total Encode: 0.0401s
+  Total Search: 0.0237s
+  Total DocLoad: 0.0184s
+--------------------------------------------------
+[API] Total Request Time: 0.0827s
+INFO:     127.0.0.1:42990 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0269s
+  Total Search: 0.0334s
+  Total DocLoad: 1.2522s
+--------------------------------------------------
+[API] Total Request Time: 1.3129s
+INFO:     127.0.0.1:52424 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 3 queries...
+--------------------------------------------------
+Batch Summary (Queries: 3)
+  Total Encode: 0.0335s
+  Total Search: 0.0129s
+  Total DocLoad: 0.0431s
+--------------------------------------------------
+[API] Total Request Time: 0.0896s
+INFO:     127.0.0.1:49050 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0290s
+  Total Search: 0.0344s
+  Total DocLoad: 1.1090s
+--------------------------------------------------
+[API] Total Request Time: 1.1729s
+INFO:     127.0.0.1:42070 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 6 queries...
+--------------------------------------------------
+Batch Summary (Queries: 6)
+  Total Encode: 0.0247s
+  Total Search: 0.0279s
+  Total DocLoad: 0.0276s
+--------------------------------------------------
+[API] Total Request Time: 0.0808s
+INFO:     127.0.0.1:52608 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 56 queries...
+--------------------------------------------------
+Batch Summary (Queries: 56)
+  Total Encode: 0.0269s
+  Total Search: 0.0126s
+  Total DocLoad: 0.9259s
+--------------------------------------------------
+[API] Total Request Time: 0.9657s
+INFO:     127.0.0.1:38350 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0228s
+  Total Search: 0.0324s
+  Total DocLoad: 0.0853s
+--------------------------------------------------
+[API] Total Request Time: 0.1406s
+INFO:     127.0.0.1:34286 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 53 queries...
+--------------------------------------------------
+Batch Summary (Queries: 53)
+  Total Encode: 0.0328s
+  Total Search: 0.0222s
+  Total DocLoad: 1.0801s
+--------------------------------------------------
+[API] Total Request Time: 1.1355s
+INFO:     127.0.0.1:36086 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 6 queries...
+--------------------------------------------------
+Batch Summary (Queries: 6)
+  Total Encode: 0.0228s
+  Total Search: 0.0082s
+  Total DocLoad: 0.0639s
+--------------------------------------------------
+[API] Total Request Time: 0.0955s
+INFO:     127.0.0.1:32902 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 55 queries...
+--------------------------------------------------
+Batch Summary (Queries: 55)
+  Total Encode: 0.0271s
+  Total Search: 0.0273s
+  Total DocLoad: 1.1287s
+--------------------------------------------------
+[API] Total Request Time: 1.1834s
+INFO:     127.0.0.1:40490 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 3 queries...
+  [Encode Detail] Batch: 3, Total: 0.0741s
+  --> Tokenize: 13.10ms | ToGPU: 0.47ms | Inference: 59.77ms | ToCPU: 0.26ms
+--------------------------------------------------
+Batch Summary (Queries: 3)
+  Total Encode: 0.0941s
+  Total Search: 0.0235s
+  Total DocLoad: 0.0353s
+--------------------------------------------------
+[API] Total Request Time: 0.1531s
+INFO:     127.0.0.1:57092 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 62 queries...
+--------------------------------------------------
+Batch Summary (Queries: 62)
+  Total Encode: 0.0358s
+  Total Search: 0.0271s
+  Total DocLoad: 1.3494s
+--------------------------------------------------
+[API] Total Request Time: 1.4127s
+INFO:     127.0.0.1:55248 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 6 queries...
+--------------------------------------------------
+Batch Summary (Queries: 6)
+  Total Encode: 0.0162s
+  Total Search: 0.0197s
+  Total DocLoad: 0.0994s
+--------------------------------------------------
+[API] Total Request Time: 0.1358s
+INFO:     127.0.0.1:55262 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+  [Encode Detail] Batch: 60, Total: 0.6605s
+  --> Tokenize: 465.18ms | ToGPU: 52.65ms | Inference: 134.20ms | ToCPU: 7.59ms
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.6960s
+  Total Search: 0.0566s
+  Total DocLoad: 1.4813s
+--------------------------------------------------
+[API] Total Request Time: 2.2602s
+INFO:     127.0.0.1:39224 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+  [Encode Detail] Batch: 5, Total: 0.2574s
+  --> Tokenize: 59.11ms | ToGPU: 55.69ms | Inference: 135.01ms | ToCPU: 7.10ms
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.2936s
+  Total Search: 0.0451s
+  Total DocLoad: 0.1455s
+--------------------------------------------------
+[API] Total Request Time: 0.4848s
+INFO:     127.0.0.1:40988 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+  [Encode Detail] Batch: 60, Total: 0.2623s
+  --> Tokenize: 65.17ms | ToGPU: 56.00ms | Inference: 133.46ms | ToCPU: 7.18ms
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.2976s
+  Total Search: 0.1039s
+  Total DocLoad: 1.0494s
+--------------------------------------------------
+[API] Total Request Time: 1.4513s
+INFO:     127.0.0.1:37744 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 4 queries...
+--------------------------------------------------
+Batch Summary (Queries: 4)
+  Total Encode: 0.0300s
+  Total Search: 0.0573s
+  Total DocLoad: 0.0075s
+--------------------------------------------------
+[API] Total Request Time: 0.0949s
+INFO:     127.0.0.1:43546 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.0325s
+  Total Search: 0.0479s
+  Total DocLoad: 0.9805s
+--------------------------------------------------
+[API] Total Request Time: 1.0612s
+INFO:     127.0.0.1:42984 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 7 queries...
+--------------------------------------------------
+Batch Summary (Queries: 7)
+  Total Encode: 0.0292s
+  Total Search: 0.0219s
+  Total DocLoad: 0.0557s
+--------------------------------------------------
+[API] Total Request Time: 0.1075s
+INFO:     127.0.0.1:41474 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0291s
+  Total Search: 0.0119s
+  Total DocLoad: 0.8952s
+--------------------------------------------------
+[API] Total Request Time: 0.9366s
+INFO:     127.0.0.1:42718 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0203s
+  Total Search: 0.0192s
+  Total DocLoad: 0.0503s
+--------------------------------------------------
+[API] Total Request Time: 0.0905s
+INFO:     127.0.0.1:40162 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.0373s
+  Total Search: 0.0352s
+  Total DocLoad: 1.2260s
+--------------------------------------------------
+[API] Total Request Time: 1.2988s
+INFO:     127.0.0.1:43836 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+  [Encode Detail] Batch: 5, Total: 0.0724s
+  --> Tokenize: 14.20ms | ToGPU: 0.58ms | Inference: 57.01ms | ToCPU: 0.20ms
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0726s
+  Total Search: 0.0209s
+  Total DocLoad: 0.0610s
+--------------------------------------------------
+[API] Total Request Time: 0.1545s
+INFO:     127.0.0.1:50930 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0266s
+  Total Search: 0.0126s
+  Total DocLoad: 0.8856s
+--------------------------------------------------
+[API] Total Request Time: 0.9251s
+INFO:     127.0.0.1:33190 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 6 queries...
+--------------------------------------------------
+Batch Summary (Queries: 6)
+  Total Encode: 0.0204s
+  Total Search: 0.0242s
+  Total DocLoad: 0.0398s
+--------------------------------------------------
+[API] Total Request Time: 0.0849s
+INFO:     127.0.0.1:38172 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0289s
+  Total Search: 0.0306s
+  Total DocLoad: 1.2098s
+--------------------------------------------------
+[API] Total Request Time: 1.2700s
+INFO:     127.0.0.1:38758 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 3 queries...
+--------------------------------------------------
+Batch Summary (Queries: 3)
+  Total Encode: 0.0243s
+  Total Search: 0.0300s
+  Total DocLoad: 0.0093s
+--------------------------------------------------
+[API] Total Request Time: 0.0638s
+INFO:     127.0.0.1:51934 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0284s
+  Total Search: 0.0307s
+  Total DocLoad: 1.3138s
+--------------------------------------------------
+[API] Total Request Time: 1.4044s
+INFO:     127.0.0.1:50110 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 4 queries...
+  [Encode Detail] Batch: 4, Total: 0.0521s
+  --> Tokenize: 17.65ms | ToGPU: 0.56ms | Inference: 33.24ms | ToCPU: 0.21ms
+--------------------------------------------------
+Batch Summary (Queries: 4)
+  Total Encode: 0.0770s
+  Total Search: 0.0260s
+  Total DocLoad: 0.0114s
+--------------------------------------------------
+[API] Total Request Time: 0.1145s
+INFO:     127.0.0.1:59304 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 56 queries...
+--------------------------------------------------
+Batch Summary (Queries: 56)
+  Total Encode: 0.0295s
+  Total Search: 0.0326s
+  Total DocLoad: 1.1794s
+--------------------------------------------------
+[API] Total Request Time: 1.2418s
+INFO:     127.0.0.1:34564 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 7 queries...
+--------------------------------------------------
+Batch Summary (Queries: 7)
+  Total Encode: 0.0203s
+  Total Search: 0.0201s
+  Total DocLoad: 0.0871s
+--------------------------------------------------
+[API] Total Request Time: 0.1283s
+INFO:     127.0.0.1:33572 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 56 queries...
+--------------------------------------------------
+Batch Summary (Queries: 56)
+  Total Encode: 0.0377s
+  Total Search: 0.0230s
+  Total DocLoad: 1.0070s
+--------------------------------------------------
+[API] Total Request Time: 1.0683s
+INFO:     127.0.0.1:41944 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 3 queries...
+--------------------------------------------------
+Batch Summary (Queries: 3)
+  Total Encode: 0.0222s
+  Total Search: 0.0384s
+  Total DocLoad: 0.0011s
+--------------------------------------------------
+[API] Total Request Time: 0.0617s
+INFO:     127.0.0.1:44126 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 58 queries...
+--------------------------------------------------
+Batch Summary (Queries: 58)
+  Total Encode: 0.0265s
+  Total Search: 0.0335s
+  Total DocLoad: 1.2180s
+--------------------------------------------------
+[API] Total Request Time: 1.2783s
+INFO:     127.0.0.1:52078 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 1 queries...
+  [Encode Detail] Batch: 1, Total: 0.1227s
+  --> Tokenize: 0.75ms | ToGPU: 0.42ms | Inference: 120.74ms | ToCPU: 0.25ms
+--------------------------------------------------
+Batch Summary (Queries: 1)
+  Total Encode: 0.1229s
+  Total Search: 0.0224s
+  Total DocLoad: 0.0152s
+--------------------------------------------------
+[API] Total Request Time: 0.1606s
+INFO:     127.0.0.1:59056 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.0256s
+  Total Search: 0.0115s
+  Total DocLoad: 1.3009s
+--------------------------------------------------
+[API] Total Request Time: 1.3384s
+INFO:     127.0.0.1:42982 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 8 queries...
+  [Encode Detail] Batch: 8, Total: 0.3530s
+  --> Tokenize: 78.88ms | ToGPU: 57.57ms | Inference: 192.44ms | ToCPU: 17.01ms
+--------------------------------------------------
+Batch Summary (Queries: 8)
+  Total Encode: 0.3682s
+  Total Search: 0.0862s
+  Total DocLoad: 0.1231s
+--------------------------------------------------
+[API] Total Request Time: 0.5778s
+INFO:     127.0.0.1:44724 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 63 queries...
+--------------------------------------------------
+Batch Summary (Queries: 63)
+  Total Encode: 0.0345s
+  Total Search: 0.0204s
+  Total DocLoad: 1.3292s
+--------------------------------------------------
+[API] Total Request Time: 1.3844s
+INFO:     127.0.0.1:37736 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 10 queries...
+--------------------------------------------------
+Batch Summary (Queries: 10)
+  Total Encode: 0.0228s
+  Total Search: 0.0327s
+  Total DocLoad: 0.0922s
+--------------------------------------------------
+[API] Total Request Time: 0.1483s
+INFO:     127.0.0.1:59962 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 61 queries...
+--------------------------------------------------
+Batch Summary (Queries: 61)
+  Total Encode: 0.0273s
+  Total Search: 0.0405s
+  Total DocLoad: 1.2820s
+--------------------------------------------------
+[API] Total Request Time: 1.3502s
+INFO:     127.0.0.1:53594 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0191s
+  Total Search: 0.0312s
+  Total DocLoad: 0.0142s
+--------------------------------------------------
+[API] Total Request Time: 0.0647s
+INFO:     127.0.0.1:40360 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 57 queries...
+--------------------------------------------------
+Batch Summary (Queries: 57)
+  Total Encode: 0.0292s
+  Total Search: 0.0108s
+  Total DocLoad: 1.1701s
+--------------------------------------------------
+[API] Total Request Time: 1.2104s
+INFO:     127.0.0.1:44850 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 1 queries...
+--------------------------------------------------
+Batch Summary (Queries: 1)
+  Total Encode: 0.0182s
+  Total Search: 0.0088s
+  Total DocLoad: 0.0006s
+--------------------------------------------------
+[API] Total Request Time: 0.0277s
+INFO:     127.0.0.1:45092 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.0277s
+  Total Search: 0.0110s
+  Total DocLoad: 1.4021s
+--------------------------------------------------
+[API] Total Request Time: 1.4671s
+INFO:     127.0.0.1:51592 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 6 queries...
+--------------------------------------------------
+Batch Summary (Queries: 6)
+  Total Encode: 0.0721s
+  Total Search: 0.0549s
+  Total DocLoad: 0.0519s
+--------------------------------------------------
+[API] Total Request Time: 0.1793s
+INFO:     127.0.0.1:57256 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 62 queries...
+--------------------------------------------------
+Batch Summary (Queries: 62)
+  Total Encode: 0.0247s
+  Total Search: 0.0360s
+  Total DocLoad: 1.3399s
+--------------------------------------------------
+[API] Total Request Time: 1.4009s
+INFO:     127.0.0.1:47400 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 3 queries...
+--------------------------------------------------
+Batch Summary (Queries: 3)
+  Total Encode: 0.0200s
+  Total Search: 0.0302s
+  Total DocLoad: 0.0066s
+--------------------------------------------------
+[API] Total Request Time: 0.0569s
+INFO:     127.0.0.1:38870 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0262s
+  Total Search: 0.0372s
+  Total DocLoad: 1.2571s
+--------------------------------------------------
+[API] Total Request Time: 1.3208s
+INFO:     127.0.0.1:56944 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 5 queries...
+--------------------------------------------------
+Batch Summary (Queries: 5)
+  Total Encode: 0.0201s
+  Total Search: 0.0156s
+  Total DocLoad: 0.0356s
+--------------------------------------------------
+[API] Total Request Time: 0.0715s
+INFO:     127.0.0.1:56950 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 63 queries...
+--------------------------------------------------
+Batch Summary (Queries: 63)
+  Total Encode: 0.0382s
+  Total Search: 0.0116s
+  Total DocLoad: 1.2950s
+--------------------------------------------------
+[API] Total Request Time: 1.3451s
+INFO:     127.0.0.1:58992 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 6 queries...
+--------------------------------------------------
+Batch Summary (Queries: 6)
+  Total Encode: 0.0218s
+  Total Search: 0.0270s
+  Total DocLoad: 0.0902s
+--------------------------------------------------
+[API] Total Request Time: 0.1395s
+INFO:     127.0.0.1:38252 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 58 queries...
+--------------------------------------------------
+Batch Summary (Queries: 58)
+  Total Encode: 0.0261s
+  Total Search: 0.0368s
+  Total DocLoad: 1.1725s
+--------------------------------------------------
+[API] Total Request Time: 1.2357s
+INFO:     127.0.0.1:59016 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 10 queries...
+  [Encode Detail] Batch: 10, Total: 0.0706s
+  --> Tokenize: 34.97ms | ToGPU: 0.79ms | Inference: 34.06ms | ToCPU: 0.35ms
+--------------------------------------------------
+Batch Summary (Queries: 10)
+  Total Encode: 0.0709s
+  Total Search: 0.0266s
+  Total DocLoad: 0.0829s
+--------------------------------------------------
+[API] Total Request Time: 0.1809s
+INFO:     127.0.0.1:55064 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 62 queries...
+--------------------------------------------------
+Batch Summary (Queries: 62)
+  Total Encode: 0.0265s
+  Total Search: 0.0132s
+  Total DocLoad: 1.3170s
+--------------------------------------------------
+[API] Total Request Time: 1.3570s
+INFO:     127.0.0.1:60142 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 8 queries...
+--------------------------------------------------
+Batch Summary (Queries: 8)
+  Total Encode: 0.0227s
+  Total Search: 0.0220s
+  Total DocLoad: 0.0434s
+--------------------------------------------------
+[API] Total Request Time: 0.0889s
+INFO:     127.0.0.1:39326 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 58 queries...
+--------------------------------------------------
+Batch Summary (Queries: 58)
+  Total Encode: 0.0243s
+  Total Search: 0.0355s
+  Total DocLoad: 0.9963s
+--------------------------------------------------
+[API] Total Request Time: 1.0564s
+INFO:     127.0.0.1:60764 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 9 queries...
+--------------------------------------------------
+Batch Summary (Queries: 9)
+  Total Encode: 0.0335s
+  Total Search: 0.0526s
+  Total DocLoad: 0.0650s
+--------------------------------------------------
+[API] Total Request Time: 0.1519s
+INFO:     127.0.0.1:55248 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 60 queries...
+--------------------------------------------------
+Batch Summary (Queries: 60)
+  Total Encode: 0.0260s
+  Total Search: 0.0388s
+  Total DocLoad: 1.1180s
+--------------------------------------------------
+[API] Total Request Time: 1.1832s
+INFO:     127.0.0.1:58026 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 6 queries...
+--------------------------------------------------
+Batch Summary (Queries: 6)
+  Total Encode: 0.0370s
+  Total Search: 0.0136s
+  Total DocLoad: 0.0398s
+--------------------------------------------------
+[API] Total Request Time: 0.0910s
+INFO:     127.0.0.1:58602 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0307s
+  Total Search: 0.0125s
+  Total DocLoad: 1.1146s
+--------------------------------------------------
+[API] Total Request Time: 1.1582s
+INFO:     127.0.0.1:42744 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 7 queries...
+--------------------------------------------------
+Batch Summary (Queries: 7)
+  Total Encode: 0.0357s
+  Total Search: 0.0475s
+  Total DocLoad: 0.0870s
+--------------------------------------------------
+[API] Total Request Time: 0.1741s
+INFO:     127.0.0.1:58088 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 59 queries...
+--------------------------------------------------
+Batch Summary (Queries: 59)
+  Total Encode: 0.0283s
+  Total Search: 0.0466s
+  Total DocLoad: 1.2089s
+--------------------------------------------------
+[API] Total Request Time: 1.2842s
+INFO:     127.0.0.1:50094 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 10 queries...
+  [Encode Detail] Batch: 10, Total: 0.0831s
+  --> Tokenize: 3.74ms | ToGPU: 0.61ms | Inference: 78.03ms | ToCPU: 0.28ms
+--------------------------------------------------
+Batch Summary (Queries: 10)
+  Total Encode: 0.0833s
+  Total Search: 0.0155s
+  Total DocLoad: 0.1435s
+--------------------------------------------------
+[API] Total Request Time: 0.2428s
+INFO:     127.0.0.1:51396 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 56 queries...
+--------------------------------------------------
+Batch Summary (Queries: 56)
+  Total Encode: 0.0379s
+  Total Search: 0.0462s
+  Total DocLoad: 1.1658s
+--------------------------------------------------
+[API] Total Request Time: 1.2503s
+INFO:     127.0.0.1:53798 - "POST /retrieve HTTP/1.1" 200 OK
+
+[Batch Start] Processing 2 queries...
+--------------------------------------------------
+Batch Summary (Queries: 2)
+  Total Encode: 0.0351s
+  Total Search: 0.0280s
+  Total DocLoad: 0.0011s
+--------------------------------------------------
+[API] Total Request Time: 0.0645s
+INFO:     127.0.0.1:53814 - "POST /retrieve HTTP/1.1" 200 OK

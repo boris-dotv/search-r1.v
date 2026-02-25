@@ -1,0 +1,12 @@
+nohup: ignoring input
+已创建 nq 目录：/public_hw/share/cit_ztyu/cz/Search-R1/data/FlashRAG_datasets/nq
+开始加载 NQ 数据集...
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 79168 examples [00:00, 159852.31 examples/s]Generating train split: 79168 examples [00:00, 159662.31 examples/s]
+Generating dev split: 0 examples [00:00, ? examples/s]Generating dev split: 8757 examples [00:00, 57232.22 examples/s]Generating dev split: 8757 examples [00:00, 56938.81 examples/s]
+Generating test split: 0 examples [00:00, ? examples/s]Generating test split: 3610 examples [00:00, 20975.91 examples/s]Generating test split: 3610 examples [00:00, 20881.40 examples/s]
+开始保存 NQ 训练集和测试集...
+Creating json from Arrow format:   0%|          | 0/80 [00:00<?, ?ba/s]Creating json from Arrow format:   1%|▏         | 1/80 [00:00<00:16,  4.70ba/s]Creating json from Arrow format:   4%|▍         | 3/80 [00:00<00:10,  7.27ba/s]Creating json from Arrow format:   5%|▌         | 4/80 [00:00<00:09,  7.65ba/s]Creating json from Arrow format:   6%|▋         | 5/80 [00:00<00:11,  6.60ba/s]Creating json from Arrow format:   8%|▊         | 6/80 [00:00<00:10,  6.81ba/s]Creating json from Arrow format:  10%|█         | 8/80 [00:01<00:08,  8.95ba/s]Creating json from Arrow format:  11%|█▏        | 9/80 [00:01<00:09,  7.36ba/s]Creating json from Arrow format:  12%|█▎        | 10/80 [00:01<00:12,  5.70ba/s]Creating json from Arrow format:  14%|█▍        | 11/80 [00:01<00:11,  6.03ba/s]Creating json from Arrow format:  19%|█▉        | 15/80 [00:01<00:05, 11.28ba/s]Creating json from Arrow format:  40%|████      | 32/80 [00:01<00:01, 42.19ba/s]Creating json from Arrow format:  59%|█████▉    | 47/80 [00:02<00:00, 65.44ba/s]Creating json from Arrow format:  80%|████████  | 64/80 [00:02<00:00, 89.53ba/s]Creating json from Arrow format: 100%|██████████| 80/80 [00:02<00:00, 35.96ba/s]
+Creating json from Arrow format:   0%|          | 0/4 [00:00<?, ?ba/s]Creating json from Arrow format: 100%|██████████| 4/4 [00:00<00:00, 164.27ba/s]
+NQ 数据集保存完成！
+训练集：/public_hw/share/cit_ztyu/cz/Search-R1/data/FlashRAG_datasets/nq/train.jsonl
+测试集：/public_hw/share/cit_ztyu/cz/Search-R1/data/FlashRAG_datasets/nq/test.jsonl

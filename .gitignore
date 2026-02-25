@@ -63,8 +63,7 @@ coverage.xml
 *.mo
 *.pot
 
-# Django stuff:
-*.log
+
 local_settings.py
 
 image_outputs
@@ -116,10 +115,7 @@ tests/e2e/toy_examples/deepspeed/synchronous/output.txt
 # vim
 *.swp
 
-# log*
-log/
 
-**logs
 
 # boris
 hf_cache/

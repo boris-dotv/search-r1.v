@@ -1,0 +1,456 @@
+===== 第一步：启动检索服务 =====
+启动检索服务，日志保存到 /public_hw/share/cit_ztyu/cz/Search-R1/logs/10564_retriever.log
+检索服务PID: 1216923
+===== 第二步：等待检索服务就绪 =====
+等待检索服务中... (10 / 600 秒)，当前HTTP状态码：000
+等待检索服务中... (20 / 600 秒)，当前HTTP状态码：000
+等待检索服务中... (30 / 600 秒)，当前HTTP状态码：000
+等待检索服务中... (40 / 600 秒)，当前HTTP状态码：000
+等待检索服务中... (50 / 600 秒)，当前HTTP状态码：000
+等待检索服务中... (60 / 600 秒)，当前HTTP状态码：000
+等待检索服务中... (70 / 600 秒)，当前HTTP状态码：000
+检索服务就绪！耗时 70 秒
+===== 第三步：启动GRPO训练 =====
+训练主端口: 41770
+2026-02-07 11:36:12,648	INFO worker.py:2012 -- Started a local Ray instance.
+/public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[36m(main_task pid=1231202)[0m {'actor_rollout_ref': {'actor': {'clip_ratio': 0.2,
+[36m(main_task pid=1231202)[0m                                  'entropy_coeff': 0.001,
+[36m(main_task pid=1231202)[0m                                  'fsdp_config': {'fsdp_size': -1,
+[36m(main_task pid=1231202)[0m                                                  'grad_offload': False,
+[36m(main_task pid=1231202)[0m                                                  'optimizer_offload': False,
+[36m(main_task pid=1231202)[0m                                                  'param_offload': False,
+[36m(main_task pid=1231202)[0m                                                  'wrap_policy': {'min_num_params': 0}},
+[36m(main_task pid=1231202)[0m                                  'grad_clip': 1.0,
+[36m(main_task pid=1231202)[0m                                  'kl_loss_coef': 0.001,
+[36m(main_task pid=1231202)[0m                                  'kl_loss_type': 'low_var_kl',
+[36m(main_task pid=1231202)[0m                                  'optim': {'lr': 1e-06,
+[36m(main_task pid=1231202)[0m                                            'lr_warmup_steps_ratio': 0.285,
+[36m(main_task pid=1231202)[0m                                            'min_lr_ratio': None,
+[36m(main_task pid=1231202)[0m                                            'total_training_steps': -1,
+[36m(main_task pid=1231202)[0m                                            'warmup_style': 'constant'},
+[36m(main_task pid=1231202)[0m                                  'ppo_epochs': 1,
+[36m(main_task pid=1231202)[0m                                  'ppo_max_token_len_per_gpu': 16384,
+[36m(main_task pid=1231202)[0m                                  'ppo_micro_batch_size': 16,
+[36m(main_task pid=1231202)[0m                                  'ppo_mini_batch_size': 64,
+[36m(main_task pid=1231202)[0m                                  'shuffle': False,
+[36m(main_task pid=1231202)[0m                                  'state_masking': True,
+[36m(main_task pid=1231202)[0m                                  'strategy': 'fsdp',
+[36m(main_task pid=1231202)[0m                                  'ulysses_sequence_parallel_size': 1,
+[36m(main_task pid=1231202)[0m                                  'use_dynamic_bsz': False,
+[36m(main_task pid=1231202)[0m                                  'use_kl_loss': True},
+[36m(main_task pid=1231202)[0m                        'hybrid_engine': True,
+[36m(main_task pid=1231202)[0m                        'model': {'enable_gradient_checkpointing': True,
+[36m(main_task pid=1231202)[0m                                  'external_lib': None,
+[36m(main_task pid=1231202)[0m                                  'override_config': {},
+[36m(main_task pid=1231202)[0m                                  'path': '/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct',
+[36m(main_task pid=1231202)[0m                                  'use_remove_padding': True},
+[36m(main_task pid=1231202)[0m                        'ref': {'fsdp_config': {'fsdp_size': -1,
+[36m(main_task pid=1231202)[0m                                                'param_offload': True,
+[36m(main_task pid=1231202)[0m                                                'wrap_policy': {'min_num_params': 0}},
+[36m(main_task pid=1231202)[0m                                'log_prob_max_token_len_per_gpu': 16384,
+[36m(main_task pid=1231202)[0m                                'log_prob_micro_batch_size': 128,
+[36m(main_task pid=1231202)[0m                                'log_prob_use_dynamic_bsz': False,
+[36m(main_task pid=1231202)[0m                                'ulysses_sequence_parallel_size': 1},
+[36m(main_task pid=1231202)[0m                        'rollout': {'do_sample': True,
+[36m(main_task pid=1231202)[0m                                    'dtype': 'bfloat16',
+[36m(main_task pid=1231202)[0m                                    'enforce_eager': True,
+[36m(main_task pid=1231202)[0m                                    'free_cache_engine': True,
+[36m(main_task pid=1231202)[0m                                    'gpu_memory_utilization': 0.45,
+[36m(main_task pid=1231202)[0m                                    'ignore_eos': False,
+[36m(main_task pid=1231202)[0m                                    'load_format': 'dummy_dtensor',
+[36m(main_task pid=1231202)[0m                                    'log_prob_max_token_len_per_gpu': 16384,
+[36m(main_task pid=1231202)[0m                                    'log_prob_micro_batch_size': 128,
+[36m(main_task pid=1231202)[0m                                    'log_prob_use_dynamic_bsz': False,
+[36m(main_task pid=1231202)[0m                                    'max_num_batched_tokens': 8192,
+[36m(main_task pid=1231202)[0m                                    'max_num_seqs': 1024,
+[36m(main_task pid=1231202)[0m                                    'n': 1,
+[36m(main_task pid=1231202)[0m                                    'n_agent': 4,
+[36m(main_task pid=1231202)[0m                                    'name': 'vllm',
+[36m(main_task pid=1231202)[0m                                    'prompt_length': 4096,
+[36m(main_task pid=1231202)[0m                                    'response_length': 500,
+[36m(main_task pid=1231202)[0m                                    'temperature': 1,
+[36m(main_task pid=1231202)[0m                                    'tensor_model_parallel_size': 1,
+[36m(main_task pid=1231202)[0m                                    'top_k': -1,
+[36m(main_task pid=1231202)[0m                                    'top_p': 0.95}},
+[36m(main_task pid=1231202)[0m  'algorithm': {'adv_estimator': 'grpo',
+[36m(main_task pid=1231202)[0m                'gamma': 1.0,
+[36m(main_task pid=1231202)[0m                'kl_ctrl': {'kl_coef': 0.001, 'type': 'fixed'},
+[36m(main_task pid=1231202)[0m                'kl_penalty': 'kl',
+[36m(main_task pid=1231202)[0m                'lam': 1.0,
+[36m(main_task pid=1231202)[0m                'no_think_rl': False,
+[36m(main_task pid=1231202)[0m                'state_masking': {'end_state_marker': '</information>',
+[36m(main_task pid=1231202)[0m                                  'start_state_marker': '<information>'}},
+[36m(main_task pid=1231202)[0m  'critic': {'cliprange_value': 0.5,
+[36m(main_task pid=1231202)[0m             'forward_max_token_len_per_gpu': 32768,
+[36m(main_task pid=1231202)[0m             'forward_micro_batch_size': 64,
+[36m(main_task pid=1231202)[0m             'grad_clip': 1.0,
+[36m(main_task pid=1231202)[0m             'model': {'enable_gradient_checkpointing': False,
+[36m(main_task pid=1231202)[0m                       'external_lib': None,
+[36m(main_task pid=1231202)[0m                       'fsdp_config': {'fsdp_size': -1,
+[36m(main_task pid=1231202)[0m                                       'grad_offload': False,
+[36m(main_task pid=1231202)[0m                                       'optimizer_offload': False,
+[36m(main_task pid=1231202)[0m                                       'param_offload': False,
+[36m(main_task pid=1231202)[0m                                       'wrap_policy': {'min_num_params': 0}},
+[36m(main_task pid=1231202)[0m                       'override_config': {},
+[36m(main_task pid=1231202)[0m                       'path': '~/models/deepseek-llm-7b-chat',
+[36m(main_task pid=1231202)[0m                       'tokenizer_path': '/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct',
+[36m(main_task pid=1231202)[0m                       'use_remove_padding': False},
+[36m(main_task pid=1231202)[0m             'optim': {'lr': 1e-05,
+[36m(main_task pid=1231202)[0m                       'lr_warmup_steps_ratio': 0.0,
+[36m(main_task pid=1231202)[0m                       'min_lr_ratio': None,
+[36m(main_task pid=1231202)[0m                       'total_training_steps': -1,
+[36m(main_task pid=1231202)[0m                       'warmup_style': 'constant'},
+[36m(main_task pid=1231202)[0m             'ppo_epochs': 1,
+[36m(main_task pid=1231202)[0m             'ppo_max_token_len_per_gpu': 32768,
+[36m(main_task pid=1231202)[0m             'ppo_micro_batch_size': 64,
+[36m(main_task pid=1231202)[0m             'ppo_mini_batch_size': 64,
+[36m(main_task pid=1231202)[0m             'shuffle': False,
+[36m(main_task pid=1231202)[0m             'strategy': 'fsdp',
+[36m(main_task pid=1231202)[0m             'ulysses_sequence_parallel_size': 1,
+[36m(main_task pid=1231202)[0m             'use_dynamic_bsz': False},
+[36m(main_task pid=1231202)[0m  'data': {'max_obs_length': 2048,
+[36m(main_task pid=1231202)[0m           'max_prompt_length': 4096,
+[36m(main_task pid=1231202)[0m           'max_response_length': 500,
+[36m(main_task pid=1231202)[0m           'max_start_length': 2048,
+[36m(main_task pid=1231202)[0m           'prompt_key': 'prompt',
+[36m(main_task pid=1231202)[0m           'return_raw_chat': False,
+[36m(main_task pid=1231202)[0m           'return_raw_input_ids': False,
+[36m(main_task pid=1231202)[0m           'shuffle_train_dataloader': True,
+[36m(main_task pid=1231202)[0m           'tokenizer': None,
+[36m(main_task pid=1231202)[0m           'train_batch_size': 64,
+[36m(main_task pid=1231202)[0m           'train_data_num': None,
+[36m(main_task pid=1231202)[0m           'train_files': 'data/nq_search/train.parquet',
+[36m(main_task pid=1231202)[0m           'val_batch_size': 64,
+[36m(main_task pid=1231202)[0m           'val_data_num': None,
+[36m(main_task pid=1231202)[0m           'val_files': 'data/nq_search/test.parquet'},
+[36m(main_task pid=1231202)[0m  'do_search': True,
+[36m(main_task pid=1231202)[0m  'max_turns': 2,
+[36m(main_task pid=1231202)[0m  'retriever': {'topk': 3, 'url': 'http://127.0.0.1:8009/retrieve'},
+[36m(main_task pid=1231202)[0m  'reward_model': {'enable': False,
+[36m(main_task pid=1231202)[0m                   'final_format_score': 0,
+[36m(main_task pid=1231202)[0m                   'forward_max_token_len_per_gpu': 32768,
+[36m(main_task pid=1231202)[0m                   'max_length': None,
+[36m(main_task pid=1231202)[0m                   'micro_batch_size': 64,
+[36m(main_task pid=1231202)[0m                   'model': {'external_lib': None,
+[36m(main_task pid=1231202)[0m                             'fsdp_config': {'min_num_params': 0,
+[36m(main_task pid=1231202)[0m                                             'param_offload': False},
+[36m(main_task pid=1231202)[0m                             'input_tokenizer': '/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct',
+[36m(main_task pid=1231202)[0m                             'path': '~/models/FsfairX-LLaMA3-RM-v0.1',
+[36m(main_task pid=1231202)[0m                             'use_remove_padding': False},
+[36m(main_task pid=1231202)[0m                   'retrieval_score': 0,
+[36m(main_task pid=1231202)[0m                   'strategy': 'fsdp',
+[36m(main_task pid=1231202)[0m                   'structure_format_score': 0,
+[36m(main_task pid=1231202)[0m                   'ulysses_sequence_parallel_size': 1,
+[36m(main_task pid=1231202)[0m                   'use_dynamic_bsz': False},
+[36m(main_task pid=1231202)[0m  'trainer': {'critic_warmup': 0,
+[36m(main_task pid=1231202)[0m              'default_hdfs_dir': None,
+[36m(main_task pid=1231202)[0m              'default_local_dir': 'verl_checkpoints/nq-search-r1-grpo-qwen2.5-3b-instruct-em',
+[36m(main_task pid=1231202)[0m              'experiment_name': 'nq-search-r1-grpo-qwen2.5-3b-instruct-em',
+[36m(main_task pid=1231202)[0m              'logger': ['wandb'],
+[36m(main_task pid=1231202)[0m              'n_gpus_per_node': 2,
+[36m(main_task pid=1231202)[0m              'nnodes': 1,
+[36m(main_task pid=1231202)[0m              'project_name': 'Search-R1',
+[36m(main_task pid=1231202)[0m              'save_freq': 1,
+[36m(main_task pid=1231202)[0m              'test_freq': 50,
+[36m(main_task pid=1231202)[0m              'total_epochs': 15,
+[36m(main_task pid=1231202)[0m              'total_training_steps': 1005,
+[36m(main_task pid=1231202)[0m              'val_before_train': False,
+[36m(main_task pid=1231202)[0m              'val_only': False}}
+[36m(main_task pid=1231202)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(main_task pid=1231202)[0m No module named 'vllm._version'
+[36m(main_task pid=1231202)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(main_task pid=1231202)[0m original dataset len: 79168
+[36m(main_task pid=1231202)[0m filter dataset len: 79168
+[36m(main_task pid=1231202)[0m filtered training dataset size: 79168
+[36m(main_task pid=1231202)[0m original dataset len: 3610
+[36m(main_task pid=1231202)[0m filter dataset len: 3610
+[36m(main_task pid=1231202)[0m filtered validation dataset size: 3610
+[36m(main_task pid=1231202)[0m Size of train dataloader: 1237
+[36m(main_task pid=1231202)[0m Size of val dataloader: 56
+[36m(main_task pid=1231202)[0m Total training steps: 1005
+[36m(main_task pid=1231202)[0m wandb: Tracking run with wandb version 0.24.1
+[36m(main_task pid=1231202)[0m wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+[36m(main_task pid=1231202)[0m wandb: Run data is saved locally in /public_hw/share/cit_ztyu/cz/Search-R1/wandb_offline/wandb/offline-run-20260207_113630-nejwqtit
+[36m(main_task pid=1231202)[0m wandb: Detected [openai] in use.
+[36m(main_task pid=1231202)[0m wandb: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+[36m(main_task pid=1231202)[0m wandb: For more information, check out the docs at: https://weave-docs.wandb.ai/
+[36m(pid=gcs_server)[0m [2026-02-07 11:36:40,859 E 1225444 1225444] (gcs_server) gcs_server.cc:302: Failed to establish connection to the event+metrics exporter agent. Events and metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[33m(raylet)[0m [2026-02-07 11:36:42,605 E 1225755 1225755] (raylet) main.cc:975: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(pid=1232325)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=1232325)[0m No module named 'vllm._version'
+[36m(pid=1232325)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(pid=1225867)[0m [2026-02-07 11:36:43,585 E 1225867 1226219] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(WorkerDict pid=1232325)[0m [I207 11:36:43.759010528 socket.cpp:884] [c10d] The client socket has connected to [gpuh01]:60939 on [gpuh01]:49494.
+[2026-02-07 11:36:44,273 E 1222552 1225864] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(pid=1232758)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/vllm/connections.py:8: RuntimeWarning: Failed to read commit hash:
+[36m(pid=1232758)[0m No module named 'vllm._version'
+[36m(pid=1232758)[0m   from vllm.version import __version__ as VLLM_VERSION
+[36m(main_task pid=1231202)[0m [2026-02-07 11:36:45,473 E 1231202 1231310] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14[32m [repeated 84x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(WorkerDict pid=1232325)[0m [W207 11:36:51.269754196 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[36m(WorkerDict pid=1232325)[0m [I207 11:36:51.269816958 ProcessGroupNCCL.cpp:852] [PG 0 Rank 0] ProcessGroupNCCL initialization options: size: 2, global rank: 0, TIMEOUT(ms): 600000, USE_HIGH_PRIORITY_STREAM: 0, SPLIT_FROM: 0, SPLIT_COLOR: 0, PG Name: 0
+[36m(WorkerDict pid=1232325)[0m [I207 11:36:51.269824419 ProcessGroupNCCL.cpp:861] [PG 0 Rank 0] ProcessGroupNCCL environments: NCCL version: 2.20.5, TORCH_NCCL_ASYNC_ERROR_HANDLING: 3, TORCH_NCCL_DUMP_ON_TIMEOUT: 0, TORCH_NCCL_WAIT_TIMEOUT_DUMP_MILSEC: 60000, TORCH_NCCL_DESYNC_DEBUG: 0, TORCH_NCCL_ENABLE_TIMING: 0, TORCH_NCCL_BLOCKING_WAIT: 0, TORCH_DISTRIBUTED_DEBUG: OFF, TORCH_NCCL_USE_TENSOR_REGISTER_ALLOCATOR_HOOK: 0, TORCH_NCCL_ENABLE_MONITORING: 1, TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC: 600, TORCH_NCCL_TRACE_BUFFER_SIZE: 0, TORCH_NCCL_COORD_CHECK_MILSEC: 1000, TORCH_NCCL_NAN_CHECK: 0
+[36m(WorkerDict pid=1232758)[0m [I207 11:36:51.267558535 socket.cpp:884] [c10d] The client socket has connected to [gpuh01]:60939 on [gpuh01]:54212.
+[36m(WorkerDict pid=1232325)[0m Model config after override: Qwen2Config {
+[36m(WorkerDict pid=1232325)[0m   "_name_or_path": "/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct",
+[36m(WorkerDict pid=1232325)[0m   "architectures": [
+[36m(WorkerDict pid=1232325)[0m     "Qwen2ForCausalLM"
+[36m(WorkerDict pid=1232325)[0m   ],
+[36m(WorkerDict pid=1232325)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=1232325)[0m   "eos_token_id": 151645,
+[36m(WorkerDict pid=1232325)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=1232325)[0m   "hidden_size": 2048,
+[36m(WorkerDict pid=1232325)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=1232325)[0m   "intermediate_size": 11008,
+[36m(WorkerDict pid=1232325)[0m   "max_position_embeddings": 32768,
+[36m(WorkerDict pid=1232325)[0m   "max_window_layers": 70,
+[36m(WorkerDict pid=1232325)[0m   "model_type": "qwen2",
+[36m(WorkerDict pid=1232325)[0m   "num_attention_heads": 16,
+[36m(WorkerDict pid=1232325)[0m   "num_hidden_layers": 36,
+[36m(WorkerDict pid=1232325)[0m   "num_key_value_heads": 2,
+[36m(WorkerDict pid=1232325)[0m   "pad_token_id": 151643,
+[36m(WorkerDict pid=1232325)[0m   "rms_norm_eps": 1e-06,
+[36m(WorkerDict pid=1232325)[0m   "rope_scaling": null,
+[36m(WorkerDict pid=1232325)[0m   "rope_theta": 1000000.0,
+[36m(WorkerDict pid=1232325)[0m   "sliding_window": null,
+[36m(WorkerDict pid=1232325)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=1232325)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=1232325)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=1232325)[0m   "use_cache": true,
+[36m(WorkerDict pid=1232325)[0m   "use_sliding_window": false,
+[36m(WorkerDict pid=1232325)[0m   "vocab_size": 151936
+[36m(WorkerDict pid=1232325)[0m }
+[36m(WorkerDict pid=1232325)[0m 
+[36m(WorkerDict pid=1232325)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(WorkerDict pid=1232325)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1232325)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.23it/s]
+[36m(WorkerDict pid=1232325)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.53it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.47it/s]
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:36:53.620376738 ProcessGroupNCCL.cpp:3897] [PG 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device.
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:36:53.635916000 ProcessGroupNCCL.cpp:2057] [PG 0 (default_pg) Rank 0] ProcessGroupNCCL broadcast unique ID through store took 0.036101 ms
+[36m(WorkerDict pid=1232325)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:36:54.178310352 ProcessGroupNCCL.cpp:2166] [PG 0 (default_pg) Rank 0] ProcessGroupNCCL created ncclComm_ 0xb12bf20 on CUDA device:  
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:36:54.178377065 ProcessGroupNCCL.cpp:2171] [PG 0 (default_pg) Rank 0] NCCL_DEBUG: WARN
+[36m(WorkerDict pid=1232325)[0m Qwen2ForCausalLM contains 3.09B parameters
+[36m(WorkerDict pid=1232325)[0m wrap_policy: functools.partial(<function _or_policy at 0x1502e18e28b0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x1502e18e2790>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])
+[36m(WorkerDict pid=1232325)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=1232325)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(WorkerDict pid=1232758)[0m [W207 11:36:51.268890948 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[36m(WorkerDict pid=1232758)[0m [I207 11:36:51.268940597 ProcessGroupNCCL.cpp:852] [PG 0 Rank 1] ProcessGroupNCCL initialization options: size: 2, global rank: 1, TIMEOUT(ms): 600000, USE_HIGH_PRIORITY_STREAM: 0, SPLIT_FROM: 0, SPLIT_COLOR: 0, PG Name: 0
+[36m(WorkerDict pid=1232758)[0m [I207 11:36:51.268947742 ProcessGroupNCCL.cpp:861] [PG 0 Rank 1] ProcessGroupNCCL environments: NCCL version: 2.20.5, TORCH_NCCL_ASYNC_ERROR_HANDLING: 3, TORCH_NCCL_DUMP_ON_TIMEOUT: 0, TORCH_NCCL_WAIT_TIMEOUT_DUMP_MILSEC: 60000, TORCH_NCCL_DESYNC_DEBUG: 0, TORCH_NCCL_ENABLE_TIMING: 0, TORCH_NCCL_BLOCKING_WAIT: 0, TORCH_DISTRIBUTED_DEBUG: OFF, TORCH_NCCL_USE_TENSOR_REGISTER_ALLOCATOR_HOOK: 0, TORCH_NCCL_ENABLE_MONITORING: 1, TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC: 600, TORCH_NCCL_TRACE_BUFFER_SIZE: 0, TORCH_NCCL_COORD_CHECK_MILSEC: 1000, TORCH_NCCL_NAN_CHECK: 0
+[36m(WorkerDict pid=1232758)[0m You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[36m(WorkerDict pid=1232758)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1232758)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.30it/s]
+[36m(WorkerDict pid=1232758)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.52it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.49it/s]
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:36:53.614527874 ProcessGroupNCCL.cpp:3897] [PG 0 Rank 1]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device.
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:36:53.635969196 ProcessGroupNCCL.cpp:2057] [PG 0 (default_pg) Rank 1] ProcessGroupNCCL broadcast unique ID through store took 21.3566 ms
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:36:54.177142495 ProcessGroupNCCL.cpp:2166] [PG 0 (default_pg) Rank 1] ProcessGroupNCCL created ncclComm_ 0xb4d6710 on CUDA device:  
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:36:54.177208780 ProcessGroupNCCL.cpp:2171] [PG 0 (default_pg) Rank 1] NCCL_DEBUG: WARN
+[36m(WorkerDict pid=1232325)[0m Model config after override: Qwen2Config {
+[36m(WorkerDict pid=1232325)[0m   "_name_or_path": "/public_hw/share/cit_ztyu/cz/models/Qwen2.5-3B-Instruct",
+[36m(WorkerDict pid=1232325)[0m   "architectures": [
+[36m(WorkerDict pid=1232325)[0m     "Qwen2ForCausalLM"
+[36m(WorkerDict pid=1232325)[0m   ],
+[36m(WorkerDict pid=1232325)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=1232325)[0m   "eos_token_id": 151645,
+[36m(WorkerDict pid=1232325)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=1232325)[0m   "hidden_size": 2048,
+[36m(WorkerDict pid=1232325)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=1232325)[0m   "intermediate_size": 11008,
+[36m(WorkerDict pid=1232325)[0m   "max_position_embeddings": 32768,
+[36m(WorkerDict pid=1232325)[0m   "max_window_layers": 70,
+[36m(WorkerDict pid=1232325)[0m   "model_type": "qwen2",
+[36m(WorkerDict pid=1232325)[0m   "num_attention_heads": 16,
+[36m(WorkerDict pid=1232325)[0m   "num_hidden_layers": 36,
+[36m(WorkerDict pid=1232325)[0m   "num_key_value_heads": 2,
+[36m(WorkerDict pid=1232325)[0m   "pad_token_id": 151643,
+[36m(WorkerDict pid=1232325)[0m   "rms_norm_eps": 1e-06,
+[36m(WorkerDict pid=1232325)[0m   "rope_scaling": null,
+[36m(WorkerDict pid=1232325)[0m   "rope_theta": 1000000.0,
+[36m(WorkerDict pid=1232325)[0m   "sliding_window": null,
+[36m(WorkerDict pid=1232325)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=1232325)[0m   "torch_dtype": "bfloat16",
+[36m(WorkerDict pid=1232325)[0m   "transformers_version": "4.47.1",
+[36m(WorkerDict pid=1232325)[0m   "use_cache": true,
+[36m(WorkerDict pid=1232325)[0m   "use_sliding_window": false,
+[36m(WorkerDict pid=1232325)[0m   "vocab_size": 151936
+[36m(WorkerDict pid=1232325)[0m }
+[36m(WorkerDict pid=1232325)[0m 
+[36m(WorkerDict pid=1232758)[0m wrap_policy: functools.partial(<function _or_policy at 0x145a43ae28b0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x145a43ae2790>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])
+[36m(WorkerDict pid=1232325)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1232325)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.23s/it]
+[36m(WorkerDict pid=1232758)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.85s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.91s/it]
+[36m(WorkerDict pid=1232325)[0m Qwen2ForCausalLM contains 3.09B parameters
+[36m(WorkerDict pid=1232325)[0m wrap_policy: functools.partial(<function _or_policy at 0x1502e18e28b0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x1502e18e2790>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])
+[36m(WorkerDict pid=1232758)[0m Actor use_remove_padding=True
+[36m(bundle_reservation_check_func pid=1232139)[0m [2026-02-07 11:37:06,275 E 1232139 1232248] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(WorkerDict pid=1232758)[0m Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2ForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[36m(WorkerDict pid=1232758)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1232758)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.25s/it]
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:37:08.065403121 ProcessGroupNCCL.cpp:852] [PG 1 Rank 0] ProcessGroupNCCL initialization options: size: 2, global rank: 0, TIMEOUT(ms): 600000, USE_HIGH_PRIORITY_STREAM: 0, SPLIT_FROM: 0x9ee8e50, SPLIT_COLOR: 22836467197190088, PG Name: 1
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:37:08.065446399 ProcessGroupNCCL.cpp:861] [PG 1 Rank 0] ProcessGroupNCCL environments: NCCL version: 2.20.5, TORCH_NCCL_ASYNC_ERROR_HANDLING: 3, TORCH_NCCL_DUMP_ON_TIMEOUT: 0, TORCH_NCCL_WAIT_TIMEOUT_DUMP_MILSEC: 60000, TORCH_NCCL_DESYNC_DEBUG: 0, TORCH_NCCL_ENABLE_TIMING: 0, TORCH_NCCL_BLOCKING_WAIT: 0, TORCH_DISTRIBUTED_DEBUG: OFF, TORCH_NCCL_USE_TENSOR_REGISTER_ALLOCATOR_HOOK: 0, TORCH_NCCL_ENABLE_MONITORING: 1, TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC: 600, TORCH_NCCL_TRACE_BUFFER_SIZE: 0, TORCH_NCCL_COORD_CHECK_MILSEC: 1000, TORCH_NCCL_NAN_CHECK: 0
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:37:08.066257489 ProcessGroupNCCL.cpp:852] [PG 2 Rank 0] ProcessGroupNCCL initialization options: size: 1, global rank: 0, TIMEOUT(ms): 600000, USE_HIGH_PRIORITY_STREAM: 0, SPLIT_FROM: 0, SPLIT_COLOR: 0, PG Name: 2
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:37:08.066277637 ProcessGroupNCCL.cpp:861] [PG 2 Rank 0] ProcessGroupNCCL environments: NCCL version: 2.20.5, TORCH_NCCL_ASYNC_ERROR_HANDLING: 3, TORCH_NCCL_DUMP_ON_TIMEOUT: 0, TORCH_NCCL_WAIT_TIMEOUT_DUMP_MILSEC: 60000, TORCH_NCCL_DESYNC_DEBUG: 0, TORCH_NCCL_ENABLE_TIMING: 0, TORCH_NCCL_BLOCKING_WAIT: 0, TORCH_DISTRIBUTED_DEBUG: OFF, TORCH_NCCL_USE_TENSOR_REGISTER_ALLOCATOR_HOOK: 0, TORCH_NCCL_ENABLE_MONITORING: 1, TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC: 600, TORCH_NCCL_TRACE_BUFFER_SIZE: 0, TORCH_NCCL_COORD_CHECK_MILSEC: 1000, TORCH_NCCL_NAN_CHECK: 0
+[36m(WorkerDict pid=1232325)[0m Total steps: 1005, num_warmup_steps: 286
+[36m(WorkerDict pid=1232325)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=1232325)[0m Before building vllm rollout, memory allocated (GB): 5.748044490814209, memory reserved (GB): 9.515625
+[36m(WorkerDict pid=1232325)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.87s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.93s/it]
+[36m(WorkerGroupRegisterCenter pid=1232591)[0m [2026-02-07 11:37:14,929 E 1232591 1232680] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14[32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:37:08.063734288 ProcessGroupNCCL.cpp:852] [PG 3 Rank 0] ProcessGroupNCCL initialization options: size: 1, global rank: 1, TIMEOUT(ms): 600000, USE_HIGH_PRIORITY_STREAM: 0, SPLIT_FROM: 0, SPLIT_COLOR: 0, PG Name: 3[32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:37:08.063755688 ProcessGroupNCCL.cpp:861] [PG 3 Rank 0] ProcessGroupNCCL environments: NCCL version: 2.20.5, TORCH_NCCL_ASYNC_ERROR_HANDLING: 3, TORCH_NCCL_DUMP_ON_TIMEOUT: 0, TORCH_NCCL_WAIT_TIMEOUT_DUMP_MILSEC: 60000, TORCH_NCCL_DESYNC_DEBUG: 0, TORCH_NCCL_ENABLE_TIMING: 0, TORCH_NCCL_BLOCKING_WAIT: 0, TORCH_DISTRIBUTED_DEBUG: OFF, TORCH_NCCL_USE_TENSOR_REGISTER_ALLOCATOR_HOOK: 0, TORCH_NCCL_ENABLE_MONITORING: 1, TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC: 600, TORCH_NCCL_TRACE_BUFFER_SIZE: 0, TORCH_NCCL_COORD_CHECK_MILSEC: 1000, TORCH_NCCL_NAN_CHECK: 0[32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=1232325)[0m WARNING 02-07 11:37:16 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(WorkerDict pid=1232758)[0m wrap_policy: functools.partial(<function _or_policy at 0x145a43ae28b0>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x145a43ae2790>, transformer_layer_cls={<class 'transformers.models.qwen2.modeling_qwen2.Qwen2DecoderLayer'>})])
+[36m(WorkerDict pid=1232758)[0m Total steps: 1005, num_warmup_steps: 286
+[36m(WorkerDict pid=1232758)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=1232325)[0m local rank 0
+[36m(WorkerDict pid=1232325)[0m INFO 02-07 11:37:16 selector.py:115] Using XFormers backend.
+[36m(WorkerDict pid=1232325)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/xformers/ops/fmha/flash.py:211: FutureWarning: `torch.library.impl_abstract` was renamed to `torch.library.register_fake`. Please use that instead; we will remove `torch.library.impl_abstract` in a future version of PyTorch.
+[36m(WorkerDict pid=1232325)[0m   @torch.library.impl_abstract("xformers_flash::flash_fwd")
+[36m(WorkerDict pid=1232325)[0m   @torch.library.impl_abstract("xformers_flash::flash_bwd")
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:37:17.861617580 ProcessGroupNCCL.cpp:2057] [PG 6 Rank 0] ProcessGroupNCCL broadcast unique ID through store took 0.036431 ms
+[36m(WorkerDict pid=1232758)[0m NCCL version 2.20.5+cuda12.4
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:37:17.908238756 ProcessGroupNCCL.cpp:2166] [PG 6 Rank 0] ProcessGroupNCCL created ncclComm_ 0x700950b0 on CUDA device:  
+[36m(WorkerDict pid=1232325)[0m [rank0]:[I207 11:37:17.908249639 ProcessGroupNCCL.cpp:2171] [PG 6 Rank 0] NCCL_DEBUG: WARN
+[36m(WorkerDict pid=1232325)[0m before init cache memory allocated: 12.385740288GB, reserved: 12.440305664GB
+[36m(WorkerDict pid=1232325)[0m after init cache memory allocated: 43.593917952GB, reserved: 43.645927424GB
+[36m(WorkerDict pid=1232325)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=1232325)[0m   warnings.warn(
+[36m(WorkerDict pid=1232758)[0m [2026-02-07 11:37:16,148 E 1232758 1232806] core_worker_process.cc:825: Failed to establish connection to the metrics exporter agent. Metrics will not be exported. Exporter agent status: RpcError: Running out of retries to initialize the metrics agent. rpc_code: 14
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:37:17.217182994 ProcessGroupNCCL.cpp:852] [PG 12 Rank 0] ProcessGroupNCCL initialization options: size: 1, global rank: 1, TIMEOUT(ms): 600000, USE_HIGH_PRIORITY_STREAM: 0, SPLIT_FROM: 0, SPLIT_COLOR: 0, PG Name: 12[32m [repeated 6x across cluster][0m
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:37:17.217196515 ProcessGroupNCCL.cpp:861] [PG 12 Rank 0] ProcessGroupNCCL environments: NCCL version: 2.20.5, TORCH_NCCL_ASYNC_ERROR_HANDLING: 3, TORCH_NCCL_DUMP_ON_TIMEOUT: 0, TORCH_NCCL_WAIT_TIMEOUT_DUMP_MILSEC: 60000, TORCH_NCCL_DESYNC_DEBUG: 0, TORCH_NCCL_ENABLE_TIMING: 0, TORCH_NCCL_BLOCKING_WAIT: 0, TORCH_DISTRIBUTED_DEBUG: OFF, TORCH_NCCL_USE_TENSOR_REGISTER_ALLOCATOR_HOOK: 0, TORCH_NCCL_ENABLE_MONITORING: 1, TORCH_NCCL_HEARTBEAT_TIMEOUT_SEC: 600, TORCH_NCCL_TRACE_BUFFER_SIZE: 0, TORCH_NCCL_COORD_CHECK_MILSEC: 1000, TORCH_NCCL_NAN_CHECK: 0[32m [repeated 6x across cluster][0m
+[36m(WorkerDict pid=1232325)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 500, 'detokenize': False, 'temperature': 1, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(WorkerDict pid=1232325)[0m After building vllm rollout, memory allocated (GB): 34.851991176605225, memory reserved (GB): 40.6484375
+[36m(WorkerDict pid=1232325)[0m After building sharding manager, memory allocated (GB): 34.851991176605225, memory reserved (GB): 40.6484375
+[36m(main_task pid=1231202)[0m epoch 0, step 1
+[36m(main_task pid=1231202)[0m ACTIVE_TRAJ_NUM: [256, 232, 33, 19]
+[36m(WorkerDict pid=1232758)[0m WARNING 02-07 11:37:16 config.py:380] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+[36m(WorkerDict pid=1232758)[0m local rank 0
+[36m(WorkerDict pid=1232758)[0m INFO 02-07 11:37:17 selector.py:115] Using XFormers backend.[32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=1232758)[0m kwargs: {'n': 1, 'logprobs': 1, 'max_tokens': 500, 'detokenize': False, 'temperature': 1, 'top_k': -1, 'top_p': 0.95, 'ignore_eos': False}
+[36m(main_task pid=1231202)[0m --------------------------------
+[36m(main_task pid=1231202)[0m Golden answers: ['Immanuel Kant']
+[36m(main_task pid=1231202)[0m Extracted answer: Christiaan Huygens
+[36m(main_task pid=1231202)[0m Solution string: <|im_start|>system
+[36m(main_task pid=1231202)[0m You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>user
+[36m(main_task pid=1231202)[0m Answer the given question. You must conduct reasoning inside <think> and </think> first every time you get new information. After reasoning, if you find you lack some knowledge, you can call a search engine by <search> query </search> and it will return the top searched results between <information> and </information>. You can search as many times as your want. If you find no further external knowledge needed, you can directly provide the answer inside <answer> and </answer>, without detailed illustrations. For example, <answer> Beijing </answer>. Question: who came up with the solar nebula theory?
+[36m(main_task pid=1231202)[0m <|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>assistant
+[36m(main_task pid=1231202)[0m To determine who came up with the solar nebula theory, let's start with some general knowledge and search for more specific details.
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m The solar nebula theory is a concept that describes the formation of the solar system from a rotating flattened disk of gas and dust known as the solar nebula. This theory provides a framework for understanding how the sun and planets in our solar system formed approximately 4.6 billion years ago. 
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m The solar nebula theory was not created by a single individual; it evolved over time through the contributions of many scientists. However, one scientist is often credited as the pivotal figure in developing this theory, and that is Christiaan Huygens.
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m <think>
+[36m(main_task pid=1231202)[0m Christiaan Huygens, a Dutch astronomer, natural philosopher, and physicist of the early 17th century, proposed ideas that aligned with parts of the solar nebula theory, including his theories of motion and gravity, and his understanding of cosmic processes. 
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m John Herschel, another key figure in the development of the solar nebula theory, built upon Huygens' ideas and expanded them. Herschel's contributions were instrumental in the refinement and acceptance of the theory, particularly after the discovery of Saturn's rings by his father, Sir William Herschel, provided empirical evidence that supported the nebular hypothesis.
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m Later, James Clerk Maxwell and others continued to refine and provide evidence for the solar nebula theory through their work on gravitational forces and the structure of the solar system.
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m Given these contributions, the solar nebula theory can be attributed to a collective effort of many scientists over many centuries. Christiaan Huygens is often cited as a key figure in initiating the discussion and thought that influenced the development of the theory.
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m <answer>
+[36m(main_task pid=1231202)[0m Christiaan Huygens
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m </answer>
+[36m(main_task pid=1231202)[0m --------------------------------
+[36m(main_task pid=1231202)[0m Golden answers: ['1999']
+[36m(main_task pid=1231202)[0m Extracted answer: December 31, 1999
+[36m(main_task pid=1231202)[0m Solution string: <|im_start|>system
+[36m(main_task pid=1231202)[0m You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>user
+[36m(main_task pid=1231202)[0m Answer the given question. You must conduct reasoning inside <think> and </think> first every time you get new information. After reasoning, if you find you lack some knowledge, you can call a search engine by <search> query </search> and it will return the top searched results between <information> and </information>. You can search as many times as your want. If you find no further external knowledge needed, you can directly provide the answer inside <answer> and </answer>, without detailed illustrations. For example, <answer> Beijing </answer>. Question: when did panama canal go back to panama?
+[36m(main_task pid=1231202)[0m <|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>assistant
+[36m(main_task pid=1231202)[0m <think>
+[36m(main_task pid=1231202)[0m To determine when Panama Canal went back to Panama, I need to consider historical events. The construction of the Panama Canal was started by a French company, but it was largely completed and managed by the United States. After a long period of US control, the canal was returned to Panama. I'll search for this specific timeline.
+[36m(main_task pid=1231202)[0m </think>
+[36m(main_task pid=1231202)[0m <search>
+[36m(main_task pid=1231202)[0m when did the panama canal transfer from us to panama
+[36m(main_task pid=1231202)[0m </search>
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m <information>Doc 1(Title: Panama) After Gran Colombia dissolved in 1831, Panama and Nueva Granada eventually became the Republic of Colombia. With the backing of the United States, Panama seceded from Colombia in 1903, allowing the construction of the Panama Canal to be completed by the US Army Corps of Engineers between 1904 and 1914. The 1977 Torrijos–Carter Treaties led to the transfer of the Canal from the United States to Panama on December 31, 1999. Revenue from canal tolls continues to represent a significant portion of Panama's GDP, although commerce, banking, and tourism are major and growing sectors. In 2015 Panama ranked 60th in
+[36m(main_task pid=1231202)[0m Doc 2(Title: "History of the Panama Canal") United States. On September 7, 1977, US President Jimmy Carter signed the Torrijos-Carter Treaty setting in motion the process of transferring control of the canal to Panama. The treaty became effective on October 1, 1979, providing for a 20-year period in which Panama would have increasing responsibility for canal operations before complete US withdrawal on December 31, 1999. Since then, the canal has been administered by the Panama Canal Authority (Autoridad de Canal de Panama, or ACP). The treaty was controversial in the US, and its passage was difficult. The controversy was largely generated by contracts to manage two ports,
+[36m(main_task pid=1231202)[0m Doc 3(Title: "Panama Canal") Atlantic in stages during construction, finally reaching the Pacific on January 7, 1914. (a cargo and passenger ship built by Maryland Steel, and launched in 1902 as SS ""Tremont"") on August 3, 1914 was the first ship to transit the canal from ocean to ocean. The construction of the canal was completed in 1914, 401 years after Panama was first crossed by Vasco Núñez de Balboa. The United States spent almost $500,000,000 (roughly equivalent to $9,169,650,000 now) to finish the project. This was by far the largest American engineering project to date. The canal was formally opened on August 15,</information>
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m <answer>December 31, 1999</answer>
+[36m(main_task pid=1231202)[0m --------------------------------
+[36m(main_task pid=1231202)[0m Golden answers: ['Lala Lajpat Rai' 'Ajit Singh']
+[36m(main_task pid=1231202)[0m Extracted answer: Considering the available information, key individuals associated with agrarian unrest in Punjab in 1907 included Mian Iftikharuddin, known for his role in the Indian National Congress and later as a politician in Pakistan. Shahnawaz Khan Mamdot was also mentioned for his leadership in the Pakistan movement and his actions in the 1907 protests.
+[36m(main_task pid=1231202)[0m Solution string: <|im_start|>system
+[36m(main_task pid=1231202)[0m You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>user
+[36m(main_task pid=1231202)[0m Answer the given question. You must conduct reasoning inside <think> and </think> first every time you get new information. After reasoning, if you find you lack some knowledge, you can call a search engine by <search> query </search> and it will return the top searched results between <information> and </information>. You can search as many times as your want. If you find no further external knowledge needed, you can directly provide the answer inside <answer> and </answer>, without detailed illustrations. For example, <answer> Beijing </answer>. Question: who is associated with agrarian unrest of 1907 in the punjab?
+[36m(main_task pid=1231202)[0m <|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>assistant
+[36m(main_task pid=1231202)[0m <think>
+[36m(main_task pid=1231202)[0m I'll start by considering the historical context of 1907 in Punjab. The Punjab region was part of British India at that time and was experiencing significant socio-political tensions. The Agrarian unrest often refers to conflicts between peasants and landowners or the colonial administration over land rights and unfair tax practices. Given the timeframe and location, I suspect key figures involved might include officials, landlords, and agitators like the Patidar community.
+[36m(main_task pid=1231202)[0m </think>
+[36m(main_task pid=1231202)[0m <search>
+[36m(main_task pid=1231202)[0m key figures in agrarian unrest of 1907 in punjab
+[36m(main_task pid=1231202)[0m </search>
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m <information>Doc 1(Title: "Shahnawaz Khan Mamdot") Shahnawaz Khan Mamdot Nawab Sir Shahnawaz Khan Mamdot (17 December 1883 - 28 March 1942) was a Punjabi landowner and politician of British India. He was a key supporter of the Pakistan movement and for a time the largest landowner in undivided Punjab. He was born in Mamdot, Punjab in 1883 a member of the ruling family of Mamdot. In 1907 he left the Punjab and settled in Hyderabad State where he joined the state police. In 1928, Nawab Ghulam Qutbuddin Khan died without issue, and the Court of Law awarded Shahnawaz the jagirs and title of Nawab of Mamdot.
+[36m(main_task pid=1231202)[0m Doc 2(Title: "Mian Iftikharuddin") Mian Iftikharuddin Mian Iftikharuddin (میاں افتخارالدین in Urdu) (8 April 1907 - 6 June 1962) was a politician of British India and later Pakistan. He was a leading activist of the Indian National Congress, who later joined the All-India Muslim League and worked for the cause of Pakistan under the leadership of Quaid e Azam Muhammad Ali Jinnah. Mian Muhammad Iftikharuddin was born on 8 April 1907 in Baghbanpura, Lahore to the wealthy Arain Mian family, the custodians of the Shalimar Gardens, Lahore. His relations included Sir Mian Muhammad Shafi and Sir Mian Abdul Rashid. Mian Iftikharuddin was educated at
+[36m(main_task pid=1231202)[0m Doc 3(Title: "Saifuddin Kitchlew") of Third world Studies in 2009. Dr Syed Mahmud, Mukhtar Ahmed Ansari, Maulana Azad, Abbas Tyabji, Hakim Ajmal Khan, Asaf Ali Saifuddin Kitchlew Saifuddin Kitchlew (15 January 1888 – 9 October 1963) was an Indian freedom fighter, barrister, politician and an Muslim nationalist leader. A member of Indian National Congress, he first became Punjab Pradesh Congress Committee (Punjab PCC) head and later the General Secretary of the AICC in 1924. He is most remembered for the protests in Punjab after the implementation of Rowlatt Act in March 1919, after which on 10 April, he and another leader Satya Pal, were</information>
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m <answer>
+[36m(main_task pid=1231202)[0m Considering the available information, key individuals associated with agrarian unrest in Punjab in 1907 included Mian Iftikharuddin, known for his role in the Indian National Congress and later as a politician in Pakistan. Shahnawaz Khan Mamdot was also mentioned for his leadership in the Pakistan movement and his actions in the 1907 protests.
+[36m(main_task pid=1231202)[0m </answer>
+[36m(main_task pid=1231202)[0m --------------------------------
+[36m(main_task pid=1231202)[0m Golden answers: ['the League of Nations']
+[36m(main_task pid=1231202)[0m Extracted answer: The League of Nations granted Britain the mandate to rule Palestine in 1922, which included the Balfour Declaration of 1917. However, the primary body that officially granted the mandate was the League of Nations.
+[36m(main_task pid=1231202)[0m Solution string: <|im_start|>system
+[36m(main_task pid=1231202)[0m You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>user
+[36m(main_task pid=1231202)[0m Answer the given question. You must conduct reasoning inside <think> and </think> first every time you get new information. After reasoning, if you find you lack some knowledge, you can call a search engine by <search> query </search> and it will return the top searched results between <information> and </information>. You can search as many times as your want. If you find no further external knowledge needed, you can directly provide the answer inside <answer> and </answer>, without detailed illustrations. For example, <answer> Beijing </answer>. Question: who gave britain the right to rule palestine?
+[36m(main_task pid=1231202)[0m <|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>assistant
+[36m(main_task pid=1231202)[0m <think>
+[36m(main_task pid=1231202)[0m To determine who gave Britain the right to rule Palestine, I need to first establish the historical context of Britain's involvement in Palestine. The control over Palestine eventually gave way to a mandate by the League of Nations, which was later transferred to the United Nations. However, I need to identify the specific body or international body that granted Britain this mandate.
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m The League of Nations mandate system was established following World War I, and one of the mandates given by the League of Nations was to Britain over Palestine and Transjordan. In 1922, the British got a mandate over Palestine from the League of Nations. This mandate was formalized with the Balfour Declaration in 1917, which expressed sympathy for the establishment of a Jewish homeland in Palestine. However, this declaration was issued by the British government, which later had a mandate over Palestine.
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m The key body that granted the authority to Britain to rule Palestine was the League of Nations, which had given Britain a mandate in 1922. The Balfour Declaration of 1917 was a public expression of the British government's intentions, which were later formalized through the mandate system.
+[36m(main_task pid=1231202)[0m </think>
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m <answer>
+[36m(main_task pid=1231202)[0m The League of Nations granted Britain the mandate to rule Palestine in 1922, which included the Balfour Declaration of 1917. However, the primary body that officially granted the mandate was the League of Nations.
+[36m(main_task pid=1231202)[0m </answer>
+[36m(main_task pid=1231202)[0m --------------------------------
+[36m(main_task pid=1231202)[0m Golden answers: ['Detroit Lions' 'Pittsburgh Steelers' 'Carolina Panthers']
+[36m(main_task pid=1231202)[0m Extracted answer: and
+[36m(main_task pid=1231202)[0m Solution string: <|im_start|>system
+[36m(main_task pid=1231202)[0m You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>user
+[36m(main_task pid=1231202)[0m Answer the given question. You must conduct reasoning inside <think> and </think> first every time you get new information. After reasoning, if you find you lack some knowledge, you can call a search engine by <search> query </search> and it will return the top searched results between <information> and </information>. You can search as many times as your want. If you find no further external knowledge needed, you can directly provide the answer inside <answer> and </answer>, without detailed illustrations. For example, <answer> Beijing </answer>. Question: who did the vikings lose to in the 2017 season?
+[36m(main_task pid=1231202)[0m <|im_end|>
+[36m(main_task pid=1231202)[0m <|im_start|>assistant
+[36m(main_task pid=1231202)[0m To find out who the Vikings lost to in the 2017 NFL season, I would start by looking at the playoff games from that season since a team's record at the end of the regular season might not necessarily reflect who they lost to in the playoffs, especially if they dropped a crucial game in the playoffs. 
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m <search>2017 NFL Viking season record, playoff losses</search>
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m <information>Doc 1(Title: "2017 Minnesota Vikings season") 2017 Minnesota Vikings season The 2017 season was the Minnesota Vikings' 57th in the National Football League, and their fourth under head coach Mike Zimmer. With the team's home stadium, U.S. Bank Stadium, scheduled to host Super Bowl LII at the end of the season, the Vikings attempted to make history as the first team to play the Super Bowl on their home field; in recording their best regular season record since 1998, they clinched a first-round bye for the first time since 2009 and became the eighth team in the Super Bowl era to qualify for the playoffs in
+[36m(main_task pid=1231202)[0m Doc 2(Title: "2017 Minnesota Vikings season") Bowl due to injury, replaced by Thomas Davis and Michael Bennett respectively. Source: Minnesota Vikings' official website Source: NFL.com. 2017 Minnesota Vikings season The 2017 season was the Minnesota Vikings' 57th in the National Football League, and their fourth under head coach Mike Zimmer. With the team's home stadium, U.S. Bank Stadium, scheduled to host Super Bowl LII at the end of the season, the Vikings attempted to make history as the first team to play the Super Bowl on their home field; in recording their best regular season record since 1998, they clinched a first-round bye for the first
+[36m(main_task pid=1231202)[0m Doc 3(Title: "2017 Minnesota Vikings season") a season in which their stadium hosted the Super Bowl. They defeated the New Orleans Saints in the Divisional Round 29–24 on a walk-off play referred to as the ""Minneapolis Miracle"", but lost 38–7 to the eventual Super Bowl champion Philadelphia Eagles in the NFC Championship Game. Draft trades The Vikings' preliminary preseason schedule was announced on April 10. Note: Intra-division opponents are in bold text. NFL London Games NFL on Thanksgiving Day With their win against the Saints in the NFC Divisional Round, Minnesota became the first team in the Super Bowl era to advance to the conference championship</information>
+[36m(main_task pid=1231202)[0m 
+[36m(main_task pid=1231202)[0m From the information in Document 3, I can conclude that the Minnesota Vikings lost to the Philadelphia Eagles in the NFC Championship Game of the 2017 NFL season.
+[36m(main_task pid=1231202)[0m My previous action is invalid. If I want to search, I should put the query between <search> and </search>. If I want to give the final answer, I should put the answer between <answer> and </answer>. Let me try again.
+[36m(main_task pid=1231202)[0m <search>2017 Minnesota Vikings NFC Championship Game opponent</search>
+[36m(WorkerDict pid=1232325)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+[36m(WorkerDict pid=1232325)[0m   with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+[36m(WorkerDict pid=1232758)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/xformers/ops/fmha/flash.py:344: FutureWarning: `torch.library.impl_abstract` was renamed to `torch.library.register_fake`. Please use that instead; we will remove `torch.library.impl_abstract` in a future version of PyTorch.[32m [repeated 3x across cluster][0m
+[36m(WorkerDict pid=1232758)[0m   @torch.library.impl_abstract("xformers_flash::flash_fwd")
+[36m(WorkerDict pid=1232758)[0m   @torch.library.impl_abstract("xformers_flash::flash_bwd")
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:37:17.860466330 ProcessGroupNCCL.cpp:2057] [PG 8 Rank 0] ProcessGroupNCCL broadcast unique ID through store took 0.036789 ms
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:37:17.907304296 ProcessGroupNCCL.cpp:2166] [PG 8 Rank 0] ProcessGroupNCCL created ncclComm_ 0x12588f40 on CUDA device:  
+[36m(WorkerDict pid=1232758)[0m [rank1]:[I207 11:37:17.907331438 ProcessGroupNCCL.cpp:2171] [PG 8 Rank 0] NCCL_DEBUG: WARN
+[36m(WorkerDict pid=1232758)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=1232758)[0m   warnings.warn(
+[36m(WorkerDict pid=1232325)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:689: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=1232325)[0m   warnings.warn(
+[36m(WorkerDict pid=1232758)[0m /public_hw/home/cit_zhishuliu/miniconda3/envs/searchr1/lib/python3.9/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+[36m(WorkerDict pid=1232758)[0m   with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+===== 训练结束/中断，开始关闭检索服务 =====
